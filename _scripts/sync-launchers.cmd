@@ -1,5 +1,5 @@
 @echo off
-rem Copy gupkg's src\gupkg.cmd into every package.   _scripts\sync-launchers.cmd [--check]
+rem Put gupkg-tui.cmd (gupkg's src\package-tui.cmd) in every package.   _scripts\sync-launchers.cmd [--check]
 setlocal EnableExtensions
 call "%~dp0_python.cmd" || exit /b %ERRORLEVEL%
 pushd "%REG_ROOT%"
