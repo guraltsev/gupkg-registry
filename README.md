@@ -1,6 +1,6 @@
 # gupkg-registry
 
-Package definitions for [gupkg](https://github.com/guraltsev/pkg): one folder per
+Package definitions for [gupkg](https://github.com/guraltsev/gupkg): one folder per
 package, each with a `pkg.bootstrap` (or `v<version>`) seed. `gupkg manager
 registry sync` clones this repository (or downloads its archive).
 
