@@ -14,7 +14,8 @@ Implementation Approach
 -----------------------
 The archive is extracted into the manager-owned staging directory. When the
 archive wraps everything in one top-level folder, that folder's contents are
-moved up so ``App`` holds the program files directly.
+moved up so ``App`` holds the program files directly. The ``portable`` folder
+(with its marker file) is then deleted from ``App``.
 """
 
 from __future__ import annotations
@@ -55,3 +56,9 @@ def unpack_app(context: dict[str, Any]) -> None:
         for child in list(wrapper.iterdir()):
             shutil.move(str(child), str(stage_app / child.name))
         wrapper.rmdir()
+
+    # Drop the portable-mode folder and its marker file so Keypirinha keeps
+    # its profile outside the versioned ``App`` tree.
+    portable = stage_app / "portable"
+    if portable.is_dir():
+        shutil.rmtree(portable)
