@@ -22,8 +22,8 @@ from gupkg.core import PackageIdentity
 from _tests.registry_root import GUPKG_REPO, REGISTRY_ROOT
 
 ROOT = REGISTRY_ROOT
-CHECKER = REGISTRY_ROOT / "msys2" / "pkg.bootstrap" / "pkg.local" / "check_update.py"
-UNPACKER = REGISTRY_ROOT / "msys2" / "pkg.bootstrap" / "pkg.local" / "unpack_app.py"
+CHECKER = REGISTRY_ROOT / "msys2" / "_bootstrap" / "pkg.local" / "check_update.py"
+UNPACKER = REGISTRY_ROOT / "msys2" / "_bootstrap" / "pkg.local" / "unpack_app.py"
 MANIFEST = CHECKER.parents[1] / "pkg.toml"
 NSSWITCH_CONFIGURER = (
     CHECKER.parents[1] / "config.default" / "configure_nsswitch.py"

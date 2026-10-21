@@ -44,7 +44,7 @@ NEW_PACKAGES = [
 
 def _load_checker(name: str):
     """Load one package-local checker the way the update coordinator does."""
-    path = PKGS / name / "pkg.bootstrap" / "pkg.local" / "check_update.py"
+    path = PKGS / name / "_bootstrap" / "pkg.local" / "check_update.py"
     spec = importlib.util.spec_from_file_location(f"{name}_checker", path)
     assert spec is not None and spec.loader is not None
     module = importlib.util.module_from_spec(spec)
@@ -61,7 +61,7 @@ def _response(body: str | bytes) -> io.BytesIO:
 @pytest.mark.parametrize("name", NEW_PACKAGES)
 def test_template_is_a_described_self_updating_package(name: str) -> None:
     """Each new template has a description and discovers its own updates."""
-    package = PKGS / name / "pkg.bootstrap"
+    package = PKGS / name / "_bootstrap"
     identity = PackageIdentity.from_version_path(package.parent, package, is_current=False)
     raw = tomllib.loads((package / "pkg.toml").read_text(encoding="utf-8"))
     config = normalize_runtime_config(raw, identity)

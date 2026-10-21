@@ -24,7 +24,7 @@ ROOT = REGISTRY_ROOT
 CHECKER = (
     REGISTRY_ROOT
     / "SumatraPDF-portable"
-    / "pkg.bootstrap"
+    / "_bootstrap"
     / "pkg.local"
     / "check_update.py"
 )

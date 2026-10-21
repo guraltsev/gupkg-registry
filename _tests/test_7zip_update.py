@@ -24,7 +24,7 @@ from gupkg.configuration import normalize_runtime_config
 from gupkg.core import PackageIdentity
 
 
-PACKAGE = REGISTRY_ROOT / "7zip" / "pkg.bootstrap"
+PACKAGE = REGISTRY_ROOT / "7zip" / "_bootstrap"
 CHECKER = PACKAGE / "pkg.local" / "check_update.py"
 UNPACKER = PACKAGE / "pkg.local" / "unpack_app.py"
 

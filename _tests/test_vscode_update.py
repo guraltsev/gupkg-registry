@@ -22,11 +22,11 @@ from gupkg.core import PackageIdentity
 from _tests.registry_root import GUPKG_REPO, REGISTRY_ROOT
 
 ROOT = REGISTRY_ROOT
-MANIFEST = REGISTRY_ROOT / "vscode" / "pkg.bootstrap" / "pkg.toml"
+MANIFEST = REGISTRY_ROOT / "vscode" / "_bootstrap" / "pkg.toml"
 HOOK_PATH = (
     REGISTRY_ROOT
     / "vscode"
-    / "pkg.bootstrap"
+    / "_bootstrap"
     / "pkg.local"
     / "check_update.py"
 )

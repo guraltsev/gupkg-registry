@@ -1,7 +1,7 @@
 # gupkg-registry
 
 Package definitions for [gupkg](https://github.com/guraltsev/gupkg): one folder per
-package, each with a `pkg.bootstrap` (or `v<version>`) seed and a `gupkg-tui.cmd` that opens gupkg's text interface for that package (needs gupkg installed). `gupkg manager
+package, each with a `_bootstrap` (or `<version>`) seed and a `gupkg-tui.cmd` that opens gupkg's text interface for that package (needs gupkg installed). `gupkg manager
 registry sync` clones this repository (or downloads its archive).
 
 ## Checking changes

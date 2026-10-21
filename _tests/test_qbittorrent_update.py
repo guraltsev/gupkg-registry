@@ -28,7 +28,7 @@ from gupkg import extractors
 
 # Package manifests now use the canonical ``v<version>`` directory layout;
 # the local revision is stored in ``localVersion`` rather than the directory.
-PACKAGE = REGISTRY_ROOT / "qbittorrent" / "v5.2.3"
+PACKAGE = REGISTRY_ROOT / "qbittorrent" / "5.2.3"
 CHECKER = PACKAGE / "pkg.local" / "check_update.py"
 UNPACKER = PACKAGE / "pkg.local" / "unpack_app.py"
 POPULATOR = PACKAGE / "pkg.local" / "populate_app.py"

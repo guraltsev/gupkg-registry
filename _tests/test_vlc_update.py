@@ -20,7 +20,7 @@ from gupkg.core import PackageIdentity
 from _tests.registry_root import GUPKG_REPO, REGISTRY_ROOT
 
 ROOT = REGISTRY_ROOT
-PACKAGE = REGISTRY_ROOT / "vlc" / "pkg.bootstrap"
+PACKAGE = REGISTRY_ROOT / "vlc" / "_bootstrap"
 CHECKER = PACKAGE / "pkg.local" / "check_update.py"
 
 

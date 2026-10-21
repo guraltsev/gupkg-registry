@@ -22,14 +22,14 @@ ROOT = REGISTRY_ROOT
 HOOK_PATH = (
     REGISTRY_ROOT
     / "systeminformer"
-    / "pkg.bootstrap"
+    / "_bootstrap"
     / "pkg.local"
     / "check_update.py"
 )
 INSTALL_STEP_PATH = (
     REGISTRY_ROOT
     / "systeminformer"
-    / "pkg.bootstrap"
+    / "_bootstrap"
     / "pkg.local"
     / "remove_settings.py"
 )

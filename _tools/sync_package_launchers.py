@@ -25,7 +25,7 @@ OBSOLETE = "gupkg.cmd"
 
 
 def seed_directories(registry: Path) -> list[Path]:
-    """Return each package's version-seed directory (``pkg.bootstrap`` or ``v<version>``)."""
+    """Return each package's version-seed directory (``_bootstrap`` or ``<version>``)."""
     seeds = []
     for selector in sorted(path for path in registry.iterdir() if path.is_dir() and not path.name.startswith((".", "_"))):
         seeds.extend(
