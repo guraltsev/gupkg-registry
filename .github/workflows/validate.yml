@@ -1,0 +1,55 @@
+name: validate
+
+# Runs on every push and pull request. Read-only: it checks the registry and never commits,
+# pushes or publishes anything, and it uses no secret.
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: windows-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out the registry
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Check out gupkg (the package checker, the registry tool and the tracker fixtures)
+        uses: actions/checkout@v4
+        with:
+          repository: guraltsev/gupkg
+          path: gupkg
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install the test dependencies
+        run: python -m pip install -r gupkg/requirements-dev.txt
+
+      - name: Check every package (gupkg pkg check)
+        run: python _tools/pkg_check.py --all
+        env:
+          GUPKG_REPO: ${{ github.workspace }}/gupkg
+
+      - name: Check the registry rules (hashes, fingerprints, launchers, hook notes)
+        run: python _tools/registry_tool.py validate
+        env:
+          GUPKG_REPO: ${{ github.workspace }}/gupkg
+
+      - name: Registry tests
+        run: python -m pytest -q _tests
+        env:
+          GUPKG_REPO: ${{ github.workspace }}/gupkg
+
+      - name: Tracker fixtures (every tracker of this registry against the recorded vendor responses)
+        run: python -m pytest -q -c gupkg/pytest.ini --rootdir gupkg gupkg/tests/test_track_providers.py gupkg/tests/test_registry_expressible.py gupkg/tests/test_registry_trackers.py
+        env:
+          GUPKG_REGISTRY_TRACKERS: ${{ github.workspace }}
