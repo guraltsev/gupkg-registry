@@ -24,6 +24,7 @@ ones the application really writes.
 | `notepadplusplus` | marker `doLocalConf.xml`; persist config.xml, session.xml, shortcuts.xml, stylers.xml, contextMenu.xml, userDefineLangs, plugins, themes, backup | upstream's local-configuration marker | marker high; persisting `plugins` and `themes` freezes the bundled ones at first install |
 | `obsstudio` | marker `portable_mode.txt`; persist `config` | upstream portable mode | medium-high |
 | `rufus` | marker and persist `rufus.ini` | an ini beside the exe selects portable settings | medium-high |
+| `sqlitebrowser` | marker and persist `DB4S-settings.ini` | recalled from DB Browser for SQLite's source | medium-low |
 | `SumatraPDF-portable` | persist `SumatraPDF-settings.txt` | settings file beside the exe | medium-high |
 | `systeminformer` | marker and persist `amd64/SystemInformer.exe.settings.xml`; nonportable removes `*/SystemInformer.exe.settings.xml` | the old `remove_settings.py` hook; upstream uses a settings file beside the exe | medium (the empty marker file is the least certain part) |
 | `tixati` | marker `tixati_portable_mode.txt`; no persist | the old package shipped the marker | marker high; nobody knows what else Tixati writes beside the exe, so its settings are lost on update until someone lists the files |
@@ -31,6 +32,6 @@ ones the application really writes.
 | `winmerge` | marker and persist `WinMerge.ini` | an ini beside the exe | medium-low (the exact file name is not confirmed) |
 | `winscp` | marker and persist `WinSCP.ini` | WinSCP uses an ini beside the exe when one exists | medium-high |
 
-Also not declared: `sqlitebrowser` is portable-only (as in 0.17) with no `[portable]` table, because
-the name of its settings file was not known with enough confidence. Its settings are not carried
-across updates.
+`sqlitebrowser` is portable-only (as in 0.17). `tixati` still declares only the marker: what else Tixati writes
+beside the program is unknown (nothing was invented), so its settings do not survive an update until someone
+runs it portable once and lists the new files in its `persist`.

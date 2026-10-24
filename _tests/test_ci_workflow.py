@@ -54,3 +54,23 @@ def test_the_workflow_runs_every_check_the_issue_requires() -> None:
     """Package checker over all packages, the registry rules, the registry tests and the tracker fixtures all run."""
     for command in ("_tools/pkg_check.py --all", "_tools/registry_tool.py validate", "pytest -q _tests", "test_track_providers.py"):
         assert command in WORKFLOW
+
+
+def test_it_runs_for_the_default_branch_and_pull_requests_only_and_by_hand() -> None:
+    """A pull request branch is not validated twice: pushes are limited to ``main``, pull requests and manual runs have their own triggers."""
+    assert re.search(r"(?m)^  push:\n    branches: \[main\]\n", WORKFLOW)
+    assert re.search(r"(?m)^  pull_request:\n", WORKFLOW) and re.search(r"(?m)^  workflow_dispatch:\n", WORKFLOW)
+
+
+def test_the_checkout_of_the_checker_takes_a_ref_and_explains_a_failure() -> None:
+    """The ref is an input (default ``main``); a failed checkout of it ends in a message that says what to do."""
+    assert "gupkg_ref:" in WORKFLOW and "default: main" in WORKFLOW
+    assert "ref: ${{ inputs.gupkg_ref || 'main' }}" in WORKFLOW
+    assert "continue-on-error: true" in WORKFLOW and "Could not check out" in WORKFLOW
+
+
+def test_the_actions_are_pinned_by_full_version_tag_and_pip_is_cached() -> None:
+    """Every action names an exact version (not a moving major tag) and the Python setup caches pip."""
+    uses = re.findall(r"(?m)^\s*uses:\s*(\S+)", WORKFLOW)
+    assert uses and all(re.fullmatch(r"[\w./-]+@v\d+\.\d+\.\d+", name) for name in uses), uses
+    assert "cache: pip" in WORKFLOW

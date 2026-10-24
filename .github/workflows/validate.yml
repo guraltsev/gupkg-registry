@@ -1,10 +1,20 @@
 name: validate
 
-# Runs on every push and pull request. Read-only: it checks the registry and never commits,
-# pushes or publishes anything, and it uses no secret.
+# Read-only: it checks the registry and never commits, pushes or publishes anything, and it uses no secret.
+# It runs for pushes to the default branch and for pull requests (not both for the same change), and by hand.
+#
+# The two actions are pinned by version tag. Pin them by commit SHA before relying on this workflow for anything
+# but checks (the SHAs could not be looked up offline: see "CI" in the README).
 on:
   push:
+    branches: [main]
   pull_request:
+  workflow_dispatch:
+    inputs:
+      gupkg_ref:
+        description: "Branch, tag or commit of guraltsev/gupkg that provides the checker, the registry tool and the tracker fixtures"
+        required: false
+        default: main
 
 permissions:
   contents: read
@@ -15,21 +25,33 @@ jobs:
     timeout-minutes: 30
     steps:
       - name: Check out the registry
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.2.2
         with:
           persist-credentials: false
 
       - name: Check out gupkg (the package checker, the registry tool and the tracker fixtures)
-        uses: actions/checkout@v4
+        id: gupkg
+        continue-on-error: true
+        uses: actions/checkout@v4.2.2
         with:
           repository: guraltsev/gupkg
+          ref: ${{ inputs.gupkg_ref || 'main' }}
           path: gupkg
           persist-credentials: false
 
+      - name: Explain a failed gupkg checkout
+        if: steps.gupkg.outcome == 'failure'
+        shell: pwsh
+        run: |
+          Write-Error "Could not check out guraltsev/gupkg at '${{ inputs.gupkg_ref || 'main' }}'. The repository must be readable without a secret (public), and that ref must exist and contain src/gupkg_registry. Run the workflow by hand with another gupkg_ref if the code is on a branch."
+          exit 1
+
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v5.6.0
         with:
           python-version: "3.12"
+          cache: pip
+          cache-dependency-path: gupkg/requirements-dev.txt
 
       - name: Install the test dependencies
         run: python -m pip install -r gupkg/requirements-dev.txt
@@ -49,7 +71,7 @@ jobs:
         env:
           GUPKG_REPO: ${{ github.workspace }}/gupkg
 
-      - name: Tracker fixtures (every tracker of this registry against the recorded vendor responses)
-        run: python -m pytest -q -c gupkg/pytest.ini --rootdir gupkg gupkg/tests/test_track_providers.py gupkg/tests/test_registry_expressible.py gupkg/tests/test_registry_trackers.py
+      - name: Tracker fixtures (every tracker of this registry against the vendor responses)
+        run: python -m pytest -q -c gupkg/pytest.ini --rootdir gupkg gupkg/tests/test_track_providers.py gupkg/tests/test_registry_expressible.py gupkg/tests/test_registry_trackers.py gupkg/tests/test_registry_semantics.py
         env:
           GUPKG_REGISTRY_TRACKERS: ${{ github.workspace }}
