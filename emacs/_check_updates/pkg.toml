@@ -1,20 +1,48 @@
 format = 2
 description = "An extensible, customizable, free/libre text editor — and more."
 project_url = "https://www.gnu.org/software/emacs/"
-shim = [
-    { name = "emacs", target = "$App\\bin\\emacs.exe" },
-    { name = "runemacs", target = "$App\\bin\\runemacs.exe", type = "gui" },
-    { name = "emacsclient", target = "$App\\bin\\emacsclient.exe" },
-    { name = "emacsclientw", target = "$App\\bin\\emacsclientw.exe", type = "gui" },
-]
+modes = ["system", "user"]
 
+# GNU keeps Windows builds in one folder per major version. Release numbers such
+# as 31.1_1 (a rebuild of 31.1) are ordered by their numeric components. The
+# dependency-free (no-deps), installer and source files and the pretest builds on
+# alpha.gnu.org are not followed.
 [track]
-provider = "module"
-module = "pkg.local/check_update.py"
+provider = "index"
+check_url = "https://ftp.gnu.org/gnu/emacs/windows/"
+download = "https://ftp.gnu.org/gnu/emacs/windows/emacs-${major}/emacs-${version}-UCRT64.zip"
 
+[[track.level]]
+match = 'href="emacs-(?P<major>\d+)/"'
+next = "emacs-${major}/"
+
+[[track.level]]
+match = 'emacs-(?P<version>\d+(?:\.\d+)*(?:_\d+)?)-UCRT64\.zip'
+
+# GNU publishes a digest file for only some builds (named sha256sums.txt or
+# sha256sum.txt), so no [source.checksum] is declared: a configured source with
+# no digest is an error. The registry tool computes the hash instead.
 [source]
 download_url = "${download_url}"
-shipped = false
+require = ["bin\\runemacs.exe", "bin\\emacs.exe"]
+
+[[shim]]
+name = "emacs"
+target = "$App\\bin\\emacs.exe"
+
+[[shim]]
+name = "runemacs"
+target = "$App\\bin\\runemacs.exe"
+type = "gui"
+
+[[shim]]
+name = "emacsclient"
+target = "$App\\bin\\emacsclient.exe"
+
+[[shim]]
+name = "emacsclientw"
+target = "$App\\bin\\emacsclientw.exe"
+type = "gui"
 
 [[shortcut]]
 name = "Emacs"

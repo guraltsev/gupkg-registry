@@ -1,9 +1,7 @@
 format = 2
 description = "Screen capture, recording, and file-sharing tool."
 project_url = "https://getsharex.com/"
-shortcut = [
-    { name = "ShareX", target = "$App\\ShareX.exe", description = "Screen capture and sharing" },
-]
+modes = ["system", "user"]
 
 [track]
 provider = "github"
@@ -12,4 +10,9 @@ asset = "ShareX-${version}-portable-x64.zip"
 
 [source]
 download_url = "${asset_url}"
-shipped = false
+require = ["ShareX.exe"]
+
+[[shortcut]]
+name = "ShareX"
+target = "$App\\ShareX.exe"
+description = "Screen capture and sharing"

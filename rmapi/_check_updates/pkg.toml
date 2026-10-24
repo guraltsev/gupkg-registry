@@ -1,9 +1,7 @@
 format = 2
 description = "Command-line client for the reMarkable cloud."
 project_url = "https://github.com/ddvk/rmapi"
-shim = [
-    { name = "rmapi", target = "$App\\rmapi.exe" },
-]
+modes = ["system", "user"]
 
 [track]
 provider = "github"
@@ -12,4 +10,8 @@ asset = "rmapi-win64.zip"
 
 [source]
 download_url = "${asset_url}"
-shipped = false
+require = ["rmapi.exe"]
+
+[[shim]]
+name = "rmapi"
+target = "$App\\rmapi.exe"

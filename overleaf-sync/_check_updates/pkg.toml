@@ -1,26 +1,20 @@
 format = 2
 description = "Two-way synchronization for Overleaf projects."
 project_url = "https://github.com/guraltsev/overleaf-sync"
+modes = ["system", "user"]
 
 [track]
 provider = "git"
 repo_url = "git@github.com:guraltsev/overleaf-sync.git"
-ref = "refs/heads/main"
 
 [source]
 download_url = "git@github.com:guraltsev/overleaf-sync.git"
 kind = "git"
-shipped = false
 
 [source.git]
-ref = "refs/heads/main"
 commit = "${commit}"
 
 [[shim]]
 name = "overleaf-sync"
 target = "%COMSPEC%"
-arguments = [
-    "/d",
-    "/c",
-    "$App\\ols.cmd",
-]
+arguments = ["/d", "/c", "$App\\ols.cmd"]

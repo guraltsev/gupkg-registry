@@ -1,9 +1,7 @@
 format = 2
 description = "Visual file and folder comparison and merge tool."
 project_url = "https://winmerge.org/"
-shim = [
-    { name = "winmerge", target = "$App\\WinMergeU.exe", type = "gui" },
-]
+modes = ["system", "user", "portable"]
 
 [track]
 provider = "github"
@@ -12,12 +10,22 @@ asset = "winmerge-${version}-x64-exe.zip"
 
 [source]
 download_url = "${asset_url}"
-shipped = false
-extract = [
-    { src = "WinMerge/", dest = "" },
-]
+
+[[source.extract]]
+src = "WinMerge/"
+dest = ""
+
+# UNVERIFIED upstream portable mechanism
+[portable]
+markers = [{ path = "WinMerge.ini", content = "" }]
+persist = ["WinMerge.ini"]
 
 [[shortcut]]
 name = "WinMerge"
 target = "$App\\WinMergeU.exe"
 description = "File and folder comparison"
+
+[[shim]]
+name = "winmerge"
+target = "$App\\WinMergeU.exe"
+type = "gui"

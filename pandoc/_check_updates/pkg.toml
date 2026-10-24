@@ -1,12 +1,7 @@
 format = 2
 description = "Universal markup converter."
 project_url = "https://pandoc.org/"
-path = [
-    { value = "$App" },
-]
-shim = [
-    { name = "pandoc", target = "$App\\pandoc.exe" },
-]
+modes = ["system", "user"]
 
 [track]
 provider = "github"
@@ -15,7 +10,14 @@ asset = "pandoc-${version}-windows-x86_64.zip"
 
 [source]
 download_url = "${asset_url}"
-shipped = false
-extract = [
-    { src = "pandoc-*/", dest = "" },
-]
+
+[[source.extract]]
+src = "pandoc-*/"
+dest = ""
+
+[[path]]
+value = "$App"
+
+[[shim]]
+name = "pandoc"
+target = "$App\\pandoc.exe"

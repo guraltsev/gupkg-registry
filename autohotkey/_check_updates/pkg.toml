@@ -1,9 +1,7 @@
 format = 2
 description = "Windows automation and hotkey scripting language."
 project_url = "https://www.autohotkey.com/"
-shim = [
-    { name = "ahk2exe", target = "$App\\Compiler\\Ahk2Exe.exe" },
-]
+modes = ["system", "user"]
 
 [track]
 provider = "github"
@@ -12,9 +10,13 @@ asset = "AutoHotkey_${version}.zip"
 
 [source]
 download_url = "${asset_url}"
-shipped = false
+require = ["Compiler/Ahk2Exe.exe"]
 
 [[shortcut]]
 name = "AutoHotkey\\Ahk2Exe"
 target = "$App\\Compiler\\Ahk2Exe.exe"
 description = "Compile AutoHotkey scripts"
+
+[[shim]]
+name = "ahk2exe"
+target = "$App\\Compiler\\Ahk2Exe.exe"

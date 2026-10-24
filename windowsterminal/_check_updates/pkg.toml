@@ -1,9 +1,7 @@
 format = 2
 description = "Modern terminal application for command-line tools and shells."
 project_url = "https://github.com/microsoft/terminal"
-shim = [
-    { name = "wt", target = "$App\\wt.exe" },
-]
+modes = ["system", "user"]
 
 [track]
 provider = "github"
@@ -12,12 +10,16 @@ asset = "Microsoft.WindowsTerminal_${version}_x64.zip"
 
 [source]
 download_url = "${asset_url}"
-shipped = false
-extract = [
-    { src = "terminal-*/", dest = "" },
-]
+
+[[source.extract]]
+src = "terminal-*/"
+dest = ""
 
 [[shortcut]]
 name = "Windows Terminal"
 target = "$App\\WindowsTerminal.exe"
 description = "Windows Terminal"
+
+[[shim]]
+name = "wt"
+target = "$App\\wt.exe"
