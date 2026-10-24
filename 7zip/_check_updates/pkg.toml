@@ -1,0 +1,20 @@
+format = 2
+description = "7-Zip is a file archiver with a high compression ratio."
+project_url = "https://www.7-zip.org/"
+shim = [
+    { name = "7z", target = "$App\\7z.exe", working_dir = "$App" },
+]
+
+[track]
+provider = "module"
+module = "pkg.local/check_update.py"
+
+[source]
+script = "pkg.local/unpack_app.py"
+shipped = false
+
+[[shortcut]]
+name = "7-Zip File Manager"
+target = "$App\\7zFM.exe"
+working_dir = "$App"
+description = "7-Zip File Manager"

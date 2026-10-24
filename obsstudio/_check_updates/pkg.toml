@@ -1,0 +1,18 @@
+format = 2
+description = "Open source video recording and live streaming."
+project_url = "https://obsproject.com/"
+
+[track]
+provider = "github"
+repo = "obsproject/obs-studio"
+asset = "OBS-Studio-${version}-Windows-x64.zip"
+
+[source]
+download_url = "${asset_url}"
+shipped = false
+
+[[shortcut]]
+name = "OBS Studio"
+target = "$App\\bin\\64bit\\obs64.exe"
+working_dir = "$App\\bin\\64bit"
+description = "Recording and live streaming"

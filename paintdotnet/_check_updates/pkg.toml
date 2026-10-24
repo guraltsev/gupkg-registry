@@ -1,0 +1,17 @@
+format = 2
+description = "Image and photo editing software."
+project_url = "https://www.getpaint.net/"
+
+[track]
+provider = "github"
+repo = "paintdotnet/release"
+asset = "paint.net.${version}.portable.x64.zip"
+
+[source]
+download_url = "${asset_url}"
+shipped = false
+
+[[shortcut]]
+name = "Paint.NET"
+target = "$App\\paintdotnet.exe"
+description = "Image and photo editor"

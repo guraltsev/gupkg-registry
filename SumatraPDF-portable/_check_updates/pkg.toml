@@ -1,0 +1,23 @@
+format = 2
+description = "PDF, eBook (epub, mobi), comic book (cbz/cbr), DjVu, XPS, CHM, image viewer for Windows. Fast, small, packed with features, customizable, free."
+project_url = "https://www.sumatrapdfreader.org"
+modes = [
+    "portable",
+]
+prepare = [
+    { rename = { from = "SumatraPDF-${version}-64.exe", to = "SumatraPDF.exe" } },
+]
+shortcut = [
+    { name = "SumatraPDF", target = "$App\\SumatraPDF.exe" },
+]
+shim = [
+    { name = "SumatraPDF", target = "$App\\SumatraPDF.exe", type = "gui" },
+]
+
+[track]
+provider = "module"
+module = "pkg.local/check_update.py"
+
+[source]
+download_url = "${download_url}"
+shipped = false

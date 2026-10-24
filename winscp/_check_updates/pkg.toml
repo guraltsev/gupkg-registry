@@ -1,0 +1,14 @@
+format = 2
+description = "Free SFTP, SCP, FTP, and WebDAV client."
+project_url = "https://winscp.net/"
+shortcut = [
+    { name = "WinSCP", target = "$App\\WinSCP.exe", description = "SFTP and FTP client" },
+]
+
+[track]
+provider = "module"
+module = "pkg.local/check_update.py"
+
+[source]
+download_url = "${download_url}"
+shipped = false

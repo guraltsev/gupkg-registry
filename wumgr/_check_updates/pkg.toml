@@ -1,0 +1,14 @@
+format = 2
+description = "Windows Update manager that controls update installation."
+project_url = "https://github.com/DavidXanatos/wumgr"
+shortcut = [
+    { name = "Tools\\WuMgr", target = "$App\\wumgr.exe", description = "Windows Update manager" },
+]
+
+[track]
+provider = "module"
+module = "pkg.local/check_update.py"
+
+[source]
+download_url = "${download_url}"
+shipped = false

@@ -1,0 +1,14 @@
+format = 2
+description = "Fast, compact image viewer and converter."
+project_url = "https://www.irfanview.com/"
+shortcut = [
+    { name = "IrfanView", target = "$App\\i_view64.exe", description = "Image viewer" },
+]
+
+[track]
+provider = "module"
+module = "pkg.local/check_update.py"
+
+[source]
+download_url = "${download_url}"
+shipped = false

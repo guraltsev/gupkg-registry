@@ -1,0 +1,16 @@
+format = 2
+description = "Advanced task manager showing handles and DLLs per process."
+project_url = "https://learn.microsoft.com/sysinternals/"
+
+[track]
+provider = "module"
+module = "pkg.local/check_update.py"
+
+[source]
+download_url = "${download_url}"
+shipped = false
+
+[[shortcut]]
+name = "Tools\\Process Explorer"
+target = "$App\\procexp64.exe"
+description = "Advanced task manager showing handles and DLLs per process."

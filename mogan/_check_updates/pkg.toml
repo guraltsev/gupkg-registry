@@ -1,0 +1,21 @@
+format = 2
+description = "Mogan STEM, a scientific writing and technical computing environment based on GNU TeXmacs."
+project_url = "https://mogan.app/"
+shim = [
+    { name = "mogan", target = "$App\\Mogan Stem.exe", type = "gui", working_dir = "$App" },
+]
+
+[track]
+provider = "github"
+repo = "MoganLab/mogan"
+asset = "mogan-release-${version}-win-x64-stable.zip"
+
+[source]
+script = "pkg.local/unpack_app.py"
+shipped = false
+
+[[shortcut]]
+name = "Mogan STEM"
+target = "$App\\Mogan Stem.exe"
+working_dir = "$App"
+description = "Mogan STEM"

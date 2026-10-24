@@ -1,0 +1,16 @@
+format = 2
+description = "Bulk uninstaller for removing unwanted programs."
+project_url = "https://www.bcuninstaller.com/"
+
+[track]
+provider = "module"
+module = "pkg.local/check_update.py"
+
+[source]
+script = "pkg.local/unpack_app.py"
+shipped = false
+
+[[shortcut]]
+name = "Bulk Crap Uninstaller"
+target = "$App\\BCUninstaller.exe"
+description = "Bulk uninstaller"

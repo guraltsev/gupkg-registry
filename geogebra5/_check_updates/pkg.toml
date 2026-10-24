@@ -1,0 +1,19 @@
+format = 2
+description = "Dynamic mathematics software, Classic 5 edition."
+project_url = "https://www.geogebra.org/"
+
+[track]
+provider = "module"
+module = "pkg.local/check_update.py"
+
+[source]
+download_url = "${download_url}"
+shipped = false
+extract = [
+    { src = "GeoGebra */", dest = "" },
+]
+
+[[shortcut]]
+name = "GeoGebra Classic 5"
+target = "$App\\GeoGebra.exe"
+description = "Dynamic mathematics software"

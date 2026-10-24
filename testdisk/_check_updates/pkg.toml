@@ -1,0 +1,28 @@
+format = 2
+description = "Data recovery tools for lost partitions and deleted files."
+project_url = "https://www.cgsecurity.org/"
+shim = [
+    { name = "testdisk", target = "$App\\testdisk_win.exe" },
+    { name = "photorec", target = "$App\\photorec_win.exe" },
+]
+
+[track]
+provider = "module"
+module = "pkg.local/check_update.py"
+
+[source]
+download_url = "${download_url}"
+shipped = false
+extract = [
+    { src = "testdisk-*/", dest = "" },
+]
+
+[[shortcut]]
+name = "TestDisk"
+target = "$App\\testdisk_win.exe"
+description = "Partition and data recovery"
+
+[[shortcut]]
+name = "PhotoRec"
+target = "$App\\qphotorec_win.exe"
+description = "File carving recovery"

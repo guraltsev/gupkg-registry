@@ -1,0 +1,16 @@
+format = 2
+description = "Shows what runs automatically at startup and logon."
+project_url = "https://learn.microsoft.com/sysinternals/"
+
+[track]
+provider = "module"
+module = "pkg.local/check_update.py"
+
+[source]
+download_url = "${download_url}"
+shipped = false
+
+[[shortcut]]
+name = "Tools\\Autoruns"
+target = "$App\\Autoruns64.exe"
+description = "Shows what runs automatically at startup and logon."

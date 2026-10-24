@@ -1,0 +1,23 @@
+format = 2
+description = "Peer-to-peer file sharing program that uses the BitTorrent protocol."
+project_url = "https://www.tixati.com/"
+modes = [
+    "portable",
+]
+
+[track]
+provider = "module"
+module = "pkg.local/check_update.py"
+
+[source]
+download_url = "${download_url}"
+shipped = false
+extract = [
+    { src = "Tixati_portable/tixati_Windows64bit.exe", dest = "" },
+    { src = "Tixati_portable/tixati_portable_mode.txt", dest = "" },
+]
+
+[[shortcut]]
+name = "Tixati"
+target = "$App\\tixati_Windows64bit.exe"
+description = "Peer-to-peer BitTorrent client"

@@ -1,0 +1,11 @@
+format = 2
+description = "System information and hardware monitoring tool."
+project_url = "https://www.hwinfo.com/"
+
+[track]
+provider = "module"
+module = "pkg.local/check_update.py"
+
+[source]
+download_url = "${download_url}"
+shipped = false

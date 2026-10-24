@@ -1,0 +1,17 @@
+format = 2
+description = "Windows front end for the netio network benchmark."
+project_url = "https://sourceforge.net/projects/netiogui/"
+
+[track]
+provider = "module"
+module = "pkg.local/check_update.py"
+
+[source]
+download_url = "${download_url}"
+shipped = false
+
+[[shortcut]]
+name = "NetIO-GUI"
+target = "$App\\NetIO.App.exe"
+working_dir = "$App"
+description = "Network throughput benchmark"

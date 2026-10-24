@@ -1,0 +1,25 @@
+format = 2
+description = "Python programming language, official embeddable distribution for 64-bit Windows."
+project_url = "https://www.python.org/"
+path = [
+    { value = "$App" },
+    { value = "$App\\Scripts" },
+]
+shim = [
+    { name = "python", target = "$App\\python.exe" },
+    { name = "pythonw", target = "$App\\pythonw.exe", type = "gui" },
+]
+
+[track]
+provider = "module"
+module = "pkg.local/check_update.py"
+
+[source]
+download_url = "${download_url}"
+shipped = false
+
+[[shortcut]]
+name = "Python"
+target = "$App\\python.exe"
+working_dir = "%USERPROFILE%"
+description = "Python interactive interpreter"

@@ -1,0 +1,17 @@
+format = 2
+description = "GNU Image Manipulation Program, a raster graphics editor."
+project_url = "https://www.gimp.org/"
+
+[track]
+provider = "module"
+module = "pkg.local/check_update.py"
+
+[source]
+script = "pkg.local/unpack_app.py"
+shipped = false
+
+[[shortcut]]
+name = "Gimp"
+target = "$App\\bin\\gimp-3.exe"
+working_dir = "%USERPROFILE%"
+description = "Graphics manipulation"

@@ -1,0 +1,14 @@
+format = 2
+description = "Hardware voltage, temperature, and fan monitor."
+project_url = "https://www.cpuid.com/softwares/hwmonitor.html"
+shortcut = [
+    { name = "HWMonitor", target = "$App\\HWMonitor_x64.exe", description = "Hardware monitor" },
+]
+
+[track]
+provider = "module"
+module = "pkg.local/check_update.py"
+
+[source]
+download_url = "${download_url}"
+shipped = false

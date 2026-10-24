@@ -1,0 +1,17 @@
+format = 2
+description = "Shows and unlocks the processes that lock a file."
+project_url = "https://lockhunter.com/"
+prepare = [
+    { module = "pkg.local/rename_exe.py" },
+]
+shortcut = [
+    { name = "LockHunter", target = "$App\\LockHunter.exe", description = "File unlocker" },
+]
+
+[track]
+provider = "module"
+module = "pkg.local/check_update.py"
+
+[source]
+download_url = "${download_url}"
+shipped = false

@@ -1,0 +1,17 @@
+format = 2
+description = "Graph visualization software (dot and related layout tools)."
+project_url = "https://graphviz.org/"
+path = [
+    { value = "$App\\bin" },
+]
+
+[track]
+provider = "module"
+module = "pkg.local/check_update.py"
+
+[source]
+download_url = "${download_url}"
+shipped = false
+extract = [
+    { src = "Graphviz-*/", dest = "" },
+]

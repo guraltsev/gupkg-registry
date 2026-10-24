@@ -1,0 +1,27 @@
+format = 2
+description = "Mozilla Firefox web browser, unpacked from the official 64-bit installer."
+project_url = "https://www.mozilla.org/firefox/"
+shim = [
+    { name = "firefox", target = "$App\\firefox.exe", type = "gui" },
+]
+
+[track]
+provider = "module"
+module = "pkg.local/check_update.py"
+
+[source]
+script = "pkg.local/unpack_app.py"
+shipped = false
+
+[[shortcut]]
+name = "Firefox"
+target = "$App\\firefox.exe"
+working_dir = "%USERPROFILE%"
+description = "Mozilla Firefox web browser"
+
+[[shortcut]]
+name = "Firefox profile manager"
+target = "$App\\firefox.exe"
+arguments = "-ProfileManager"
+working_dir = "%USERPROFILE%"
+description = "Mozilla Firefox profile manager"

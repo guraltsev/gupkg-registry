@@ -1,0 +1,22 @@
+format = 2
+description = "Complete solution to record, convert, and stream audio and video."
+project_url = "https://ffmpeg.org/"
+path = [
+    { value = "$App" },
+]
+shim = [
+    { name = "ffmpeg", target = "$App\\ffmpeg.exe" },
+    { name = "ffprobe", target = "$App\\ffprobe.exe" },
+    { name = "ffplay", target = "$App\\ffplay.exe" },
+]
+
+[track]
+provider = "module"
+module = "pkg.local/check_update.py"
+
+[source]
+download_url = "${download_url}"
+shipped = false
+extract = [
+    { src = "ffmpeg-*-essentials_build/bin/", dest = "" },
+]

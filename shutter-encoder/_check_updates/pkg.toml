@@ -1,0 +1,18 @@
+format = 2
+description = "Video, audio, and image conversion tool built on FFmpeg."
+project_url = "https://www.shutterencoder.com/"
+
+[track]
+provider = "module"
+module = "pkg.local/check_update.py"
+
+[source]
+download_url = "${download_url}"
+subdir = "Shutter Encoder"
+shipped = false
+
+[[shortcut]]
+name = "Shutter Encoder"
+target = "$App\\Shutter Encoder.exe"
+working_dir = "$App"
+description = "Video and audio converter"

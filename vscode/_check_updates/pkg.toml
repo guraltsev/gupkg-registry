@@ -1,0 +1,17 @@
+format = 2
+description = "Visual Studio Code editor with debugging, tasks, and version-control integration."
+project_url = "https://code.visualstudio.com/"
+shortcut = [
+    { name = "VSCode", target = "$App\\Code.exe", description = "Visual Studio Code" },
+]
+shim = [
+    { name = "code", target = "$App\\Code.exe", type = "gui" },
+]
+
+[track]
+provider = "module"
+module = "pkg.local/check_update.py"
+
+[source]
+download_url = "${download_url}"
+shipped = false
