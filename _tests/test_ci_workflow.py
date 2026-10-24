@@ -56,6 +56,36 @@ def test_the_workflow_runs_every_check_the_issue_requires() -> None:
         assert command in WORKFLOW
 
 
+def _run_blocks() -> list[str]:
+    """Return the body of every ``run:`` step of the workflow (a one-line value or the indented block under ``run: |``)."""
+    lines = WORKFLOW.splitlines()
+    blocks: list[str] = []
+    for index, line in enumerate(lines):
+        match = re.match(r"^(\s*)run:\s*(.*)$", line)
+        if not match:
+            continue
+        indent, rest = len(match.group(1)), match.group(2)
+        if rest and rest not in ("|", ">", "|-", ">-"):
+            blocks.append(rest)
+            continue
+        body: list[str] = []
+        for following in lines[index + 1:]:
+            if following.strip() and len(following) - len(following.lstrip()) <= indent:
+                break
+            body.append(following)
+        blocks.append("\n".join(body))
+    return blocks
+
+
+def test_no_expression_is_interpolated_into_a_script() -> None:
+    """A ``${{ ... }}`` inside a ``run:`` body would let an input become code; values reach scripts through ``env:`` only."""
+    blocks = _run_blocks()
+
+    assert len(blocks) >= 5
+    assert [block for block in blocks if "${{" in block] == []
+    assert "$env:GUPKG_REF" in "\n".join(blocks)
+
+
 def test_it_runs_for_the_default_branch_and_pull_requests_only_and_by_hand() -> None:
     """A pull request branch is not validated twice: pushes are limited to ``main``, pull requests and manual runs have their own triggers."""
     assert re.search(r"(?m)^  push:\n    branches: \[main\]\n", WORKFLOW)

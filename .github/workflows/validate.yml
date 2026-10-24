@@ -42,8 +42,10 @@ jobs:
       - name: Explain a failed gupkg checkout
         if: steps.gupkg.outcome == 'failure'
         shell: pwsh
+        env:
+          GUPKG_REF: ${{ inputs.gupkg_ref || 'main' }}
         run: |
-          Write-Error "Could not check out guraltsev/gupkg at '${{ inputs.gupkg_ref || 'main' }}'. The repository must be readable without a secret (public), and that ref must exist and contain src/gupkg_registry. Run the workflow by hand with another gupkg_ref if the code is on a branch."
+          Write-Error "Could not check out guraltsev/gupkg at '$env:GUPKG_REF'. The repository must be readable without a secret (public), and that ref must exist and contain src/gupkg_registry. Run the workflow by hand with another gupkg_ref if the code is on a branch."
           exit 1
 
       - name: Set up Python
