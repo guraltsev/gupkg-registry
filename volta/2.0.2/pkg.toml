@@ -16,8 +16,8 @@ from = "volta-shim.exe"
 to = ["node.exe", "npm.exe", "npx.exe", "pnpm.exe", "yarn.exe"]
 
 [[shim]]
-name = "volta.cmd"
-content = "@echo off\r\nif not exist \"%LOCALAPPDATA%\\Volta\\bin\" \"$App\\volta.exe\" setup\r\n\"$App\\volta.exe\" %*\r\nexit /b %ERRORLEVEL%\r\n"
+name = "volta"
+target = "$App\\volta.exe"
 
 [[shim]]
 name = "node"
