@@ -1,0 +1,20 @@
+format = 2
+description = "Universal markup converter."
+project_url = "https://pandoc.org/"
+modes = ["system", "user"]
+
+[source]
+download_url = "https://github.com/jgm/pandoc/releases/download/3.12.1/pandoc-3.12.1-windows-x86_64.zip"
+sha256 = "6ef431cb20b2c24a0371fc19200dc49d452be54b1b5c9239f3462841ef53e587"
+sha256_from = "github-digest"
+
+[[source.extract]]
+src = "pandoc-*/"
+dest = ""
+
+[[path]]
+value = "$App"
+
+[[shim]]
+name = "pandoc"
+target = "$App\\pandoc.exe"

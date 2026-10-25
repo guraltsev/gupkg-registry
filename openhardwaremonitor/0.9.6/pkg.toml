@@ -1,0 +1,16 @@
+format = 2
+description = "Hardware temperature, fan, and voltage monitor (legacy project)."
+project_url = "https://openhardwaremonitor.org/"
+modes = ["system", "user"]
+
+[source]
+download_url = "https://openhardwaremonitor.org/files/openhardwaremonitor-v0.9.6.zip"
+sha256 = "5e238c36ae5f8a8ab9aa5e6fa3c568967d61953393384c7c8fd6370f8bc86b85"
+sha256_from = "registry"
+subdir = "OpenHardwareMonitor"
+require = ["OpenHardwareMonitor.exe"]
+
+[[shortcut]]
+name = "Open Hardware Monitor"
+target = "$App\\OpenHardwareMonitor.exe"
+description = "Hardware monitor"

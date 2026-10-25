@@ -1,0 +1,23 @@
+format = 2
+description = "A desktop application for your personal backups, powered by restic."
+project_url = "https://restic.cryptic.link/"
+modes = ["system", "user"]
+
+[source]
+download_url = "https://gitlab.com/stormking/resticguigx/-/jobs/15598486384/artifacts/raw/release/0.17.4/restic-backup-gx_0.17.4.exe"
+sha256 = "12317fc9a98bc8f63ab8b68cc9a8f53070a93454042369447e3f1ef14914fa85"
+sha256_from = "registry"
+kind = "exe"
+
+[[prepare]]
+
+[prepare.rename]
+from = "*.exe"
+to = "restic-backup-gx.exe"
+
+[[shortcut]]
+name = "restic-backup-gx"
+target = "$App\\restic-backup-gx.exe"
+working_dir = "$App"
+icon_location = "$App\\restic-backup-gx.exe,0"
+description = "GUI for Restic"

@@ -1,0 +1,20 @@
+format = 2
+description = "Shows and unlocks the processes that lock a file."
+project_url = "https://lockhunter.com/"
+modes = ["system", "user"]
+
+[source]
+download_url = "https://lockhunter.com/assets/exe/lockhuntersetup_portable_3-4-3.zip"
+sha256 = "56a416ceab7928624991246f74f9b84de455a3594404790b65c9f4bd2ccc8ea3"
+sha256_from = "registry"
+
+[[prepare]]
+
+[prepare.rename]
+from = "lockhuntersetup_portable_*.exe"
+to = "LockHunter.exe"
+
+[[shortcut]]
+name = "LockHunter"
+target = "$App\\LockHunter.exe"
+description = "File unlocker"

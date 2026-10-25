@@ -1,0 +1,26 @@
+format = 2
+description = "Hassle-free JavaScript tool manager that pins node, npm, pnpm, and yarn per project."
+project_url = "https://volta.sh/"
+modes = ["system", "user"]
+
+[source]
+download_url = "https://github.com/volta-cli/volta/releases/download/v2.0.2/volta-2.0.2-windows.zip"
+sha256 = "d7678a485e2fc9b1a3f7e9da256d8b88a97d7e4c45e63701c4874f6c2a587e0f"
+sha256_from = "registry"
+require = ["volta.exe", "volta-shim.exe"]
+
+[[prepare]]
+
+[prepare.copy]
+from = "volta-shim.exe"
+to = ["node.exe", "npm.exe", "npx.exe", "pnpm.exe", "yarn.exe"]
+
+[[path]]
+value = "$App"
+
+[[path]]
+value = "%LOCALAPPDATA%\\Volta\\bin"
+
+[[shim]]
+name = "volta"
+target = "$App\\volta.exe"

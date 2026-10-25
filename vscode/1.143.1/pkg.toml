@@ -1,0 +1,22 @@
+format = 2
+description = "Visual Studio Code editor with debugging, tasks, and version-control integration."
+project_url = "https://code.visualstudio.com/"
+modes = ["system", "user", "portable"]
+
+[source]
+download_url = "https://update.code.visualstudio.com/1.143.1/win32-x64-archive/stable"
+sha256 = "b4f9643b8a549ca2c85a1bbc9063fc76f1e08fc0036a7f6a1a181cdc05235eca"
+sha256_from = "registry"
+
+[portable]
+persist = ["data"]
+
+[[shortcut]]
+name = "VSCode"
+target = "$App\\Code.exe"
+description = "Visual Studio Code"
+
+[[shim]]
+name = "code"
+target = "$App\\Code.exe"
+type = "gui"

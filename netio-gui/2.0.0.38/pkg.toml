@@ -1,0 +1,15 @@
+format = 2
+description = "Windows front end for the netio network benchmark."
+project_url = "https://sourceforge.net/projects/netiogui/"
+modes = ["system", "user"]
+
+[source]
+download_url = "https://sourceforge.net/projects/netiogui/files/netio-gui_v2.0.0.38_portable.zip/download"
+sha256 = "125df58c2cb33518d24d9c137d5642aac6379f983bf0a3cd3a4d1a6a057cca51"
+sha256_from = "registry"
+
+[[shortcut]]
+name = "NetIO-GUI"
+target = "$App\\NetIO.App.exe"
+working_dir = "$App"
+description = "Network throughput benchmark"

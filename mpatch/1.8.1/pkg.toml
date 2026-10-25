@@ -1,0 +1,20 @@
+format = 2
+description = "Contextual patching tool that applies diffs by fuzzy-matching surrounding code instead of line numbers."
+project_url = "https://github.com/Romelium/mpatch"
+modes = ["system", "user"]
+
+[source]
+download_url = "https://github.com/Romelium/mpatch/releases/download/v1.8.1/mpatch-x86_64-pc-windows-msvc-v1.8.1.zip"
+sha256 = "340fbd643779309fd0b457e4cfb3ac6d2d206a8068d5068ade55c159de3cf42e"
+sha256_from = "github-digest"
+
+[[source.extract]]
+src = "mpatch-*/"
+dest = ""
+
+[[path]]
+value = "$App"
+
+[[shim]]
+name = "mpatch"
+target = "$App\\mpatch.exe"

@@ -1,0 +1,31 @@
+format = 2
+description = "PDF, eBook (epub, mobi), comic book (cbz/cbr), DjVu, XPS, CHM, image viewer for Windows. Fast, small, packed with features, customizable, free."
+project_url = "https://www.sumatrapdfreader.org"
+modes = ["portable"]
+
+[source]
+download_url = "https://www.sumatrapdfreader.org/dl/rel/3.6.1/SumatraPDF-3.6.1-64.zip"
+sha256 = "98b33a518d42986856d225064b0cd2d3643ecf78cbf84ab873d26cc51877a544"
+sha256_from = "registry"
+require = ["SumatraPDF-*-64.exe"]
+
+[source.headers]
+User-Agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
+
+[[prepare]]
+
+[prepare.rename]
+from = "SumatraPDF-*-64.exe"
+to = "SumatraPDF.exe"
+
+[portable]
+persist = ["SumatraPDF-settings.txt"]
+
+[[shortcut]]
+name = "SumatraPDF"
+target = "$App\\SumatraPDF.exe"
+
+[[shim]]
+name = "SumatraPDF"
+target = "$App\\SumatraPDF.exe"
+type = "gui"

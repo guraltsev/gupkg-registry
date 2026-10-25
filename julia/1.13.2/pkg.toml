@@ -1,0 +1,23 @@
+format = 2
+description = "High-performance dynamic programming language for technical computing."
+project_url = "https://julialang.org/"
+modes = ["system", "user"]
+
+[source]
+download_url = "https://julialang-s3.julialang.org/bin/winnt/x64/1.13/julia-1.13.2-win64.zip"
+sha256 = "1c7d07bccc7ca19fce7fd0a73159b085d087ece9405d42735f33faa46b634fcd"
+sha256_from = "vendor-sums"
+strip = 1
+
+[[shortcut]]
+name = "Julia"
+target = "$App\\bin\\julia.exe"
+working_dir = "%USERPROFILE%"
+description = "Julia REPL"
+
+[[path]]
+value = "$App\\bin"
+
+[[shim]]
+name = "julia"
+target = "$App\\bin\\julia.exe"

@@ -1,0 +1,17 @@
+format = 2
+description = "Command-line suite for creating, converting, and editing images."
+project_url = "https://imagemagick.org/"
+modes = ["system", "user"]
+
+[source]
+download_url = "https://github.com/ImageMagick/ImageMagick/releases/download/7.1.2-34/ImageMagick-7.1.2-34-portable-Q16-HDRI-x64.7z"
+sha256 = "8dcfd3644b7fc20a92aeedeb4798024e5947f25f4d7c0c313c883fbca3d723e6"
+sha256_from = "github-digest"
+strip = "auto"
+
+[[path]]
+value = "$App"
+
+[[shim]]
+name = "magick"
+target = "$App\\magick.exe"

@@ -1,0 +1,18 @@
+format = 2
+description = "Dynamic mathematics software, Classic 5 edition."
+project_url = "https://www.geogebra.org/"
+modes = ["system", "user"]
+
+[source]
+download_url = "https://download.geogebra.org/installers/5.4/GeoGebra-Windows-Portable-5-4-933-1.zip"
+sha256 = "f7bcb35d6962aea76dde97551cce512d5bc0e2d6bfafb2f563b85e2b42b9a5d2"
+sha256_from = "registry"
+
+[[source.extract]]
+src = "GeoGebra */"
+dest = ""
+
+[[shortcut]]
+name = "GeoGebra Classic 5"
+target = "$App\\GeoGebra.exe"
+description = "Dynamic mathematics software"

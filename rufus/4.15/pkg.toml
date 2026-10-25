@@ -1,0 +1,28 @@
+format = 2
+description = "Creates bootable USB drives."
+project_url = "https://rufus.ie/"
+modes = ["system", "user", "portable"]
+
+[source]
+download_url = "https://github.com/pbatard/rufus/releases/download/v4.15/rufus-4.15p.exe"
+sha256 = "84c8a437f8af89257524478489e5c85f1edf25f761d299e2bcde46ac0afbe106"
+sha256_from = "github-digest"
+kind = "exe"
+
+[[prepare]]
+
+[prepare.rename]
+from = "rufus-4.15p.exe"
+to = "rufus.exe"
+
+[portable]
+persist = ["rufus.ini"]
+
+[[portable.markers]]
+path = "rufus.ini"
+content = ""
+
+[[shortcut]]
+name = "Tools\\Rufus"
+target = "$App\\rufus.exe"
+description = "Bootable USB creator"

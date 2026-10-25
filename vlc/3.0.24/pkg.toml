@@ -1,0 +1,15 @@
+format = 2
+description = "Free and open-source cross-platform multimedia player and framework."
+project_url = "https://www.videolan.org/vlc/"
+modes = ["system", "user"]
+
+[source]
+download_url = "https://download.videolan.org/pub/videolan/vlc/3.0.24/win64/vlc-3.0.24-win64.zip"
+sha256 = "fcf30850371ad10c9373cc4f0f4501e7dee49e3e9ae9f20c72fb2661a1ca6323"
+sha256_from = "vendor-sums"
+strip = "auto"
+
+[[shortcut]]
+name = "VLC media player"
+target = "$App\\vlc.exe"
+description = "VLC media player"

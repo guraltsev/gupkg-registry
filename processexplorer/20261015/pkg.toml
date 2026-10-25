@@ -1,0 +1,14 @@
+format = 2
+description = "Advanced task manager showing handles and DLLs per process."
+project_url = "https://learn.microsoft.com/sysinternals/"
+modes = ["system", "user"]
+
+[source]
+download_url = "https://download.sysinternals.com/files/ProcessExplorer.zip"
+sha256 = "dab147316264b89ae46ae2ad7d8a94116848ef0b703bcac8de9ff22689ce9d51"
+sha256_from = "registry"
+
+[[shortcut]]
+name = "Tools\\Process Explorer"
+target = "$App\\procexp64.exe"
+description = "Advanced task manager showing handles and DLLs per process."

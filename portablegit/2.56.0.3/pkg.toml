@@ -1,0 +1,25 @@
+format = 2
+description = "Git for Windows portable distribution with Git Bash and the MSYS2 tool set."
+project_url = "https://gitforwindows.org/"
+modes = ["system", "user"]
+
+[source]
+download_url = "https://github.com/git-for-windows/git/releases/download/v2.56.0.windows.3/PortableGit-2.56.0.3-64-bit.7z.exe"
+sha256 = "4fc27b779829a36df77911e3f4dea09c66c790dd6c5f7dfa3b6a5479f1fe354f"
+sha256_from = "github-digest"
+
+[[shortcut]]
+name = "Git bash"
+target = "$App\\git-bash.exe"
+working_dir = "%USERPROFILE%"
+description = "Git Bash terminal"
+
+[[path]]
+value = "$App\\cmd"
+
+[[path]]
+value = "$App\\bin"
+
+[[shim]]
+name = "diff"
+target = "$App\\usr\\bin\\diff.exe"

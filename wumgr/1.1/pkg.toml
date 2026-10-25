@@ -1,0 +1,14 @@
+format = 2
+description = "Windows Update manager that controls update installation."
+project_url = "https://github.com/DavidXanatos/wumgr"
+modes = ["system", "user"]
+
+[source]
+download_url = "https://github.com/DavidXanatos/wumgr/releases/download/v1.1/WuMgr_v1.1b.zip"
+sha256 = "585f10d7d75779b8a74859a9b70a925370f593b239ecf8b8c328ed59c71b276a"
+sha256_from = "registry"
+
+[[shortcut]]
+name = "Tools\\WuMgr"
+target = "$App\\wumgr.exe"
+description = "Windows Update manager"

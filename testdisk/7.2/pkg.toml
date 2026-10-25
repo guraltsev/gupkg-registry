@@ -1,0 +1,29 @@
+format = 2
+description = "Partition recovery and file undelete utility."
+project_url = "https://www.cgsecurity.org/"
+modes = ["system", "user"]
+
+[source]
+download_url = "https://www.cgsecurity.org/testdisk-7.2.win64.zip"
+sha256 = "e97e203ce77b6b1a3a37d01beccf069dc6c4632b579ffbb82ae739cdda229f38"
+sha256_from = "registry"
+strip = "auto"
+require = ["testdisk_win.exe", "photorec_win.exe"]
+
+[[shortcut]]
+name = "TestDisk"
+target = "$App\\testdisk_win.exe"
+description = "Partition and data recovery"
+
+[[shortcut]]
+name = "PhotoRec"
+target = "$App\\qphotorec_win.exe"
+description = "File carving recovery"
+
+[[shim]]
+name = "testdisk"
+target = "$App\\testdisk_win.exe"
+
+[[shim]]
+name = "photorec"
+target = "$App\\photorec_win.exe"

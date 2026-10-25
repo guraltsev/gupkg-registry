@@ -1,0 +1,46 @@
+format = 2
+description = "A self-contained MSYS2 environment for Windows."
+project_url = "https://www.msys2.org/"
+modes = ["system", "user"]
+record_manifest = false
+
+[source]
+download_url = "https://github.com/msys2/msys2-installer/releases/download/2026-09-27/msys2-base-x86_64-20260927.tar.xz"
+sha256 = "ea2f31a0b6ade63914ce441ffb022f0f6aa96982bfefa2326460a26d5fb01322"
+sha256_from = "github-digest"
+kind = "tar"
+strip = 1
+require = ["usr/bin/bash.exe"]
+
+[[shortcut]]
+name = "MSYS2\\MSYS2 CLang64"
+target = "$App\\clang64.exe"
+working_dir = "%USERPROFILE%"
+
+[[shortcut]]
+name = "MSYS2\\MSYS2 CLangARM64"
+target = "$App\\clangarm64.exe"
+working_dir = "%USERPROFILE%"
+
+[[shortcut]]
+name = "MSYS2\\MSYS2 MingW64"
+target = "$App\\MingW64.exe"
+working_dir = "%USERPROFILE%"
+
+[[shortcut]]
+name = "MSYS2\\MSYS2"
+target = "$App\\msys2.exe"
+working_dir = "%USERPROFILE%"
+
+[[shortcut]]
+name = "MSYS2\\MSYS2 UCRT64"
+target = "$App\\UCRT64.exe"
+working_dir = "%USERPROFILE%"
+
+[[env]]
+name = "MSYS2_INSTALL_PATH"
+value = "$App"
+
+[[shim]]
+name = "env"
+target = "$App\\usr\\bin\\env.exe"

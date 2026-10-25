@@ -1,0 +1,15 @@
+format = 2
+description = "Rapid Environment Editor for Windows environment variables."
+project_url = "https://www.rapidee.com/"
+modes = ["system", "user"]
+
+[source]
+download_url = "https://gitlab.com/api/v4/projects/olegd%2Frapidee/packages/generic/release-assets/v10.0.5/RapidEE.zip"
+sha256 = "063ba3f73dbe5d149d64d04841b0ac296e30bd854da96578b9baf9353fe5dc7d"
+sha256_from = "registry"
+require = ["RapidEE.exe"]
+
+[[shortcut]]
+name = "Rapid Environment Editor"
+target = "$App\\RapidEE.exe"
+description = "Environment variable editor"

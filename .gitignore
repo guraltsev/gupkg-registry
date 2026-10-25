@@ -184,3 +184,5 @@ src/gupkg/gupkg-config.toml
 
 # Package registry
 /gupkg-registry
+# The registry tool lock (held while an update or pin runs)
+.registry-tool.lock

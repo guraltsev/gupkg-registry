@@ -1,0 +1,28 @@
+format = 2
+description = "DB Browser for SQLite, a visual tool for creating, designing, and editing SQLite database files."
+project_url = "https://sqlitebrowser.org/"
+modes = ["portable"]
+
+[source]
+download_url = "https://github.com/sqlitebrowser/sqlitebrowser/releases/download/v3.13.1/DB.Browser.for.SQLite-v3.13.1-win64.zip"
+sha256 = "22375e275ec42d96de1d3b8e9ea4ed86d2a3505c4d0ffcbd1af67aa4003e5e4d"
+sha256_from = "registry"
+require = ["DB Browser for SQLite.exe"]
+
+[portable]
+persist = ["DB4S-settings.ini"]
+
+[[portable.markers]]
+path = "DB4S-settings.ini"
+content = ""
+
+[[shortcut]]
+name = "DB Browser for SQLite"
+target = "$App\\DB Browser for SQLite.exe"
+icon_location = "$App\\DB Browser for SQLite.exe"
+description = "DB Browser for SQLite"
+
+[[shim]]
+name = "sqlitebrowser"
+target = "$App\\DB Browser for SQLite.exe"
+type = "gui"

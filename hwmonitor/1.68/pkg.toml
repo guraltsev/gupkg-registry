@@ -1,0 +1,15 @@
+format = 2
+description = "Hardware voltage, temperature, and fan monitor."
+project_url = "https://www.cpuid.com/softwares/hwmonitor.html"
+modes = ["system", "user"]
+
+[source]
+download_url = "https://download.cpuid.com/hwmonitor/hwmonitor_1.68.zip"
+sha256 = "8888216170042c9be33771728521df046f6ceecbba397945c976e899570743a6"
+sha256_from = "registry"
+require = ["HWMonitor_x64.exe"]
+
+[[shortcut]]
+name = "HWMonitor"
+target = "$App\\HWMonitor_x64.exe"
+description = "Hardware monitor"

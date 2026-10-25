@@ -1,0 +1,30 @@
+format = 2
+description = "Python programming language, official embeddable distribution for 64-bit Windows."
+project_url = "https://www.python.org/"
+modes = ["system", "user"]
+
+[source]
+download_url = "https://www.python.org/ftp/python/3.15.1/python-3.15.1-embed-amd64.zip"
+sha256 = "352e232f25b5120508f11a6dfc1bd9076d3e70c30977d552a63338838c2ae8fb"
+sha256_from = "registry"
+
+[[shortcut]]
+name = "Python"
+target = "$App\\python.exe"
+working_dir = "%USERPROFILE%"
+description = "Python interactive interpreter"
+
+[[path]]
+value = "$App"
+
+[[path]]
+value = "$App\\Scripts"
+
+[[shim]]
+name = "python"
+target = "$App\\python.exe"
+
+[[shim]]
+name = "pythonw"
+target = "$App\\pythonw.exe"
+type = "gui"

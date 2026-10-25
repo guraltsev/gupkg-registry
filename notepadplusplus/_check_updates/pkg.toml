@@ -27,6 +27,11 @@ persist = [
     "backup",
 ]
 
+# The vendor's portable ZIP ships `doLocalConf.xml`, which keeps the settings in the program folder; a system or user install
+# must not keep it (it would lose them at every update).
+[nonportable]
+remove = ["doLocalConf.xml"]
+
 [[shortcut]]
 name = "Notepad++"
 target = "$App\\notepad++.exe"

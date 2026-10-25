@@ -1,0 +1,24 @@
+format = 2
+description = "Pidgin multi-protocol instant messaging client, unpacked from the offline installer."
+project_url = "https://pidgin.im/"
+modes = ["system", "user"]
+
+[source]
+download_url = "https://sourceforge.net/projects/pidgin/files/Pidgin/2.14.14/pidgin-2.14.14-offline.exe/download"
+sha256 = "7551389982bd9a85991df7436ca1776e68bdc057374c03e8018173e95162bc84"
+sha256_from = "registry"
+kind = "nsis"
+
+[[source.nested]]
+path = "$PLUGINSDIR/gtk.zip"
+dest = ""
+replace = false
+
+[[prepare]]
+remove = ["$PLUGINSDIR", "pidgin-uninst.exe"]
+
+[[shortcut]]
+name = "Pidgin"
+target = "$App\\pidgin.exe"
+working_dir = "$App"
+description = "Pidgin instant messenger"

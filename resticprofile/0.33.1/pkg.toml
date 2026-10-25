@@ -1,0 +1,19 @@
+format = 2
+description = "Configuration profiles and scheduling for restic backups."
+project_url = "https://creativeprojects.github.io/resticprofile/"
+modes = ["system", "user"]
+
+[source]
+download_url = "https://github.com/creativeprojects/resticprofile/releases/download/v0.33.1/resticprofile_0.33.1_windows_amd64.zip"
+sha256 = "f1b5b313e742e3265f8ed3ca0097fd01b3433e2bed79f2925425f101359aac67"
+sha256_from = "github-digest"
+require = ["resticprofile.exe"]
+
+[[shortcut]]
+name = "resticprofile"
+target = "$App\\resticprofile.exe"
+description = "Restic backup profile manager"
+
+[[shim]]
+name = "resticprofile"
+target = "$App\\resticprofile.exe"

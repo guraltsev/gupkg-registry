@@ -1,0 +1,27 @@
+format = 2
+description = "Complete solution to record, convert, and stream audio and video."
+project_url = "https://ffmpeg.org/"
+modes = ["system", "user"]
+
+[source]
+download_url = "https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-essentials.zip"
+sha256 = "60f467265b1e312373dbcd92200c2618a74850f98d3d078e94296bb3fa2047ba"
+sha256_from = "vendor-sums"
+strip = 1
+subdir = "bin"
+require = ["ffmpeg.exe", "ffprobe.exe", "ffplay.exe"]
+
+[[path]]
+value = "$App"
+
+[[shim]]
+name = "ffmpeg"
+target = "$App\\ffmpeg.exe"
+
+[[shim]]
+name = "ffprobe"
+target = "$App\\ffprobe.exe"
+
+[[shim]]
+name = "ffplay"
+target = "$App\\ffplay.exe"

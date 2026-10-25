@@ -1,0 +1,17 @@
+format = 2
+description = "Reference manager for collecting and citing research."
+project_url = "https://www.zotero.org/"
+modes = ["system", "user"]
+
+[source]
+download_url = "https://download.zotero.org/client/release/10.0.6/Zotero-10.0.6_x64_setup.exe"
+sha256 = "1cf48672c17c4be057d28b309875204f35b52b7d045d38bb7a1992828828b124"
+sha256_from = "registry"
+
+[[prepare]]
+remove = ["$PLUGINSDIR", "uninstall.exe", "setup.exe"]
+
+[[shortcut]]
+name = "Zotero"
+target = "$App\\core\\zotero.exe"
+description = "Reference manager"
