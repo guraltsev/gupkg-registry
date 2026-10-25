@@ -9,9 +9,6 @@ sha256 = "fef9fcdd8fdabd0501ab8b3d99eac976f504ab55d01bef9e8ef428a5d900ddda"
 sha256_from = "github-digest"
 require = ["bin/gh.exe"]
 
-[[path]]
-value = "$App\\bin"
-
 [[shim]]
 name = "gh"
 target = "$App\\bin\\gh.exe"

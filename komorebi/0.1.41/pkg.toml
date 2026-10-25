@@ -14,9 +14,6 @@ name = "komorebi GUI"
 target = "$App\\komorebi-gui.exe"
 description = "komorebi configuration GUI"
 
-[[path]]
-value = "$App"
-
 [[shim]]
 name = "komorebic"
 target = "$App\\komorebic.exe"
@@ -24,3 +21,20 @@ target = "$App\\komorebic.exe"
 [[shim]]
 name = "komorebi"
 target = "$App\\komorebi.exe"
+
+[[shim]]
+name = "komorebi-bar"
+target = "$App\\komorebi-bar.exe"
+
+[[shim]]
+name = "komorebi-gui"
+target = "$App\\komorebi-gui.exe"
+
+[[shim]]
+name = "komorebi-shortcuts"
+target = "$App\\komorebi-shortcuts.exe"
+
+[[shim]]
+name = "komorebic-no-console"
+target = "$App\\komorebic-no-console.exe"
+type = "gui"

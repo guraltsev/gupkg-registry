@@ -18,9 +18,6 @@ require = ["volta.exe", "volta-shim.exe"]
 [[prepare]]
 copy = { from = "volta-shim.exe", to = ["node.exe", "npm.exe", "npx.exe", "pnpm.exe", "yarn.exe"] }
 
-[[path]]
-value = "$App"
-
 # Shims for globally installed tools (e.g. tsc) are created here by Volta.
 [[path]]
 value = "%LOCALAPPDATA%\\Volta\\bin"
@@ -28,3 +25,23 @@ value = "%LOCALAPPDATA%\\Volta\\bin"
 [[shim]]
 name = "volta"
 target = "$App\\volta.exe"
+
+[[shim]]
+name = "node"
+target = "$App\\node.exe"
+
+[[shim]]
+name = "npm"
+target = "$App\\npm.exe"
+
+[[shim]]
+name = "npx"
+target = "$App\\npx.exe"
+
+[[shim]]
+name = "pnpm"
+target = "$App\\pnpm.exe"
+
+[[shim]]
+name = "yarn"
+target = "$App\\yarn.exe"

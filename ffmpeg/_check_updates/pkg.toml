@@ -21,9 +21,6 @@ require = ["ffmpeg.exe", "ffprobe.exe", "ffplay.exe"]
 [source.checksum]
 sidecar = "${download_url}.sha256"
 
-[[path]]
-value = "$App"
-
 [[shim]]
 name = "ffmpeg"
 target = "$App\\ffmpeg.exe"

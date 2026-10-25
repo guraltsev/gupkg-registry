@@ -15,9 +15,6 @@ download_url = "${asset_url}"
 src = "mpatch-*/"
 dest = ""
 
-[[path]]
-value = "$App"
-
 [[shim]]
 name = "mpatch"
 target = "$App\\mpatch.exe"

@@ -15,9 +15,6 @@ working_dir = "%USERPROFILE%"
 description = "Python interactive interpreter"
 
 [[path]]
-value = "$App"
-
-[[path]]
 value = "$App\\Scripts"
 
 [[shim]]

@@ -11,9 +11,6 @@ strip = 1
 subdir = "bin"
 require = ["ffmpeg.exe", "ffprobe.exe", "ffplay.exe"]
 
-[[path]]
-value = "$App"
-
 [[shim]]
 name = "ffmpeg"
 target = "$App\\ffmpeg.exe"

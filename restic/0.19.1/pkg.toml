@@ -14,9 +14,6 @@ sha256_from = "github-digest"
 from = "restic_0.19.1_windows_amd64.exe"
 to = "restic.exe"
 
-[[path]]
-value = "$App"
-
 [[shim]]
 name = "restic"
 target = "$App\\restic.exe"

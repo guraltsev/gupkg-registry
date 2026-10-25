@@ -15,9 +15,6 @@ target = "$App\\bin\\julia.exe"
 working_dir = "%USERPROFILE%"
 description = "Julia REPL"
 
-[[path]]
-value = "$App\\bin"
-
 [[shim]]
 name = "julia"
 target = "$App\\bin\\julia.exe"

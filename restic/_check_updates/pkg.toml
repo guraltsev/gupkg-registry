@@ -14,9 +14,6 @@ download_url = "${asset_url}"
 [[prepare]]
 rename = { from = "restic_${version}_windows_amd64.exe", to = "restic.exe" }
 
-[[path]]
-value = "$App"
-
 [[shim]]
 name = "restic"
 target = "$App\\restic.exe"

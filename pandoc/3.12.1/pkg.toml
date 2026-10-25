@@ -12,9 +12,6 @@ sha256_from = "github-digest"
 src = "pandoc-*/"
 dest = ""
 
-[[path]]
-value = "$App"
-
 [[shim]]
 name = "pandoc"
 target = "$App\\pandoc.exe"

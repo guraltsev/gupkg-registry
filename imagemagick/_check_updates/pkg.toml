@@ -12,9 +12,34 @@ asset = "ImageMagick-${version}-portable-Q16-HDRI-x64.7z"
 download_url = "${asset_url}"
 strip = "auto"
 
-[[path]]
-value = "$App"
-
 [[shim]]
 name = "magick"
 target = "$App\\magick.exe"
+
+[[shim]]
+name = "compare"
+target = "$App\\compare.exe"
+
+[[shim]]
+name = "composite"
+target = "$App\\composite.exe"
+
+[[shim]]
+name = "conjure"
+target = "$App\\conjure.exe"
+
+[[shim]]
+name = "identify"
+target = "$App\\identify.exe"
+
+[[shim]]
+name = "mogrify"
+target = "$App\\mogrify.exe"
+
+[[shim]]
+name = "montage"
+target = "$App\\montage.exe"
+
+[[shim]]
+name = "stream"
+target = "$App\\stream.exe"

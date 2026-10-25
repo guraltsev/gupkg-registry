@@ -12,9 +12,6 @@ asset = "gh_${version}_windows_amd64.zip"
 download_url = "${asset_url}"
 require = ["bin/gh.exe"]
 
-[[path]]
-value = "$App\\bin"
-
 [[shim]]
 name = "gh"
 target = "$App\\bin\\gh.exe"

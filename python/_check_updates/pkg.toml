@@ -18,9 +18,6 @@ probe = "${version}/python-${version}-embed-amd64.zip"
 download_url = "${download_url}"
 
 [[path]]
-value = "$App"
-
-[[path]]
 value = "$App\\Scripts"
 
 [[shim]]

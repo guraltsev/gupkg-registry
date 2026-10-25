@@ -10,5 +10,34 @@ sha256_from = "registry"
 strip = "auto"
 require = ["bin\\dot.exe"]
 
-[[path]]
-value = "$App\\bin"
+[[shim]]
+name = "dot"
+target = "$App\\bin\\dot.exe"
+
+[[shim]]
+name = "neato"
+target = "$App\\bin\\neato.exe"
+
+[[shim]]
+name = "fdp"
+target = "$App\\bin\\fdp.exe"
+
+[[shim]]
+name = "circo"
+target = "$App\\bin\\circo.exe"
+
+[[shim]]
+name = "twopi"
+target = "$App\\bin\\twopi.exe"
+
+[[shim]]
+name = "sfdp"
+target = "$App\\bin\\sfdp.exe"
+
+[[shim]]
+name = "osage"
+target = "$App\\bin\\osage.exe"
+
+[[shim]]
+name = "patchwork"
+target = "$App\\bin\\patchwork.exe"

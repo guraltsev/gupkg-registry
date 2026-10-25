@@ -18,9 +18,6 @@ checksum = "files[?os==winnt && arch==x86_64 && kind==archive && extension==zip]
 download_url = "${download_url}"
 strip = 1
 
-[[path]]
-value = "$App\\bin"
-
 [[shim]]
 name = "julia"
 target = "$App\\bin\\julia.exe"

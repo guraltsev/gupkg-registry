@@ -12,9 +12,6 @@ asset = "goldfish-scheme-x64-v${version}-win.zip"
 download_url = "${asset_url}"
 require = ["bin/gf.exe"]
 
-[[path]]
-value = "$App\\bin"
-
 [[shim]]
 name = "gf"
 target = "$App\\bin\\gf.exe"
