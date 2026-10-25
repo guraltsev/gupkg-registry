@@ -6,7 +6,8 @@ modes = ["system", "user", "portable"]
 [track]
 provider = "github"
 repo = "keepassxreboot/keepassxc"
-asset = "KeePassXC-${version}-Win64.zip"
+# Releases up to 2.7.x name the 64-bit ZIP `-Win64.zip`; 2.8.0 renamed it `-x64.zip`.
+asset = "KeePassXC-${version}-x64.zip"
 
 [source]
 download_url = "${asset_url}"
