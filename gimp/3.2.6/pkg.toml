@@ -1,0 +1,28 @@
+format = 2
+description = "GNU Image Manipulation Program, a raster graphics editor."
+project_url = "https://www.gimp.org/"
+modes = ["system", "user"]
+
+[source]
+download_url = "https://download.gimp.org/gimp/v3.2/windows/gimp-3.2.6-setup.exe"
+sha256 = "9337cccbc01d4098ee7a3dab215b3afbe6ece99c5287c92441d6f12cf541ebca"
+sha256_from = "vendor-sums"
+kind = "exe"
+require = ["bin/gimp-3.exe"]
+
+[source.installer]
+run = [
+    "/VERYSILENT",
+    "/SUPPRESSMSGBOXES",
+    "/NORESTART",
+    "/SP-",
+    "/CURRENTUSER",
+    "/NOICONS",
+    "/DIR=$Stage",
+]
+
+[[shortcut]]
+name = "Gimp"
+target = "$App\\bin\\gimp-3.exe"
+working_dir = "%USERPROFILE%"
+description = "Graphics manipulation"

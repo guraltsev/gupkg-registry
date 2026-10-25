@@ -3,14 +3,21 @@ description = "Windows automation and hotkey scripting language."
 project_url = "https://www.autohotkey.com/"
 modes = ["system", "user"]
 
+# The release ZIP has no Ahk2Exe compiler; the setup program installs it, so the vendor installer is run (silently, into the
+# staged App) and its result is judged by `require`. The setup program's documentation lists no switch to skip its file
+# associations or Start Menu entries, so the installer may write those itself.
 [track]
 provider = "github"
 repo = "AutoHotkey/AutoHotkey"
-asset = "AutoHotkey_${version}.zip"
+asset = "AutoHotkey_${version}_setup.exe"
 
 [source]
 download_url = "${asset_url}"
+kind = "exe"
 require = ["Compiler/Ahk2Exe.exe"]
+
+[source.installer]
+run = ["/silent", "/installto", "$Stage"]
 
 [[shortcut]]
 name = "AutoHotkey\\Ahk2Exe"

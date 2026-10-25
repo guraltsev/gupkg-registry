@@ -16,7 +16,6 @@ ones the application really writes.
 | --- | --- | --- | --- |
 | `crystaldiskinfo` | persist `DiskInfo.ini` | upstream writes it beside the exe | medium-high |
 | `crystaldiskmark` | persist `DiskMark.ini` (the 64-bit exe may use another name) | upstream writes it beside the exe | medium-high |
-| `firefox` | `args = ["-profile", "$Data\\profile"]` | Firefox's documented `-profile` switch | high |
 | `hwinfo` | persist `HWiNFO64.INI` (absent from the zip until first run) | upstream writes it beside the exe | medium |
 | `keepassxc` | marker and persist `keepassxc.ini` | the zip ships no ini; upstream reads one beside the exe | medium-high |
 | `keypirinha` | persist `portable`; nonportable removes `portable` | the old unpack hook deleted that folder | name high; persisting a folder by junction untested |
