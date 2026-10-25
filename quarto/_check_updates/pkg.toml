@@ -12,9 +12,6 @@ asset = "quarto-${version}-win.zip"
 download_url = "${asset_url}"
 require = ["bin/quarto.exe"]
 
-[[path]]
-value = "$App\\bin"
-
 [[shim]]
 name = "quarto"
 target = "$App\\bin\\quarto.exe"

@@ -9,9 +9,6 @@ sha256 = "a9c62e4fef34ea05d4dd9175d905f80f0542414a1ae17a9d45698f6646c01173"
 sha256_from = "github-digest"
 require = ["bin/quarto.exe"]
 
-[[path]]
-value = "$App\\bin"
-
 [[shim]]
 name = "quarto"
 target = "$App\\bin\\quarto.exe"
