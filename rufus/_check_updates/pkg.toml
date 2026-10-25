@@ -24,3 +24,8 @@ persist = ["rufus.ini"]
 name = "Tools\\Rufus"
 target = "$App\\rufus.exe"
 description = "Bootable USB creator"
+
+[[shim]]
+name = "rufus"
+target = "$App\\rufus.exe"
+type = "gui"

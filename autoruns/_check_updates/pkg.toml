@@ -17,3 +17,8 @@ download_url = "https://download.sysinternals.com/files/Autoruns.zip"
 name = "Tools\\Autoruns"
 target = "$App\\Autoruns64.exe"
 description = "Shows what runs automatically at startup and logon."
+
+[[shim]]
+name = "autoruns"
+target = "$App\\Autoruns64.exe"
+type = "gui"

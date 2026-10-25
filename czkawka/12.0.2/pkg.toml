@@ -22,3 +22,13 @@ description = "Czkawka with the Krokiet interface"
 [[shim]]
 name = "czkawka_cli"
 target = "$App\\czkawka_cli.exe"
+
+[[shim]]
+name = "czkawka_gui"
+target = "$App\\czkawka_gui.exe"
+type = "gui"
+
+[[shim]]
+name = "krokiet"
+target = "$App\\krokiet.exe"
+type = "gui"

@@ -18,3 +18,8 @@ replace = true
 name = "Obsidian"
 target = "$App\\Obsidian.exe"
 description = "Markdown knowledge base"
+
+[[shim]]
+name = "obsidian"
+target = "$App\\Obsidian.exe"
+type = "gui"

@@ -17,3 +17,8 @@ Referer = "https://www.irfanview.info/"
 name = "IrfanView"
 target = "$App\\i_view64.exe"
 description = "Image viewer"
+
+[[shim]]
+name = "irfanview"
+target = "$App\\i_view64.exe"
+type = "gui"

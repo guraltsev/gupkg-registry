@@ -12,3 +12,8 @@ sha256_from = "registry"
 name = "Tools\\WuMgr"
 target = "$App\\wumgr.exe"
 description = "Windows Update manager"
+
+[[shim]]
+name = "wumgr"
+target = "$App\\wumgr.exe"
+type = "gui"

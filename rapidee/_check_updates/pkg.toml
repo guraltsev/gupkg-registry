@@ -21,3 +21,8 @@ require = ["RapidEE.exe"]
 name = "Rapid Environment Editor"
 target = "$App\\RapidEE.exe"
 description = "Environment variable editor"
+
+[[shim]]
+name = "rapidee"
+target = "$App\\RapidEE.exe"
+type = "gui"

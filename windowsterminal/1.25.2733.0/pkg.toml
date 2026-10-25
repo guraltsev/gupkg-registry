@@ -20,3 +20,4 @@ description = "Windows Terminal"
 [[shim]]
 name = "wt"
 target = "$App\\wt.exe"
+type = "gui"

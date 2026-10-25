@@ -19,3 +19,8 @@ dest = ""
 name = "GSmartControl"
 target = "$App\\gsmartcontrol.exe"
 description = "Disk S.M.A.R.T. health viewer"
+
+[[shim]]
+name = "gsmartcontrol"
+target = "$App\\gsmartcontrol.exe"
+type = "gui"

@@ -21,3 +21,8 @@ name = "OBS Studio"
 target = "$App\\bin\\64bit\\obs64.exe"
 working_dir = "$App\\bin\\64bit"
 description = "Recording and live streaming"
+
+[[shim]]
+name = "obs"
+target = "$App\\bin\\64bit\\obs64.exe"
+type = "gui"

@@ -12,3 +12,8 @@ sha256_from = "registry"
 name = "Tools\\Process Explorer"
 target = "$App\\procexp64.exe"
 description = "Advanced task manager showing handles and DLLs per process."
+
+[[shim]]
+name = "procexp"
+target = "$App\\procexp64.exe"
+type = "gui"

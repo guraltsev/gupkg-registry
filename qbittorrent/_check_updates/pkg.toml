@@ -22,3 +22,9 @@ kind = "nsis"
 name = "Qbittorrent"
 target = "$App\\qbittorrent.exe"
 description = "Torrent client"
+
+[[shim]]
+name = "qbittorrent"
+target = "$App\\qbittorrent.exe"
+type = "gui"
+

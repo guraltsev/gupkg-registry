@@ -25,3 +25,8 @@ page_match = '(?s)DontSleep_x64_Portable\.zip<div[^>]*>.{0,400}?>(?P<sha256>[0-9
 name = "Dont Sleep"
 target = "$App\\DontSleep_x64_p.exe"
 description = "Prevent Windows from sleeping"
+
+[[shim]]
+name = "dontsleep"
+target = "$App\\DontSleep_x64_p.exe"
+type = "gui"

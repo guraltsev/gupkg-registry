@@ -24,3 +24,8 @@ target = "$App\\restic-backup-gx.exe"
 working_dir = "$App"
 icon_location = "$App\\restic-backup-gx.exe,0"
 description = "GUI for Restic"
+
+[[shim]]
+name = "restic-backup-gx"
+target = "$App\\restic-backup-gx.exe"
+type = "gui"

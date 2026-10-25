@@ -21,3 +21,8 @@ persist = ["DiskInfo.ini"]
 name = "Tools\\CrystalDiskInfo"
 target = "$App\\DiskInfo64.exe"
 description = "CrystalDiskInfo"
+
+[[shim]]
+name = "diskinfo"
+target = "$App\\DiskInfo64.exe"
+type = "gui"

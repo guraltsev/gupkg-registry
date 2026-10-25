@@ -13,3 +13,8 @@ require = ["ShareX.exe"]
 name = "ShareX"
 target = "$App\\ShareX.exe"
 description = "Screen capture and sharing"
+
+[[shim]]
+name = "sharex"
+target = "$App\\ShareX.exe"
+type = "gui"

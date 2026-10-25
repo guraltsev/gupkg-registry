@@ -22,3 +22,8 @@ name = "Pidgin"
 target = "$App\\pidgin.exe"
 working_dir = "$App"
 description = "Pidgin instant messenger"
+
+[[shim]]
+name = "pidgin"
+target = "$App\\pidgin.exe"
+type = "gui"

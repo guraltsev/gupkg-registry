@@ -13,3 +13,8 @@ require = ["DontSleep_x64_p.exe"]
 name = "Dont Sleep"
 target = "$App\\DontSleep_x64_p.exe"
 description = "Prevent Windows from sleeping"
+
+[[shim]]
+name = "dontsleep"
+target = "$App\\DontSleep_x64_p.exe"
+type = "gui"

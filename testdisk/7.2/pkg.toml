@@ -27,3 +27,8 @@ target = "$App\\testdisk_win.exe"
 [[shim]]
 name = "photorec"
 target = "$App\\photorec_win.exe"
+
+[[shim]]
+name = "qphotorec"
+target = "$App\\qphotorec_win.exe"
+type = "gui"

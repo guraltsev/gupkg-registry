@@ -36,3 +36,8 @@ description = "Partition and data recovery"
 name = "PhotoRec"
 target = "$App\\qphotorec_win.exe"
 description = "File carving recovery"
+
+[[shim]]
+name = "qphotorec"
+target = "$App\\qphotorec_win.exe"
+type = "gui"

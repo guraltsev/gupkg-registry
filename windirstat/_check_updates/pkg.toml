@@ -17,3 +17,8 @@ require = ["x64/WinDirStat.exe"]
 name = "Tools\\WinDirStat"
 target = "$App\\x64\\WinDirStat.exe"
 description = "WinDirStat disk usage statistics viewer"
+
+[[shim]]
+name = "windirstat"
+target = "$App\\x64\\WinDirStat.exe"
+type = "gui"

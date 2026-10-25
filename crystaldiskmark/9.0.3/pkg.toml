@@ -15,3 +15,8 @@ persist = ["DiskMark.ini"]
 name = "Tools\\CrystalDiskMark"
 target = "$App\\DiskMark64.exe"
 description = "CrystalDiskMark"
+
+[[shim]]
+name = "diskmark"
+target = "$App\\DiskMark64.exe"
+type = "gui"

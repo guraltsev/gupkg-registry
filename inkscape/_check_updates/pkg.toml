@@ -44,3 +44,4 @@ description = "Vector graphics editor"
 [[shim]]
 name = "inkscape"
 target = "$App\\bin\\inkscape.com"
+

@@ -29,3 +29,8 @@ remove = [".portable"]
 name = "KeePassXC"
 target = "$App\\KeePassXC.exe"
 description = "KeePassXC password manager"
+
+[[shim]]
+name = "keepassxc"
+target = "$App\\KeePassXC.exe"
+type = "gui"

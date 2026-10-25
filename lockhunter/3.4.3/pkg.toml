@@ -18,3 +18,8 @@ to = "LockHunter.exe"
 name = "LockHunter"
 target = "$App\\LockHunter.exe"
 description = "File unlocker"
+
+[[shim]]
+name = "lockhunter"
+target = "$App\\LockHunter.exe"
+type = "gui"

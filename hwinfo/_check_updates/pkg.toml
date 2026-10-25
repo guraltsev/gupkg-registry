@@ -30,3 +30,8 @@ persist = ["HWiNFO64.INI"]
 name = "HWiNFO"
 target = "$App\\HWiNFO64.exe"
 description = "System information and hardware monitoring"
+
+[[shim]]
+name = "hwinfo"
+target = "$App\\HWiNFO64.exe"
+type = "gui"

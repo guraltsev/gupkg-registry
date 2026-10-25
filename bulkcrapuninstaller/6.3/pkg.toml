@@ -13,3 +13,8 @@ strip = "auto"
 name = "Bulk Crap Uninstaller"
 target = "$App\\BCUninstaller.exe"
 description = "Bulk uninstaller"
+
+[[shim]]
+name = "bcuninstaller"
+target = "$App\\BCUninstaller.exe"
+type = "gui"

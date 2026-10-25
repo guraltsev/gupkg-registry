@@ -26,3 +26,8 @@ name = "7-Zip File Manager"
 target = "$App\\7zFM.exe"
 working_dir = "$App"
 description = "7-Zip File Manager"
+
+[[shim]]
+name = "7zfm"
+target = "$App\\7zFM.exe"
+type = "gui"

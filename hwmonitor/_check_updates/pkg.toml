@@ -21,3 +21,8 @@ require = ["HWMonitor_x64.exe"]
 name = "HWMonitor"
 target = "$App\\HWMonitor_x64.exe"
 description = "Hardware monitor"
+
+[[shim]]
+name = "hwmonitor"
+target = "$App\\HWMonitor_x64.exe"
+type = "gui"

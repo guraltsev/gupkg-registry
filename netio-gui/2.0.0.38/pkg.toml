@@ -13,3 +13,8 @@ name = "NetIO-GUI"
 target = "$App\\NetIO.App.exe"
 working_dir = "$App"
 description = "Network throughput benchmark"
+
+[[shim]]
+name = "netio"
+target = "$App\\NetIO.App.exe"
+type = "gui"

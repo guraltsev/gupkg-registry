@@ -27,3 +27,8 @@ remove = ["portable"]
 name = "Keypirinha"
 target = "$App\\keypirinha.exe"
 description = "Launcher"
+
+[[shim]]
+name = "keypirinha"
+target = "$App\\keypirinha.exe"
+type = "gui"

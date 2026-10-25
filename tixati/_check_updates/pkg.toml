@@ -30,3 +30,8 @@ markers = ["tixati_portable_mode.txt"]
 name = "Tixati"
 target = "$App\\tixati_Windows64bit.exe"
 description = "Peer-to-peer BitTorrent client"
+
+[[shim]]
+name = "tixati"
+target = "$App\\tixati_Windows64bit.exe"
+type = "gui"

@@ -1,0 +1,20 @@
+format = 2
+description = "Small, friendly command-line text editor."
+project_url = "https://www.nano-editor.org/"
+modes = ["system", "user"]
+
+[source]
+download_url = "https://www.nano-editor.org/dist/windows/nano-v9.3-x64.exe"
+sha256 = "2737f238b11a42c3f09309705056eb37481534693477d0e912380ce29c9f6ec8"
+sha256_from = "registry"
+kind = "exe"
+
+[[prepare]]
+
+[prepare.rename]
+from = "nano-v9.3-x64.exe"
+to = "nano.exe"
+
+[[shim]]
+name = "nano"
+target = "$App\\nano.exe"

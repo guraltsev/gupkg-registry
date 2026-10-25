@@ -22,3 +22,8 @@ dest = ""
 name = "GeoGebra Classic 5"
 target = "$App\\GeoGebra.exe"
 description = "Dynamic mathematics software"
+
+[[shim]]
+name = "geogebra5"
+target = "$App\\GeoGebra.exe"
+type = "gui"

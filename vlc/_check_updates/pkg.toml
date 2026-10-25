@@ -25,3 +25,8 @@ sidecar = "${download_url}.sha256"
 name = "VLC media player"
 target = "$App\\vlc.exe"
 description = "VLC media player"
+
+[[shim]]
+name = "vlc"
+target = "$App\\vlc.exe"
+type = "gui"

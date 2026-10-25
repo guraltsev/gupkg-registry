@@ -28,3 +28,8 @@ remove = ["*/SystemInformer.exe.settings.xml"]
 name = "Tools\\System Informer"
 target = "$App\\amd64\\SystemInformer.exe"
 description = "System resource and process monitor"
+
+[[shim]]
+name = "systeminformer"
+target = "$App\\amd64\\SystemInformer.exe"
+type = "gui"

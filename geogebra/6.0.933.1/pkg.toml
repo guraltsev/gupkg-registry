@@ -1,0 +1,14 @@
+format = 2
+description = "Dynamic mathematics software for geometry, algebra, and calculus."
+project_url = "https://www.geogebra.org/"
+modes = ["system", "user"]
+
+[source]
+download_url = "https://download.geogebra.org/installers/6.0/GeoGebra-Windows-Portable-6-0-933-1.zip"
+sha256 = "318124ef03249ea2397f4b14f10b452a18642825ea796f0980dba0697d816c98"
+sha256_from = "registry"
+
+[[shortcut]]
+name = "GeoGebra"
+target = "$App\\GeoGebra.exe"
+description = "Dynamic mathematics software"

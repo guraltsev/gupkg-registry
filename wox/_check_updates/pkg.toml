@@ -20,3 +20,9 @@ rename = { from = "wox-windows-amd64.exe", to = "wox.exe" }
 name = "Wox"
 target = "$App\\wox.exe"
 description = "Application launcher"
+
+[[shim]]
+name = "wox"
+target = "$App\\wox.exe"
+type = "gui"
+

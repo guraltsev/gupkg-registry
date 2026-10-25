@@ -13,3 +13,8 @@ require = ["backrest.exe"]
 name = "BackRest"
 target = "$App\\backrest.exe"
 icon_location = "$App\\backrest.exe"
+
+[[shim]]
+name = "backrest"
+target = "$App\\backrest.exe"
+type = "gui"

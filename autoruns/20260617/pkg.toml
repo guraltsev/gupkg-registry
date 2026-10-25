@@ -12,3 +12,8 @@ sha256_from = "registry"
 name = "Tools\\Autoruns"
 target = "$App\\Autoruns64.exe"
 description = "Shows what runs automatically at startup and logon."
+
+[[shim]]
+name = "autoruns"
+target = "$App\\Autoruns64.exe"
+type = "gui"

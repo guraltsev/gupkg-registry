@@ -3,18 +3,20 @@ description = "Small, friendly command-line text editor."
 project_url = "https://www.nano-editor.org/"
 modes = ["system", "user"]
 
-# The publisher provides no checksum beyond GitHub's asset digest.
+# The official Windows builds are single executables in one folder; the page lists them, the newest is `nano-v<version>-x64.exe`.
+# The publisher gives no checksum, so the registry tool computes one.
 [track]
-provider = "github"
-repo = "okibcn/nano-for-windows"
-asset = "nano-for-windows_win64_v${version}.zip"
+provider = "page"
+check_url = "https://www.nano-editor.org/dist/windows/"
+match = 'nano-v(?P<version>\d+(?:\.\d+)+)-x64\.exe'
+download = "https://www.nano-editor.org/dist/windows/nano-v${version}-x64.exe"
 
 [source]
-download_url = "${asset_url}"
-strip = "auto"
+download_url = "${download_url}"
+kind = "exe"
 
-[[path]]
-value = "$App"
+[[prepare]]
+rename = { from = "nano-v${version}-x64.exe", to = "nano.exe" }
 
 [[shim]]
 name = "nano"

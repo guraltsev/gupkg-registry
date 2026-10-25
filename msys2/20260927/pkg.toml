@@ -44,3 +44,28 @@ value = "$App"
 [[shim]]
 name = "env"
 target = "$App\\usr\\bin\\env.exe"
+
+[[shim]]
+name = "clang64"
+target = "$App\\clang64.exe"
+type = "gui"
+
+[[shim]]
+name = "clangarm64"
+target = "$App\\clangarm64.exe"
+type = "gui"
+
+[[shim]]
+name = "mingw64"
+target = "$App\\MingW64.exe"
+type = "gui"
+
+[[shim]]
+name = "msys2"
+target = "$App\\msys2.exe"
+type = "gui"
+
+[[shim]]
+name = "ucrt64"
+target = "$App\\UCRT64.exe"
+type = "gui"
