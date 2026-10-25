@@ -15,12 +15,9 @@ require = ["volta.exe", "volta-shim.exe"]
 from = "volta-shim.exe"
 to = ["node.exe", "npm.exe", "npx.exe", "pnpm.exe", "yarn.exe"]
 
-[[path]]
-value = "%LOCALAPPDATA%\\Volta\\bin"
-
 [[shim]]
-name = "volta"
-target = "$App\\volta.exe"
+name = "volta.cmd"
+content = "@echo off\r\nif not exist \"%LOCALAPPDATA%\\Volta\\bin\" \"$App\\volta.exe\" setup\r\n\"$App\\volta.exe\" %*\r\nexit /b %ERRORLEVEL%\r\n"
 
 [[shim]]
 name = "node"

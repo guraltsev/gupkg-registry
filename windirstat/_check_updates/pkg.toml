@@ -7,7 +7,8 @@ modes = ["system", "user"]
 provider = "github"
 repo = "windirstat/windirstat"
 asset = "WinDirStat.zip"
-tag_prefix = "release/"
+# Tags look like release/v2.9.3. `tag_prefix` would keep the `v` in the version (a version directory `v2.9.3`); the pattern drops it.
+tag_pattern = '^release/v(?P<version>\d+(?:\.\d+)+)$'
 
 [source]
 download_url = "${asset_url}"

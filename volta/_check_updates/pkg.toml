@@ -18,13 +18,13 @@ require = ["volta.exe", "volta-shim.exe"]
 [[prepare]]
 copy = { from = "volta-shim.exe", to = ["node.exe", "npm.exe", "npx.exe", "pnpm.exe", "yarn.exe"] }
 
-# Shims for globally installed tools (e.g. tsc) are created here by Volta.
-[[path]]
-value = "%LOCALAPPDATA%\\Volta\\bin"
-
+# Volta keeps each user's tool shims (node, and every tool installed with `volta install`, such as tsc) in
+# %LOCALAPPDATA%\Volta\bin. That folder differs for every user, so the machine PATH cannot name it, and a PATH entry written at install
+# time would reach only the user who installed. So the `volta` command is a wrapper: the first time a user runs it, it runs
+# `volta setup`, which puts that user's folder on that user's own PATH. This works the same for a system and a user install.
 [[shim]]
-name = "volta"
-target = "$App\\volta.exe"
+name = "volta.cmd"
+content = "@echo off\r\nif not exist \"%LOCALAPPDATA%\\Volta\\bin\" \"$App\\volta.exe\" setup\r\n\"$App\\volta.exe\" %*\r\nexit /b %ERRORLEVEL%\r\n"
 
 [[shim]]
 name = "node"
