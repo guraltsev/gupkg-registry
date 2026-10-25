@@ -1,9 +1,7 @@
 format = 2
 description = "Hassle-free JavaScript tool manager that pins node, npm, pnpm, and yarn per project."
 project_url = "https://volta.sh/"
-# User only: Volta keeps its tool shims in %LOCALAPPDATA%\Volta\bin, a per-user folder. The machine PATH may not name a folder through an
-# environment variable (a user could redirect it), so there is nothing a system install could add.
-modes = ["user"]
+modes = ["system", "user"]
 
 [track]
 provider = "github"

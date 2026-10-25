@@ -1,7 +1,7 @@
 format = 2
 description = "Hassle-free JavaScript tool manager that pins node, npm, pnpm, and yarn per project."
 project_url = "https://volta.sh/"
-modes = ["user"]
+modes = ["system", "user"]
 
 [source]
 download_url = "https://github.com/volta-cli/volta/releases/download/v2.0.2/volta-2.0.2-windows.zip"
