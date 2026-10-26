@@ -27,10 +27,10 @@ prepare = [
 name = "Mogan STEM"
 target = "$App\\Mogan Stem.exe"
 working_dir = "$App"
-description = "Mogan STEM"
+description = "MoganSTEM"
 
 [[shim]]
 name = "mogan"
-target = "$App\\Mogan Stem.exe"
+target = "$App\\MoganStem.exe"
 type = "gui"
 working_dir = "$App"
