@@ -9,6 +9,7 @@ unversioned = [
     "dontsleep",
     "ffmpeg",
     "processexplorer",
+    "serviwin",
     "shutter-encoder",
     "xnviewmp",
 ]
@@ -62,17 +63,20 @@ unversioned = [
 "pandoc/3.12.1" = "de97d835316cb7800da3a21b7243979693773445f2bb960c7c08b9f20fdf32e7"
 "perl/5.42.3.1" = "73b62f8ab0fdd535580b929464dffd70d3f0e2cf6cab5758b4724101caabbf79"
 "pidgin/2.14.14" = "bbc49bf211e5df52bf80a124a06d7a952eb4c06fd06d3c9393efe61646f03fb3"
+"portablegit/2.56.0.3" = "3578a4acdaa8ed459d80b87d1d337fa03774b574926a5aa440b08c2003a6538b"
 "processexplorer/20261015" = "927fbd4fdc2542a8d8ccfd7c93003241a099ca488ac50f38d62fc4e62c26b5cf"
 "python/3.15.1" = "0701c5c60f2f760c429340a51652641d1fc40de294d5c6e3c84302f3aa2e25d9"
 "qbittorrent/5.2.3" = "34e384e21f83cd7bb4c0b609e1ca31a939441f509313dbfc09113b20d69affce"
 "qbittorrent/5.3.0" = "00ba8863afad014fe7e46467557f69e9ea4331bf03a007e08dc457c2a56bff29"
 "quarto/1.10.19" = "f61f49d5ba8019d78d4eb1c775971f9fa1ceb9229c53021acaead62bf7d3b43f"
 "rapidee/10.0.5" = "9a6a7dc26a1d7ef457c37d0e9fa850e04d514144da1dd9d96f2f7c878bbfdc3c"
+"restartexplorer/1.7" = "1a71ba4cd28fb19c5660d77a57df17b922246b6298b14609d9eb0a8bdbf899e1"
 "restic-backup-gx/0.17.4" = "08e43e01650bfcf8abf4831423956072292dd227d0262e1e58c8d0eb3ae8b48f"
 "restic/0.19.1" = "ded78472aacb62abc9ab12b263d02960f803a47c4bf5e38fcaecb23b42b98fea"
 "resticprofile/0.33.1" = "df221eedb1cae19a66357174fc6b029136466bfa01d58e3c22f77cddeb64350e"
 "rmapi/0.0.35" = "e82e1d0e3db4a53952dd81d3cbb93d0ea48e692e5a8ac958a422317e021a7d55"
 "rufus/4.15" = "d223f0ba3cc432776205258188f6c72aa8b676a19d1d27e4f3afd6055c7ebdf2"
+"serviwin/1.72" = "a40af4b4b294e474474046cf2cdd63e62641639f48a8823b1790e531279bcd8a"
 "sharex/21.0.0" = "a6477c59e30ffc72814d5ebd80d4c6cd89ca2f48587116587cbb14e9b68ed6eb"
 "shutter-encoder/20.4" = "1c5d675f636ac15f6f57de7f0656e666b9d4d3603d52f81eddd9fca880bfbc8c"
 "sqlitebrowser/3.13.1" = "b60efd2595b0f939d98478153a72ebe14ee4ebfc0e15faf7cb441c4a609ad7fc"

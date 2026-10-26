@@ -1,0 +1,21 @@
+format = 2
+description = "Restart Explorer: restarts the Windows Explorer shell, refreshes it or rebuilds the icon cache, from a shortcut or a command line."
+project_url = "https://www.sordum.org/restart-explorer"
+modes = ["system", "user"]
+
+[source]
+download_url = "https://www.sordum.org/files/download/restart-explorer/Rexplorer_v1.7.zip"
+sha256 = "0cd4fe0ee1d9f87a4635ff3742ef656b31cb04c0b6fa782febec6b2c687ae88c"
+sha256_from = "registry"
+strip = "auto"
+require = ["Rexplorer_x64.exe"]
+
+[[shortcut]]
+name = "Tools\\Restart Explorer"
+target = "$App\\Rexplorer_x64.exe"
+description = "Restart the Explorer shell"
+
+[[shim]]
+name = "rexplorer"
+target = "$App\\Rexplorer_x64.exe"
+type = "gui"
