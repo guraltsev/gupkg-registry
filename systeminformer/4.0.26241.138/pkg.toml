@@ -15,8 +15,15 @@ persist = ["amd64/SystemInformer.exe.settings.xml"]
 path = "amd64/SystemInformer.exe.settings.xml"
 content = ""
 
-[nonportable]
-remove = ["*/SystemInformer.exe.settings.xml"]
+[user]
+prepare = [
+    ["remove", "*/SystemInformer.exe.settings.xml"],
+]
+
+[system]
+prepare = [
+    ["remove", "*/SystemInformer.exe.settings.xml"],
+]
 
 [[shortcut]]
 name = "Tools\\System Informer"

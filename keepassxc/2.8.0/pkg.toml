@@ -19,8 +19,15 @@ persist = ["keepassxc.ini"]
 path = "keepassxc.ini"
 content = ""
 
-[nonportable]
-remove = [".portable"]
+[user]
+prepare = [
+    ["remove", ".portable"],
+]
+
+[system]
+prepare = [
+    ["remove", ".portable"],
+]
 
 [[shortcut]]
 name = "KeePassXC"

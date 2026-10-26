@@ -1,7 +1,7 @@
 format = 2
 description = "CopyQ is an advanced clipboard manager with editing and scripting features."
 project_url = "https://hluk.github.io/CopyQ/"
-modes = ["system", "portable"]
+modes = ["system", "user", "portable"]
 
 [source]
 download_url = "https://github.com/hluk/CopyQ/releases/download/v17.0.0/copyq-17.0.0.zip"
@@ -12,6 +12,11 @@ require = ["copyq.exe"]
 
 [portable]
 persist = ["config"]
+
+[user]
+prepare = [
+    ["create", "unins000.exe"],
+]
 
 [[shortcut]]
 name = "CopyQ"

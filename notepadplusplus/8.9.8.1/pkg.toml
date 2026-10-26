@@ -26,8 +26,15 @@ persist = [
 path = "doLocalConf.xml"
 content = ""
 
-[nonportable]
-remove = ["doLocalConf.xml"]
+[user]
+prepare = [
+    ["remove", "doLocalConf.xml"],
+]
+
+[system]
+prepare = [
+    ["remove", "doLocalConf.xml"],
+]
 
 [[shortcut]]
 name = "Notepad++"

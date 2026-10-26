@@ -13,8 +13,15 @@ path = "MoganSTEM-v2026.3.7-64bit-stable-Portable.zip"
 dest = ""
 replace = true
 
-[nonportable]
-remove = [".portable"]
+[user]
+prepare = [
+    ["remove", ".portable"],
+]
+
+[system]
+prepare = [
+    ["remove", ".portable"],
+]
 
 [[shortcut]]
 name = "Mogan STEM"

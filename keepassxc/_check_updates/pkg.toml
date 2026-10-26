@@ -22,8 +22,15 @@ markers = [{ path = "keepassxc.ini", content = "" }]
 persist = ["keepassxc.ini"]
 
 # The vendor ZIP ships a `.portable` file that switches KeePassXC to portable mode; a system or user install must not keep it.
-[nonportable]
-remove = [".portable"]
+[user]
+prepare = [
+    ["remove", ".portable"],
+]
+
+[system]
+prepare = [
+    ["remove", ".portable"],
+]
 
 [[shortcut]]
 name = "KeePassXC"

@@ -12,8 +12,15 @@ strip = "auto"
 [portable]
 persist = ["portable"]
 
-[nonportable]
-remove = ["portable"]
+[user]
+prepare = [
+    ["remove", "portable"],
+]
+
+[system]
+prepare = [
+    ["remove", "portable"],
+]
 
 [[shortcut]]
 name = "Keypirinha"
