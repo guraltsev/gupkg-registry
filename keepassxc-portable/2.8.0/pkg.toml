@@ -1,0 +1,30 @@
+format = 2
+description = "Cross-platform password manager compatible with KeePass databases. (portable)"
+project_url = "https://keepassxc.org/"
+modes = ["portable"]
+
+[source]
+download_url = "https://github.com/keepassxreboot/keepassxc/releases/download/2.8.0/KeePassXC-2.8.0-x64.zip"
+sha256 = "48ff4f088e9ce70e241da1270e5081528dba77c38b17dae4aa6690ffc50fc828"
+sha256_from = "github-digest"
+
+[[source.extract]]
+src = "KeePassXC-*/"
+dest = ""
+
+[portable]
+persist = ["keepassxc.ini"]
+
+[[portable.markers]]
+path = "keepassxc.ini"
+content = ""
+
+[[shortcut]]
+name = "KeePassXC"
+target = "$App\\KeePassXC.exe"
+description = "KeePassXC password manager"
+
+[[shim]]
+name = "keepassxc"
+target = "$App\\KeePassXC.exe"
+type = "gui"

@@ -1,7 +1,7 @@
 format = 2
 description = "ServiWin lists the installed drivers and services of the system, with file description, version, product name and company, and can start, stop and disable them."
 project_url = "https://www.nirsoft.net/utils/serviwin.html"
-modes = ["system", "user", "portable"]
+modes = ["system", "user"]
 
 # The page says "ServiWin v1.72"; the download address has no version in it, so it stops verifying when NirSoft replaces the file.
 [track]
@@ -14,10 +14,6 @@ download = "https://www.nirsoft.net/utils/serviwin-x64.zip"
 [source]
 download_url = "${download_url}"
 require = ["serviwin.exe"]
-
-# NirSoft tools keep their settings in serviwin.cfg beside the program: persisted in portable mode.
-[portable]
-persist = ["serviwin.cfg"]
 
 [[shortcut]]
 name = "Tools\\ServiWin"

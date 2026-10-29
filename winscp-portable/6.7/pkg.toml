@@ -1,0 +1,21 @@
+format = 2
+description = "Free SFTP, SCP, FTP, and WebDAV client. (portable)"
+project_url = "https://winscp.net/"
+modes = ["portable"]
+
+[source]
+download_url = "https://cdn.winscp.net/files/WinSCP-6.7-Portable.zip?secure=25SreypqVde4ZrHghmB53w==,1792911848"
+sha256 = "fef88545873aca4b353ac322b1e2702f2feadf30758b713f5fc7e2bed60f7662"
+sha256_from = "registry"
+
+[portable]
+persist = ["WinSCP.ini"]
+
+[[portable.markers]]
+path = "WinSCP.ini"
+content = ""
+
+[[shortcut]]
+name = "WinSCP"
+target = "$App\\WinSCP.exe"
+description = "SFTP and FTP client"

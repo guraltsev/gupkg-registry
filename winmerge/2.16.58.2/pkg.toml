@@ -1,7 +1,7 @@
 format = 2
 description = "Visual file and folder comparison and merge tool."
 project_url = "https://winmerge.org/"
-modes = ["system", "user", "portable"]
+modes = ["system", "user"]
 
 [source]
 download_url = "https://github.com/WinMerge/winmerge/releases/download/v2.16.58.2/winmerge-2.16.58.2-x64-exe.zip"
@@ -11,13 +11,6 @@ sha256_from = "github-digest"
 [[source.extract]]
 src = "WinMerge/"
 dest = ""
-
-[portable]
-persist = ["WinMerge.ini"]
-
-[[portable.markers]]
-path = "WinMerge.ini"
-content = ""
 
 [[shortcut]]
 name = "WinMerge"

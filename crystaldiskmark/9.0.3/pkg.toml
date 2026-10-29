@@ -1,15 +1,12 @@
 format = 2
 description = "Disk benchmark utility."
 project_url = "https://crystalmark.info/"
-modes = ["system", "user", "portable"]
+modes = ["system", "user"]
 
 [source]
 download_url = "https://sourceforge.net/projects/crystaldiskmark/files/9.0.3/CrystalDiskMark9_0_3.zip/download"
 sha256 = "e0c1e76a8ca5df524ffb83b4553cc8f27e539feb3c2a692cc41189783c494b78"
 sha256_from = "registry"
-
-[portable]
-persist = ["DiskMark.ini"]
 
 [[shortcut]]
 name = "Tools\\CrystalDiskMark"
