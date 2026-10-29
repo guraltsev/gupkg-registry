@@ -1,7 +1,7 @@
 format = 2
 description = "CopyQ is an advanced clipboard manager with editing and scripting features."
 project_url = "https://hluk.github.io/CopyQ/"
-modes = ["system", "user", "portable"]
+modes = ["system", "user"]
 
 # The GitHub asset digest is the checksum (found by the github provider).
 [track]
@@ -14,20 +14,16 @@ download_url = "${asset_url}"
 strip = "auto"
 require = ["copyq.exe"]
 
-# CopyQ chooses its mode by itself (src/platform/win/winplatform.cpp): when the folder of copyq.exe is writable and holds no
-# unins000.exe, it keeps its settings and logs beside the program, in config\ and logs\; otherwise it uses %APPDATA%\copyq.
-#   system:   the App folder is admin-only, so CopyQ uses %APPDATA%\copyq for every user.
-#   user:     a user root is writable, so CopyQ would go portable and keep its settings in the version's App folder, which every
-#             update replaces; an unins000.exe (what the vendor's installer leaves, and all CopyQ looks for) keeps it on
-#             %APPDATA%\copyq.
-#   portable: config\ is kept in the package's data folder across updates.
-[portable]
-persist = ["config"]
-
-[user]
-prepare = [
-    ["create", "unins000.exe"],
-]
+# CopyQ chooses its storage by itself (src/platform/win/winplatform.cpp, portableFolder()): when the folder of copyq.exe is
+# writable and holds no unins000.exe, it keeps its settings and logs beside the program, in config\ and logs\; otherwise it
+# uses %APPDATA%\copyq.
+#   system:  the App folder is admin-only, so CopyQ uses %APPDATA%\copyq for every user.
+#   user:    a user root is writable, so CopyQ would go portable and keep its settings in the version's App folder, which every
+#            update replaces. An empty unins000.exe (all CopyQ looks for) keeps it on %APPDATA%\copyq; it is harmless in system
+#            mode, so the step runs in both modes.
+#   The portable variant is the package copyq-portable (no unins000.exe, config\ persisted).
+[[prepare]]
+write = { path = "unins000.exe", content = "" }
 
 [[shortcut]]
 name = "CopyQ"

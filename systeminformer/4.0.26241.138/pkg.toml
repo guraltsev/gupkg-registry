@@ -1,29 +1,15 @@
 format = 2
 description = "Free, open-source utility for monitoring system resources, processes, services, and network activity."
 project_url = "https://systeminformer.sourceforge.io/"
-modes = ["system", "user", "portable"]
+modes = ["system", "user"]
 
 [source]
 download_url = "https://github.com/winsiderss/systeminformer/releases/download/v4.0.26241.138/systeminformer-4.0.26241.138-bin.zip"
 sha256 = "3e12cc4f1ffa1cc34ab9202a9dfe410724cb8b68aaf2efa43c01d3705b27219e"
 sha256_from = "github-digest"
 
-[portable]
-persist = ["amd64/SystemInformer.exe.settings.xml"]
-
-[[portable.markers]]
-path = "amd64/SystemInformer.exe.settings.xml"
-content = ""
-
-[user]
-prepare = [
-    ["remove", "*/SystemInformer.exe.settings.xml"],
-]
-
-[system]
-prepare = [
-    ["remove", "*/SystemInformer.exe.settings.xml"],
-]
+[[prepare]]
+remove = ["*/SystemInformer.exe.settings.xml"]
 
 [[shortcut]]
 name = "Tools\\System Informer"

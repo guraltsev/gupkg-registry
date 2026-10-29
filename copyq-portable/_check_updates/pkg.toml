@@ -1,0 +1,35 @@
+format = 2
+description = "CopyQ is an advanced clipboard manager with editing and scripting features. (portable)"
+project_url = "https://hluk.github.io/CopyQ/"
+modes = ["portable"]
+
+# The GitHub asset digest is the checksum (found by the github provider).
+[track]
+provider = "github"
+repo = "hluk/CopyQ"
+asset = "copyq-${version}.zip"
+
+[source]
+download_url = "${asset_url}"
+strip = "auto"
+require = ["copyq.exe"]
+
+# CopyQ chooses its storage by itself (src/platform/win/winplatform.cpp, portableFolder()): when the folder of copyq.exe is
+# writable and holds no unins000.exe, it keeps its settings and logs beside the program, in config\ and logs\; otherwise it
+# uses %APPDATA%\copyq.
+#   This package is the portable variant: it creates no unins000.exe, so CopyQ keeps config\ in App, and config\ is kept in
+#   the package's data folder across updates (logs\ starts empty in each version).
+#   The non-portable variant is the package copyq (an empty unins000.exe keeps the settings on %APPDATA%\copyq).
+# UNVERIFIED upstream portable mechanism
+[portable]
+persist = ["config"]
+
+[[shortcut]]
+name = "CopyQ"
+target = "$App\\copyq.exe"
+description = "Clipboard manager"
+
+[[shim]]
+name = "copyq"
+target = "$App\\copyq.exe"
+type = "gui"

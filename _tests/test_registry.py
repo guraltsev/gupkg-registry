@@ -25,8 +25,8 @@ DIRECTORIES = [path.parent.relative_to(REGISTRY_ROOT).as_posix() for path in MAN
 
 
 def test_the_registry_is_not_empty() -> None:
-    """There are 79 packages, so a glob that silently finds nothing cannot make the checks below pass."""
-    assert len({path.split("/")[0] for path in DIRECTORIES}) == 79
+    """There are 95 packages, so a glob that silently finds nothing cannot make the checks below pass."""
+    assert len({path.split("/")[0] for path in DIRECTORIES}) == 95
 
 
 @pytest.mark.parametrize("directory", [pytest.param(path, id=path) for path in DIRECTORIES])
@@ -84,13 +84,13 @@ def test_git_stores_every_byte_unchanged() -> None:
 
 
 def test_every_portable_declaration_is_listed_as_unverified() -> None:
-    """A package with ``[portable]`` or ``[nonportable]`` appears in ``PORTABLE-UNVERIFIED.md`` until someone verifies it."""
+    """A package with a ``[portable]`` table appears in ``PORTABLE-UNVERIFIED.md`` until someone verifies it."""
     listed = (REGISTRY_ROOT / "PORTABLE-UNVERIFIED.md").read_text(encoding="utf-8")
     declared = [
         path.parent.parent.name
         for path in MANIFESTS
         if path.parent.name == "_check_updates"
-        and {"portable", "nonportable"} & set(tomllib.loads(path.read_text(encoding="utf-8")))
+        and {"portable"} & set(tomllib.loads(path.read_text(encoding="utf-8")))
     ]
     assert declared
     assert [name for name in declared if f"`{name}`" not in listed] == []
