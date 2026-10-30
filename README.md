@@ -97,8 +97,15 @@ Where the services cannot express exactly what a hook did, or a fix changed beha
 - **pidgin:** no `probe` is needed: the index walk backtracks to an older folder when the newest has no offline
   installer (the fixture has a newest folder with a source archive only).
 - **winscp:** the browser User-Agent and Accept headers are sent on both page fetches, as before.
-- **keypirinha, mogan, systeminformer:** the 0.17 hooks always deleted the portable marker or settings file; now
-  `[nonportable] remove` does it and the engine (gupkg issue 028) applies it outside portable mode.
+- **keypirinha, mogan, systeminformer:** the 0.17 hooks always deleted the portable marker or settings file; now a
+  `remove` step in the package's plain `[[prepare]]` list does it. The portable variants (`keypirinha-portable`,
+  `systeminformer-portable`) do not remove it.
+- **`<name>-portable` packages (gupkg 1.1):** a package is portable or not, never both. A tool that used to offer
+  both is two packages: `<name>` (`modes = ["system", "user"]`) and `<name>-portable` (`modes = ["portable"]`, with a
+  `[portable]` table that lists what is kept in `data\` between versions). A portable package installs in user mode
+  only. Both packages of a pair use the same shim and shortcut names, so gupkg refuses to install the second while the
+  first is installed. `_tools/convert_035.py` made the split once; it is kept for reference and changes nothing on a
+  second run.
 - **crystaldiskinfo, crystaldiskmark:** the redirect check no longer sends a browser User-Agent.
 - **msys2:** `config.default/configure_nsswitch.*` is kept as a support file; nothing runs it (no service edits a file
   in place). **GIMP:** the engine does not run `[source.installer]` yet.
