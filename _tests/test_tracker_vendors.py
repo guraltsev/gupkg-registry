@@ -11,7 +11,7 @@ Rules covered:
 - inkscape finds its version when the digest link is missing, dead or empty (the registry tool then computes the hash), uses the
   digest when there is one, takes a digest only as a whole 64-digit token, and still needs its download link;
 - emacs takes the digest from GNU's sums file when it lists the archive, and otherwise goes on without one;
-- pidgin falls back to an older folder when the newest has no offline installer;
+- pidgin falls back to an older folder when the newest has no offline installer, and stops at the newest when it has one;
 - 7-Zip reads the x64 announcement whatever order x86, ARM64 and x64 appear in and refuses a page that has none;
 - winscp sends its browser User-Agent and Accept header on both page fetches.
 
@@ -29,7 +29,7 @@ from gupkg.model.manifest import render_pinned
 from gupkg.services.track import TrackError, run_tracker
 from gupkg.system.fake import FakeHttp, FakeSystem
 
-from _tests.support import environment, serve, tracker_manifest
+from _tests.support import case_document, environment, serve, serve_pidgin_without_the_newest_installer, tracker_manifest
 
 
 def discover(system: FakeSystem, tmp_path: Path, package: str):
@@ -111,43 +111,61 @@ def test_shutter_encoder_fails_when_no_link_names_the_windows_build(system: Fake
 
 # -- inkscape: the digest is optional --------------------------------------------------------------------------
 
-DIGEST_PAGE = "https://inkscape.org/en/release/inkscape-1.4/windows/64-bit/compressed-7z/dl/"
-DIGEST_FILE = "https://media.inkscape.org/dl/resources/file/inkscape-1.4_2024-10-11_86a8ad7-x64.7z.sha256"
-ARCHIVE_LINK = '<a href="/gallery/item/53697/inkscape-1.4_2024-10-11_86a8ad7-x64.7z">Download</a>'
+def inkscape_case() -> dict:
+    """Return what the recorded inkscape answers say: ``version``, ``download_url``, the archive ``path``, and the digest file's address and digest."""
+    document = case_document("chain_inkscape")
+    expected = document["expected"]
+    responses = {entry["url"]: entry for entry in document["responses"] if entry["status"] == 200}
+    page = next(url for url in responses if url.endswith("/compressed-7z/dl/"))  # the page that links the archive and its digest file
+    digest_file = next(url for url in responses if url.endswith(".sha256"))
+    digest = responses[digest_file]["body"].split()[0]
+    assert len(digest) == 64 and expected["download_url"].startswith("https://inkscape.org/")
+    return {
+        "version": expected["version"],
+        "download_url": expected["download_url"],
+        "path": expected["download_url"].removeprefix("https://inkscape.org"),
+        "page": page,
+        "digest_file": digest_file,
+        "digest": digest,
+    }
 
 
 def inkscape_system(system: FakeSystem, *, page: str | None = None, digest: FakeHttp | None = None) -> FakeSystem:
-    """Make *system* serve the inkscape case, with the download page and the digest file optionally replaced."""
+    """Make *system* serve the recorded inkscape answers, with the download page and the digest file optionally replaced."""
     serve(system, "chain_inkscape")
+    case = inkscape_case()
     if page is not None:
-        system.urls[DIGEST_PAGE] = FakeHttp(page)
+        system.urls[case["page"]] = FakeHttp(page)
     if digest is not None:
-        system.urls[DIGEST_FILE] = digest
+        system.urls[case["digest_file"]] = digest
     return system
 
 
 def test_inkscape_uses_the_published_digest_when_there_is_one(system: FakeSystem, tmp_path: Path) -> None:
-    """With the digest link and file, the checksum is the vendor's."""
+    """With the digest link and file, the checksum is the 64-digit digest the vendor's file holds."""
     _result, pinned = discover(inkscape_system(system), tmp_path, "inkscape")
 
-    assert pinned.source.sha256 == "f9593190b7ed8fef57675e3a2d29f4d490612544bbc31de02ce784e6817b4c0c"
+    assert pinned.source.sha256 == inkscape_case()["digest"]
     assert pinned.source.sha256_from == "vendor-sums"
 
 
 @pytest.mark.parametrize(
     ("page", "digest"),
     [
-        pytest.param(ARCHIVE_LINK, None, id="no-digest-link"),
+        pytest.param("archive-link-only", None, id="no-digest-link"),
         pytest.param(None, FakeHttp("", 404), id="dead-digest-file"),
         pytest.param(None, FakeHttp("sorry, not available"), id="digest-file-without-a-digest"),
     ],
 )
 def test_inkscape_is_still_found_without_a_usable_digest(system: FakeSystem, tmp_path: Path, page: str | None, digest: FakeHttp | None) -> None:
     """A missing, dead or empty digest costs only the checksum: the version and the download are found, and no hash is invented."""
+    case = inkscape_case()
+    if page == "archive-link-only":
+        page = f'<a href="{case["path"]}">Download</a>'
     result, pinned = discover(inkscape_system(system, page=page, digest=digest), tmp_path, "inkscape")
 
-    assert result.version == "1.4"
-    assert pinned.source.download_url == "https://inkscape.org/gallery/item/53697/inkscape-1.4_2024-10-11_86a8ad7-x64.7z"
+    assert result.version == case["version"]
+    assert pinned.source.download_url == case["download_url"]
     assert pinned.source.sha256 is None and pinned.source.sha256_from is None
 
 
@@ -168,44 +186,70 @@ def test_inkscape_still_needs_its_download_link(system: FakeSystem, tmp_path: Pa
 
 # -- emacs: the sums file when GNU publishes one -----------------------------------------------------------------
 
-SUMS = "https://ftp.gnu.org/gnu/emacs/windows/emacs-30/emacs-30.2-sha256sums.txt"
+def emacs_case() -> tuple[str, str]:
+    """Return ``(version, address of its sums file)`` as the recorded emacs answers have them (GNU answered 404 for that file)."""
+    document = case_document("index_emacs")
+    sums = next(entry["url"] for entry in document["responses"] if entry["url"].endswith("-sha256sums.txt"))
+    return document["expected"]["version"], sums
 
 
 def test_emacs_takes_the_digest_from_gnus_sums_file(system: FakeSystem, tmp_path: Path) -> None:
-    """The listed archive's digest is the checksum, from the vendor's sums file."""
-    _result, pinned = discover(serve(system, "index_emacs"), tmp_path, "emacs")
+    """The listed archive's digest is the checksum, from the vendor's sums file (GNU's recorded answer for it is a 404, so the file is made up here)."""
+    version, sums = emacs_case()
+    serve(system, "index_emacs")
+    lines = [f"{'a' * 64}  emacs-{version}-nodeps-UCRT64.zip", f"{'5e' * 32}  emacs-{version}-UCRT64.zip"]
+    system.urls[sums] = FakeHttp("\n".join(lines) + "\n")
 
-    assert pinned.source.sha256 == "5e1b3c8d9a7f4e2b6c0d1a8f3e7b9c4d2a6f0e8b1c3d5a7f9e2b4c6d8a0f1e3b"
+    _result, pinned = discover(system, tmp_path, "emacs")
+
+    assert pinned.source.sha256 == "5e" * 32
     assert pinned.source.sha256_from == "vendor-sums"
 
 
-@pytest.mark.parametrize(
-    "sums",
-    [pytest.param(FakeHttp("", 404), id="no-sums-file"), pytest.param(FakeHttp(f"{'a' * 64}  emacs-30.2-no-deps.zip\n"), id="archive-not-listed")],
-)
-def test_emacs_goes_on_without_a_digest_when_gnu_publishes_none(system: FakeSystem, tmp_path: Path, sums: FakeHttp) -> None:
-    """A missing sums file or an unlisted archive leaves the version found and the checksum for the registry tool to compute."""
+@pytest.mark.parametrize("sums", ["no-sums-file", "archive-not-listed"])
+def test_emacs_goes_on_without_a_digest_when_gnu_publishes_none(system: FakeSystem, tmp_path: Path, sums: str) -> None:
+    """A missing sums file (as recorded) or an unlisted archive leaves the version found and the checksum for the registry tool to compute."""
+    version, sums_address = emacs_case()
     serve(system, "index_emacs")
-    system.urls[SUMS] = sums
+    if sums == "no-sums-file":
+        system.urls[sums_address] = FakeHttp("", 404)
+    else:
+        system.urls[sums_address] = FakeHttp(f"{'a' * 64}  emacs-{version}-nodeps-UCRT64.zip\n")
 
     result, pinned = discover(system, tmp_path, "emacs")
 
-    assert result.version == "30.2" and pinned.source.sha256 is None
+    assert result.version == version and pinned.source.sha256 is None
 
 
 # -- pidgin: older folders ----------------------------------------------------------------------------------------
 
 
 def test_pidgin_falls_back_to_the_newest_folder_that_has_the_offline_installer(system: FakeSystem, tmp_path: Path) -> None:
-    """2.14.14 has only a source archive, so the walk looks into it and then settles on 2.14.13."""
-    serve(system, "index_pidgin")
+    """When the newest folder has only a source archive, the walk looks into it and then settles on the folder before it.
+
+    The recorded folder of the newest version has its installer; the test serves that page without it (see
+    ``serve_pidgin_without_the_newest_installer``).
+    """
+    newest, previous = serve_pidgin_without_the_newest_installer(system)
 
     result, pinned = discover(system, tmp_path, "pidgin")
 
-    assert result.version == "2.14.13"
-    assert pinned.source.download_url.endswith("/2.14.13/pidgin-2.14.13-offline.exe/download")
+    assert result.version == previous
+    assert pinned.source.download_url.endswith(f"/{previous}/pidgin-{previous}-offline.exe/download")
     asked = requests(system)
-    assert any(url.endswith("/Pidgin/2.14.14/") for url in asked) and any(url.endswith("/Pidgin/2.14.13/") for url in asked)
+    assert any(url.endswith(f"/Pidgin/{newest}/") for url in asked) and any(url.endswith(f"/Pidgin/{previous}/") for url in asked)
+
+
+def test_pidgin_takes_the_newest_folder_when_it_has_the_offline_installer(system: FakeSystem, tmp_path: Path) -> None:
+    """With the recorded answers the newest folder has the installer, so no older folder is visited."""
+    serve(system, "index_pidgin")
+    expected = case_document("index_pidgin")["expected"]
+
+    result, pinned = discover(system, tmp_path, "pidgin")
+
+    assert result.version == expected["version"] and pinned.source.download_url == expected["download_url"]
+    root = "https://sourceforge.net/projects/pidgin/files/Pidgin/"
+    assert requests(system) == [root, f"{root}{expected['version']}/"]
 
 
 # -- 7-Zip: the x64 announcement ---------------------------------------------------------------------------------

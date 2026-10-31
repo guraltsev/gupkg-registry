@@ -132,3 +132,29 @@ def scripted_git(call: ProcessCall) -> ProcessResult:
         (call.cwd / ".git").mkdir()
         (call.cwd / ".git" / "HEAD").write_text("ref", encoding="utf-8")
     return ProcessResult(0)
+
+
+# -- a vendor page that changed: recorded answers with one change ------------------------------------------------
+
+
+def case_document(name: str) -> dict[str, Any]:
+    """Return the parsed fixture case *name* (its ``expected`` block and its recorded ``responses``)."""
+    return json.loads((HTTP_CASES / f"{name}.json").read_text(encoding="utf-8"))
+
+
+def serve_pidgin_without_the_newest_installer(system: FakeSystem) -> tuple[str, str]:
+    """Serve pidgin's recorded answers changed so that the newest folder lacks the offline installer; return ``(newest, previous)`` versions.
+
+    The recorded listing's newest folder (``expected.version``) has the installer, so its page is served with the installer named
+    as a source archive instead, and the page of the version before it (the recorded folder page with the version swapped) has it.
+    """
+    serve(system, "index_pidgin")
+    root = "https://sourceforge.net/projects/pidgin/files/Pidgin/"
+    newest = case_document("index_pidgin")["expected"]["version"]
+    major, minor, patch = newest.rsplit(".", 2)
+    previous = f"{major}.{minor}.{int(patch) - 1}"
+    page = system.urls[f"{root}{newest}/"].body
+    assert f"pidgin-{newest}-offline.exe" in page and f"/Pidgin/{previous}/" in system.urls[root].body
+    system.urls[f"{root}{newest}/"] = FakeHttp(page.replace("-offline.exe", ".tar.bz2"))
+    system.urls[f"{root}{previous}/"] = FakeHttp(page.replace(newest, previous))
+    return newest, previous
