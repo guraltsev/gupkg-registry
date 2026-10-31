@@ -56,10 +56,14 @@ def test_the_workflow_runs_every_check_the_issue_requires() -> None:
         assert command in WORKFLOW
 
 
-def test_the_workflow_runs_no_test_of_gupkg_and_tells_each_check_where_gupkgs_code_is() -> None:
-    """The tests all live in this repository; the gupkg checkout supplies code only, and the three steps that need it get `GUPKG_REPO`."""
+def test_the_workflow_runs_no_test_of_gupkg_and_tells_each_step_that_runs_gupkg_code_where_it_is() -> None:
+    """The tests all live in this repository; the gupkg checkout supplies code only, and every step that runs Python from this repository gets `GUPKG_REPO`."""
     assert "gupkg/tests" not in WORKFLOW
-    assert WORKFLOW.count("GUPKG_REPO: ${{ github.workspace }}/gupkg") == 3
+    steps = re.split(r"(?m)^      - name: ", WORKFLOW)[1:]
+    running_gupkg_code = [step for step in steps if re.search(r"(?m)^        run: python (_tools/|-m pytest)", step)]
+
+    assert len(running_gupkg_code) >= 3
+    assert [step.splitlines()[0] for step in running_gupkg_code if "GUPKG_REPO: ${{ github.workspace }}/gupkg" not in step] == []
 
 
 def _run_blocks() -> list[str]:

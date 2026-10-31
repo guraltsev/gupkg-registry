@@ -1,4 +1,4 @@
-"""Cover that ten packages, expressed with no hook, turn the vendor's archive into the folder the package promises (`App`).
+"""Cover that the packages listed in this module, expressed with no hook, turn the vendor's archive into the folder the package promises (`App`).
 
 For each package the tracker finds its version in the recorded responses, the pinned version is rendered, and an archive built with the
 vendor's inner layout is unpacked and prepared by gupkg's real services (unpack, `[[prepare]]` steps) into an `App` folder. Rules covered:
@@ -9,9 +9,9 @@ vendor's inner layout is unpacked and prepared by gupkg's real services (unpack,
 - nothing but `App` is left in the staging folder.
 
 Real: the registry's trackers and pinned versions, gupkg's HTTP client, unpack and prepare services, the 7-Zip bundled with gupkg.
-Replaced: the network. Two packages (obsidian and pidgin) ship NSIS installers that cannot be built offline, so their archive is a
+Replaced: the network. Two of them (obsidian and pidgin) ship NSIS installers that cannot be built offline, so their archive is a
 zip with the same inner layout and the manifest's kind is overridden to `zip`. Out of scope: verifying the artifact's checksum, the
-other 82 packages (no archive of their layout is modelled yet), and NSIS decoding (a manual check in gupkg).
+packages not listed here (no archive of their layout is modelled yet), and NSIS decoding (a manual check in gupkg).
 """
 
 from __future__ import annotations
