@@ -36,9 +36,10 @@ or a `gupkg` folder inside this checkout).
 | Script | What it does |
 |---|---|
 | `_scripts\validate.cmd` | The package checker (`gupkg pkg check`'s library) on every tracker and version, then the registry rules. What CI runs. |
-| `_scripts\test.cmd` | The registry tests (`_tests`). Needs pytest. |
+| `_scripts\test.cmd` | The registry tests (`_tests`): every package against the checker, every tracker against the vendor responses of `_tests/fixtures/http`. Needs pytest. |
 | `_scripts\registry-tool.cmd update [PACKAGE ...] [--sandbox DIR] [--auto-push]` | Runs the trackers and writes new `<name>/<version>/` directories with `sha256` and fingerprint. **Network required.** Commits nothing unless `--auto-push`. |
 | `_scripts\registry-tool.cmd pin NAME/VERSION` | Gives an existing version that has no hash its first one. |
+| `python _tools\record_http_fixtures.py [--case NAME] [--dry-run]` | Re-records the vendor responses of `_tests/fixtures/http/<case>.json` by running the live tracker against the real site. **Network required.** Review the diff: a changed `expected` block is a vendor change. |
 
 The tests and `_tools/pkg_check.py` validate through gupkg's public checker: `_tools/pkg_check.py`
 calls `gupkg.pkgcheck.check_directory`, the library behind `gupkg pkg check`. When the unified CLI
@@ -77,7 +78,7 @@ registry keeps the directory anyway (deletion is a maintainer action) and lists 
 `unversioned` in `_registry.toml`; the tool prints `[UNVERSIONED]` for them. To keep an old build installable,
 host the file yourself and change that version's `download_url` and `sha256` by hand.
 
-`autoruns`, `dontsleep`, `ffmpeg`, `processexplorer`, `shutter-encoder`, `xnviewmp`.
+`autoruns`, `dontsleep`, `ffmpeg`, `processexplorer`, `serviwin`, `serviwin-portable`, `shutter-encoder`, `xnviewmp`.
 
 ## Known differences from the 0.17 hooks
 
@@ -118,7 +119,8 @@ Where the services cannot express exactly what a hook did, or a fix changed beha
 ## CI
 
 `validate.yml` runs on `windows-latest` with a read-only token and no secret, for pushes to `main`, pull requests and
-by hand (`gupkg_ref` chooses the gupkg branch, default `main`). The two actions are pinned by full version tag
+by hand (`gupkg_ref` chooses the gupkg branch, default `main`). It checks gupkg out only for its code (the package
+checker, the registry tool and the services the tracker tests run); every test it runs is in `_tests`. The two actions are pinned by full version tag
 (`actions/checkout@v4.2.2`, `actions/setup-python@v5.6.0`). Replace each by the commit SHA of that tag before relying
 on the workflow for more than checks (look the SHAs up on GitHub; they could not be verified offline).
 
@@ -126,5 +128,5 @@ on the workflow for more than checks (look the SHAs up on GitHub; they could not
 
 - Every package installing on a clean Windows runner under the strict CLI default.
 - The portable mechanism of each package: see `PORTABLE-UNVERIFIED.md`.
-- The vendor pages behind each tracker: the HTTP fixtures in the gupkg repository are synthetic
-  (`recorded: null`) until `tools/record_http_fixtures.py` records them.
+- The vendor pages behind each tracker: the HTTP fixtures in `_tests/fixtures/http` are synthetic
+  (`recorded: null`) until `_tools/record_http_fixtures.py` records them.

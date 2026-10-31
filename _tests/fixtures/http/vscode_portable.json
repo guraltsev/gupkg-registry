@@ -1,0 +1,24 @@
+{
+ "case": "vscode_portable",
+ "tracker": "vscode-portable",
+ "provider": "json ($[0])",
+ "recorded": null,
+ "origin": "synthetic fixture modelled on the live tracker's pattern (vscode-portable/_check_updates/pkg.toml); marked recorded: null; to be re-recorded by _tools/record_http_fixtures.py",
+ "expected": {
+  "version": "1.94.2",
+  "download_url": "https://update.code.visualstudio.com/1.94.2/win32-x64-archive/stable",
+  "sha256": null,
+  "sha256_from": null
+ },
+ "responses": [
+  {
+   "url": "https://update.code.visualstudio.com/api/releases/stable",
+   "method": "GET",
+   "status": 200,
+   "headers": {
+    "Content-Type": "application/json"
+   },
+   "body": "[\"1.94.2\", \"1.94.1\", \"1.94.0\", \"1.93.1\", \"1.93.0\"]"
+  }
+ ]
+}

@@ -1,0 +1,24 @@
+{
+ "case": "page_restartexplorer",
+ "tracker": "restartexplorer",
+ "provider": "page (version in the page title)",
+ "recorded": null,
+ "origin": "synthetic fixture modelled on the live tracker's pattern (restartexplorer/_check_updates/pkg.toml); marked recorded: null; to be re-recorded by _tools/record_http_fixtures.py",
+ "expected": {
+  "version": "1.7",
+  "download_url": "https://www.sordum.org/files/download/restart-explorer/Rexplorer_v1.7.zip",
+  "sha256": null,
+  "sha256_from": null
+ },
+ "responses": [
+  {
+   "url": "https://www.sordum.org/restart-explorer",
+   "method": "GET",
+   "status": 200,
+   "headers": {
+    "Content-Type": "text/html"
+   },
+   "body": "<html><head><title>Restart Explorer v1.7 - Sordum</title></head><body><h1>Restart Explorer v1.7</h1><p>Older: Restart Explorer v1.6</p></body></html>"
+  }
+ ]
+}

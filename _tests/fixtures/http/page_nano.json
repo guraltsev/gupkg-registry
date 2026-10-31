@@ -1,0 +1,24 @@
+{
+ "case": "page_nano",
+ "tracker": "nano",
+ "provider": "page (newest x64 build in a directory listing)",
+ "recorded": null,
+ "origin": "synthetic fixture modelled on the live tracker's pattern (nano/_check_updates/pkg.toml); marked recorded: null; to be re-recorded by _tools/record_http_fixtures.py",
+ "expected": {
+  "version": "8.4",
+  "download_url": "https://www.nano-editor.org/dist/windows/nano-v8.4-x64.exe",
+  "sha256": null,
+  "sha256_from": null
+ },
+ "responses": [
+  {
+   "url": "https://www.nano-editor.org/dist/windows/",
+   "method": "GET",
+   "status": 200,
+   "headers": {
+    "Content-Type": "text/html"
+   },
+   "body": "<html><body><pre>\n<a href=\"nano-v8.3-x64.exe\">nano-v8.3-x64.exe</a>\n<a href=\"nano-v8.4-ia32.exe\">nano-v8.4-ia32.exe</a>\n<a href=\"nano-v8.4-x64.exe\">nano-v8.4-x64.exe</a>\n<a href=\"nano-v8.2-x64.exe\">nano-v8.2-x64.exe</a>\n</pre></body></html>"
+  }
+ ]
+}

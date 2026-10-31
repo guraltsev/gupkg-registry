@@ -12,7 +12,7 @@ on:
   workflow_dispatch:
     inputs:
       gupkg_ref:
-        description: "Branch, tag or commit of guraltsev/gupkg that provides the checker, the registry tool and the tracker fixtures"
+        description: "Branch, tag or commit of guraltsev/gupkg that provides the checker, the registry tool and the services the tests run"
         required: false
         default: main
 
@@ -29,7 +29,7 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Check out gupkg (the package checker, the registry tool and the tracker fixtures)
+      - name: Check out gupkg (the package checker, the registry tool and the services the tests run)
         id: gupkg
         continue-on-error: true
         uses: actions/checkout@v4.2.2
@@ -68,12 +68,7 @@ jobs:
         env:
           GUPKG_REPO: ${{ github.workspace }}/gupkg
 
-      - name: Registry tests
+      - name: Registry tests (the packages, and every tracker against its recorded vendor responses)
         run: python -m pytest -q _tests
         env:
           GUPKG_REPO: ${{ github.workspace }}/gupkg
-
-      - name: Tracker fixtures (every tracker of this registry against the vendor responses)
-        run: python -m pytest -q -c gupkg/pytest.ini --rootdir gupkg gupkg/tests/test_track_providers.py gupkg/tests/test_registry_expressible.py gupkg/tests/test_registry_trackers.py gupkg/tests/test_registry_semantics.py
-        env:
-          GUPKG_REGISTRY_TRACKERS: ${{ github.workspace }}

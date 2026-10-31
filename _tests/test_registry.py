@@ -6,7 +6,7 @@ checker (``gupkg pkg check``'s library, run through ``_tools/pkg_check.py``); th
 ``ignore_checksum``; ``.gitattributes`` stores every byte unchanged; every portable declaration is
 listed in ``PORTABLE-UNVERIFIED.md``; at most 13 hook files remain.
 Real: this repository's packages and the two scripts, run as child processes. Out of scope:
-downloading anything (the tracker fixtures run in the gupkg repository and in the CI job).
+downloading anything (the trackers run against recorded responses in ``test_trackers.py``).
 """
 
 from __future__ import annotations

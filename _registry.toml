@@ -10,6 +10,7 @@ unversioned = [
     "ffmpeg",
     "processexplorer",
     "serviwin",
+    "serviwin-portable",
     "shutter-encoder",
     "xnviewmp",
 ]
