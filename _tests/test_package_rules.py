@@ -29,6 +29,12 @@ from _tests.conftest import REGISTRY_ROOT
 from _tests.support import PACKAGES, tracker_data
 
 PATTERN_KEYS = {"match", "asset_pattern", "tag_pattern", "page_match"}
+PORTABLE_ONLY = (
+    "SumatraPDF-portable", "copyq-portable", "crystaldiskinfo-portable", "crystaldiskmark-portable", "hwinfo-portable",
+    "keepassxc-portable", "keypirinha-portable", "notepadplusplus-portable", "obsstudio-portable", "rufus-portable",
+    "serviwin-portable", "sqlitebrowser", "systeminformer-portable", "tixati", "vscode-portable", "winmerge-portable",
+    "winscp-portable",
+)
 SPECIAL_PACKAGES = ["qbittorrent", "zotero", "msys2", "gimp", "nano"]
 
 
@@ -39,13 +45,19 @@ def test_every_package_has_a_tracker() -> None:
     assert folders == PACKAGES
 
 
-def test_a_package_is_portable_exactly_when_it_has_a_portable_table_and_then_only_portable() -> None:
-    """`modes = ["portable"]` and a `[portable]` table (how the package enters portable mode) go together, and a portable package lists no other mode."""
+def test_the_portable_only_packages_are_exactly_the_ones_named_here_and_each_says_so() -> None:
+    """Only the packages named in `PORTABLE_ONLY` list `portable` in their modes or carry a `[portable]` table, and each lists no other mode.
+
+    A package that is only offered as a portable copy (tixati, SumatraPDF-portable, sqlitebrowser, and the `-portable` twins of
+    the ordinary packages) declares `modes = ["portable"]` and a `[portable]` table saying how it enters portable mode. Turning one
+    into an ordinary package, or making another package portable-only, is an explicit edit of `PORTABLE_ONLY`.
+    """
     claimed = sorted(name for name in PACKAGES if "portable" in tracker_data(name)["modes"])
     tabled = sorted(name for name in PACKAGES if "portable" in tracker_data(name))
 
-    assert claimed == tabled and claimed
-    assert [name for name in claimed if tracker_data(name)["modes"] != ["portable"]] == []
+    assert claimed == tabled == sorted(PORTABLE_ONLY)
+    assert {name: tracker_data(name)["modes"] for name in PORTABLE_ONLY} == {name: ["portable"] for name in PORTABLE_ONLY}
+    assert all(tracker_data(name)["portable"] for name in PORTABLE_ONLY)
 
 
 def test_qbittorrent_has_no_template_leftovers_and_no_forward_slash() -> None:
