@@ -114,7 +114,8 @@ def test_a_tracker_sends_its_own_headers_on_the_request_for_the_page(system: Fak
     run_tracker(tracker_manifest(document["tracker"]), environment(system, tmp_path, package=document["tracker"]))
 
     sent = {name.lower(): value for name, value in system.request_log[0].headers.items()}
-    assert wanted and all(sent[name.lower()] == value for name, value in wanted.items())
+    assert wanted
+    assert {name: sent.get(name.lower()) for name in wanted} == wanted
 
 
 @pytest.mark.parametrize("case", [pytest.param(path, id=path.stem) for path in CASES])
