@@ -17,7 +17,7 @@ from pathlib import Path
 
 import pytest
 
-from _tests.support import HTTP_CASES, FakeHttp, FakeSystem, load_case
+from _tests.support import HTTP_CASES, FakeHttp, FakeSystem, serve_pidgin_without_the_newest_installer
 from _tools import record_http_fixtures
 
 
@@ -45,23 +45,20 @@ def test_recording_rewrites_the_responses_and_the_expected_block(system: FakeSys
 
 
 def test_an_index_walk_is_recorded_page_by_page_and_unvisited_pages_are_dropped(system: FakeSystem, tmp_path: Path) -> None:
-    """Re-recording pidgin records the root listing and the two folders the walk visits, and drops a stale extra URL."""
+    """Re-recording pidgin records the root listing and the two folders the walk visits (the newest has no installer), and drops a stale extra URL."""
     case = copy_case(tmp_path, "index_pidgin")
     document = json.loads(case.read_text(encoding="utf-8"))
     document["responses"].append({"url": "https://example.org/stale", "method": "GET", "status": 200, "headers": {}, "body": "old"})
     case.write_text(json.dumps(document), encoding="utf-8")
-    system.urls.update(load_case("index_pidgin"))
+    newest, previous = serve_pidgin_without_the_newest_installer(system)
 
     record_http_fixtures.record_case(case, system)
 
     recorded = json.loads(case.read_text(encoding="utf-8"))
     urls = [entry["url"] for entry in recorded["responses"]]
-    assert urls == [
-        "https://sourceforge.net/projects/pidgin/files/Pidgin/",
-        "https://sourceforge.net/projects/pidgin/files/Pidgin/2.14.14/",
-        "https://sourceforge.net/projects/pidgin/files/Pidgin/2.14.13/",
-    ]
-    assert recorded["expected"]["version"] == "2.14.13"
+    root = "https://sourceforge.net/projects/pidgin/files/Pidgin/"
+    assert urls == [root, f"{root}{newest}/", f"{root}{previous}/"]
+    assert recorded["expected"]["version"] == previous
 
 
 def test_a_failing_run_leaves_the_case_file_untouched(system: FakeSystem, tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
