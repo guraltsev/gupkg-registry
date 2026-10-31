@@ -6,8 +6,8 @@
  "origin": "synthetic fixture modelled on the registry hook's regular expressions (the 0.17 github check); marked recorded: null; to be re-recorded by tools/record_http_fixtures.py",
  "expected": {
   "version": "2.0.19",
-  "download_url": "https://github.com/AutoHotkey/AutoHotkey/releases/download/v2.0.19/AutoHotkey_2.0.19.zip",
-  "sha256": "ad48a0aac904cf38d516ee343cc31970d8a0df09c48964f8e64deb338f862ad2",
+  "download_url": "https://github.com/AutoHotkey/AutoHotkey/releases/download/v2.0.19/AutoHotkey_2.0.19_setup.exe",
+  "sha256": "78280ab2218cd07e3f0f47c5da0f7ec03d15ad4e810cfd4801d43d042a912aef",
   "sha256_from": "github-digest"
  },
  "responses": [
