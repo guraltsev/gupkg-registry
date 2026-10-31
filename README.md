@@ -77,7 +77,7 @@ registry keeps the directory anyway (deletion is a maintainer action) and lists 
 `unversioned` in `_registry.toml`; the tool prints `[UNVERSIONED]` for them. To keep an old build installable,
 host the file yourself and change that version's `download_url` and `sha256` by hand.
 
-`autoruns`, `dontsleep`, `ffmpeg`, `processexplorer`, `shutter-encoder`, `xnviewmp`.
+`autoruns`, `dontsleep`, `ffmpeg`, `processexplorer`, `serviwin`, `serviwin-portable`, `shutter-encoder`, `xnviewmp`.
 
 ## Known differences from the 0.17 hooks
 
