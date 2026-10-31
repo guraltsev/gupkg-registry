@@ -10,7 +10,8 @@ Rules covered:
 - every tracker but the Git ones has a case, and every case belongs to a package of this registry;
 - a tracker finds the version and download address its case expects, and the discovered checksum, if the vendor gives one;
 - the pinned version it renders passes the package checker, so a tracker cannot write a version that is invalid;
-- a tracker that declares headers (``[track.headers]``) sends them on its request;
+- a tracker that declares headers (``[track.headers]``) sends them on its request, and the headers of its ``[source.headers]`` are
+  kept in the pinned version;
 - a tracker finds nothing, and says so, in a page that is not the vendor's: it never invents a version;
 - the three Git trackers pin the full commit they found;
 - ``unversioned`` in ``_registry.toml`` lists exactly the packages whose download address holds no version.
@@ -116,6 +117,27 @@ def test_a_tracker_sends_its_own_headers_on_the_request_for_the_page(system: Fak
     sent = {name.lower(): value for name, value in system.request_log[0].headers.items()}
     assert wanted
     assert {name: sent.get(name.lower()) for name in wanted} == wanted
+
+
+SOURCE_HEADER_CASES = [
+    pytest.param(case, id=case.stem)
+    for case in CASES
+    if "headers" in tracker_data(read_case(case)["tracker"]).get("source", {})
+]
+
+
+@pytest.mark.parametrize("case", SOURCE_HEADER_CASES)
+def test_the_pinned_version_keeps_the_headers_the_download_needs(system: FakeSystem, tmp_path: Path, case: Path) -> None:
+    """The `[source.headers]` of a tracker (for example a Referer a site demands) are written into the pinned version, so the download sends them."""
+    document = read_case(case)
+    wanted = tracker_data(document["tracker"])["source"]["headers"]
+    serve(system, case.stem)
+    manifest = tracker_manifest(document["tracker"])
+
+    result = run_tracker(manifest, environment(system, tmp_path, package=document["tracker"]))
+
+    assert wanted
+    assert dict(render_pinned(manifest, result).source.headers) == wanted
 
 
 @pytest.mark.parametrize("case", [pytest.param(path, id=path.stem) for path in CASES])
