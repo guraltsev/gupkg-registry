@@ -3,7 +3,7 @@
 Behavior covered: ``.github/workflows/validate.yml`` runs on ``windows-latest``, grants only
 ``contents: read``, uses no secret, never checks out with stored credentials, uses no
 ``pull_request_target`` trigger, never commits or pushes, and runs the package checker, the registry
-rules and the tracker fixtures.
+rules and the registry's own tests (which include the tracker tests) with gupkg's code taken from ``GUPKG_REPO``.
 Real: the workflow file, read as text (no YAML library is needed or assumed). Out of scope: running
 it on GitHub.
 """
@@ -51,9 +51,15 @@ def test_every_checkout_drops_its_credentials() -> None:
 
 
 def test_the_workflow_runs_every_check_the_issue_requires() -> None:
-    """Package checker over all packages, the registry rules, the registry tests and the tracker fixtures all run."""
-    for command in ("_tools/pkg_check.py --all", "_tools/registry_tool.py validate", "pytest -q _tests", "test_track_providers.py"):
+    """Package checker over all packages, the registry rules and the registry tests (which include the trackers) all run."""
+    for command in ("_tools/pkg_check.py --all", "_tools/registry_tool.py validate", "pytest -q _tests"):
         assert command in WORKFLOW
+
+
+def test_the_workflow_runs_no_test_of_gupkg_and_tells_each_check_where_gupkgs_code_is() -> None:
+    """The tests all live in this repository; the gupkg checkout supplies code only, and the three steps that need it get `GUPKG_REPO`."""
+    assert "gupkg/tests" not in WORKFLOW
+    assert WORKFLOW.count("GUPKG_REPO: ${{ github.workspace }}/gupkg") == 3
 
 
 def _run_blocks() -> list[str]:
