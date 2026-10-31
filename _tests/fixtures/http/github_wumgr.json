@@ -3,7 +3,7 @@
  "tracker": "wumgr",
  "provider": "github latest, asset pattern (tag v1.1, asset WuMgr_v1.1b.zip)",
  "recorded": null,
- "origin": "synthetic fixture modelled on the registry hook's regular expressions (gupkg-registry/wumgr/_bootstrap/pkg.local/check_update.py); marked recorded: null; to be re-recorded by _tools/record_http_fixtures.py",
+ "origin": "synthetic fixture modelled on the vendor's responses as the tracker reads them; marked recorded: null; to be re-recorded by _tools/record_http_fixtures.py",
  "expected": {
   "version": "1.1",
   "download_url": "https://github.com/o/r/releases/download/v1.1/WuMgr_v1.1b.zip",

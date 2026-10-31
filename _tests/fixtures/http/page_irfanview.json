@@ -3,7 +3,7 @@
  "tracker": "irfanview",
  "provider": "page (three digits turned into major.minor)",
  "recorded": null,
- "origin": "synthetic fixture modelled on the registry hook's regular expressions (gupkg-registry/irfanview/_bootstrap/pkg.local/check_update.py); marked recorded: null; to be re-recorded by _tools/record_http_fixtures.py",
+ "origin": "synthetic fixture modelled on the vendor's responses as the tracker reads them; marked recorded: null; to be re-recorded by _tools/record_http_fixtures.py",
  "expected": {
   "version": "4.72",
   "download_url": "https://www.irfanview.info/files/iview472_x64.zip",

@@ -3,7 +3,7 @@
  "tracker": "lockhunter",
  "provider": "page (download template with filter)",
  "recorded": null,
- "origin": "synthetic fixture modelled on the registry hook's regular expressions (gupkg-registry/lockhunter/_bootstrap/pkg.local/check_update.py); marked recorded: null; to be re-recorded by _tools/record_http_fixtures.py",
+ "origin": "synthetic fixture modelled on the vendor's responses as the tracker reads them; marked recorded: null; to be re-recorded by _tools/record_http_fixtures.py",
  "expected": {
   "version": "3.4.3",
   "download_url": "https://lockhunter.com/assets/exe/lockhuntersetup_portable_3-4-3.zip",

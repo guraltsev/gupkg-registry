@@ -3,7 +3,7 @@
  "tracker": "shutter-encoder",
  "provider": "chain (version from a response header; tries each link of the page)",
  "recorded": null,
- "origin": "synthetic fixture modelled on the registry hook's regular expressions (gupkg-registry/shutter-encoder/_bootstrap/pkg.local/check_update.py); marked recorded: null; to be re-recorded by _tools/record_http_fixtures.py",
+ "origin": "synthetic fixture modelled on the vendor's responses as the tracker reads them; marked recorded: null; to be re-recorded by _tools/record_http_fixtures.py",
  "expected": {
   "version": "18.4",
   "download_url": "https://www.shutterencoder.com/sdc_download/1234/?key=abcDEF123",

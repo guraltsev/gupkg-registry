@@ -3,7 +3,7 @@
  "tracker": "graphviz",
  "provider": "page (backreference, max)",
  "recorded": null,
- "origin": "synthetic fixture modelled on the registry hook's regular expressions (gupkg-registry/graphviz/_bootstrap/pkg.local/check_update.py); marked recorded: null; to be re-recorded by _tools/record_http_fixtures.py",
+ "origin": "synthetic fixture modelled on the vendor's responses as the tracker reads them; marked recorded: null; to be re-recorded by _tools/record_http_fixtures.py",
  "expected": {
   "version": "12.1.2",
   "download_url": "https://gitlab.com/api/v4/projects/4207231/packages/generic/graphviz-releases/12.1.2/windows_10_cmake_Release_Graphviz-12.1.2-win64.zip",

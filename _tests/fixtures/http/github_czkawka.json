@@ -3,7 +3,7 @@
  "tracker": "czkawka",
  "provider": "github latest, exact asset",
  "recorded": null,
- "origin": "synthetic fixture modelled on the registry hook's regular expressions (the 0.17 github check); marked recorded: null; to be re-recorded by _tools/record_http_fixtures.py",
+ "origin": "synthetic fixture modelled on the vendor's responses as the tracker reads them; marked recorded: null; to be re-recorded by _tools/record_http_fixtures.py",
  "expected": {
   "version": "9.0.0",
   "download_url": "https://github.com/qarmin/czkawka/releases/download/9.0.0/windows_czkawka_gui_gtk_412.zip",

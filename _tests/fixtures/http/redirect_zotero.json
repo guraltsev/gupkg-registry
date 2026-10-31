@@ -3,7 +3,7 @@
  "tracker": "zotero",
  "provider": "redirect (two hops)",
  "recorded": null,
- "origin": "synthetic fixture modelled on the registry hook's regular expressions (gupkg-registry/zotero/_bootstrap/pkg.local/check_update.py); marked recorded: null; to be re-recorded by _tools/record_http_fixtures.py",
+ "origin": "synthetic fixture modelled on the vendor's responses as the tracker reads them; marked recorded: null; to be re-recorded by _tools/record_http_fixtures.py",
  "expected": {
   "version": "7.0.8",
   "download_url": "https://download.zotero.org/client/release/7.0.8/Zotero-7.0.8_win-x64.zip",

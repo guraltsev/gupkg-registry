@@ -3,7 +3,7 @@
  "tracker": "tixati",
  "provider": "page (file name carries version-build, newest chosen)",
  "recorded": null,
- "origin": "synthetic fixture modelled on the registry hook's regular expressions (gupkg-registry/tixati/_bootstrap/pkg.local/check_update.py); marked recorded: null; to be re-recorded by _tools/record_http_fixtures.py",
+ "origin": "synthetic fixture modelled on the vendor's responses as the tracker reads them; marked recorded: null; to be re-recorded by _tools/record_http_fixtures.py",
  "expected": {
   "version": "3.31-1",
   "download_url": "https://download.tixati.com/tixati-3.31-1.portable.zip",

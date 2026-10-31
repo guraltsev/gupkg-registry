@@ -3,7 +3,7 @@
  "tracker": "julia",
  "provider": "json (records, filter, key)",
  "recorded": null,
- "origin": "synthetic fixture modelled on the registry hook's regular expressions (gupkg-registry/julia/_bootstrap/pkg.local/check_update.py); marked recorded: null; to be re-recorded by _tools/record_http_fixtures.py",
+ "origin": "synthetic fixture modelled on the vendor's responses as the tracker reads them; marked recorded: null; to be re-recorded by _tools/record_http_fixtures.py",
  "expected": {
   "version": "1.11.0",
   "download_url": "https://julialang-s3.julialang.org/bin/winnt/x64/1.11/julia-1.11.0-win64.zip",

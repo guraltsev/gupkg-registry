@@ -3,7 +3,7 @@
  "tracker": "restic-backup-gx",
  "provider": "gitlab releases (link named Windows, executable)",
  "recorded": null,
- "origin": "synthetic fixture modelled on the registry hook's regular expressions (gupkg-registry/restic-backup-gx/_bootstrap/pkg.local/check_update.py); marked recorded: null; to be re-recorded by _tools/record_http_fixtures.py; revised for the 0.17 hook: the release links an executable named Windows",
+ "origin": "synthetic fixture modelled on the vendor's responses as the tracker reads them; marked recorded: null; to be re-recorded by _tools/record_http_fixtures.py; revised for the 0.17 hook: the release links an executable named Windows",
  "expected": {
   "version": "1.4.0",
   "download_url": "https://gitlab.com/stormking/resticguigx/-/jobs/8123/artifacts/raw/build/ResticGUIx-1.4.0.exe",

@@ -3,7 +3,7 @@
  "tracker": "xnviewmp",
  "provider": "page (structured data version, unversioned ZIP)",
  "recorded": null,
- "origin": "synthetic fixture modelled on the registry hook's regular expressions (gupkg-registry/xnviewmp/_bootstrap/pkg.local/check_update.py); marked recorded: null; to be re-recorded by _tools/record_http_fixtures.py",
+ "origin": "synthetic fixture modelled on the vendor's responses as the tracker reads them; marked recorded: null; to be re-recorded by _tools/record_http_fixtures.py",
  "expected": {
   "version": "1.8.6",
   "download_url": "https://download.xnview.com/XnViewMP-win-x64.zip",

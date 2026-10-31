@@ -3,7 +3,7 @@
  "tracker": "crystaldiskinfo",
  "provider": "redirect (unwrap_query)",
  "recorded": null,
- "origin": "synthetic fixture modelled on the registry hook's regular expressions (gupkg-registry/crystaldiskinfo/_bootstrap/pkg.local/check_update.py); marked recorded: null; to be re-recorded by _tools/record_http_fixtures.py",
+ "origin": "synthetic fixture modelled on the vendor's responses as the tracker reads them; marked recorded: null; to be re-recorded by _tools/record_http_fixtures.py",
  "expected": {
   "version": "9.4.2",
   "download_url": "https://sourceforge.net/projects/crystaldiskinfo/files/9.4.2/CrystalDiskInfo9_4_2.zip/download",

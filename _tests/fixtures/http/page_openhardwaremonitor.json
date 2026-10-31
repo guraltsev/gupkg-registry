@@ -3,7 +3,7 @@
  "tracker": "openhardwaremonitor",
  "provider": "page (several releases listed, newest chosen)",
  "recorded": null,
- "origin": "synthetic fixture modelled on the registry hook's regular expressions (gupkg-registry/openhardwaremonitor/_bootstrap/pkg.local/check_update.py); marked recorded: null; to be re-recorded by _tools/record_http_fixtures.py",
+ "origin": "synthetic fixture modelled on the vendor's responses as the tracker reads them; marked recorded: null; to be re-recorded by _tools/record_http_fixtures.py",
  "expected": {
   "version": "0.9.6",
   "download_url": "https://openhardwaremonitor.org/files/openhardwaremonitor-v0.9.6.zip",

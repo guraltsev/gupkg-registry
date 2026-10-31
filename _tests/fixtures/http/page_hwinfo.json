@@ -3,7 +3,7 @@
  "tracker": "hwinfo",
  "provider": "page (two-digit major, headers)",
  "recorded": null,
- "origin": "synthetic fixture modelled on the registry hook's regular expressions (gupkg-registry/hwinfo/_bootstrap/pkg.local/check_update.py); marked recorded: null; to be re-recorded by _tools/record_http_fixtures.py",
+ "origin": "synthetic fixture modelled on the vendor's responses as the tracker reads them; marked recorded: null; to be re-recorded by _tools/record_http_fixtures.py",
  "expected": {
   "version": "10.02",
   "download_url": "https://www.hwinfo.com/files/hwi_1002.zip",

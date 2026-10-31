@@ -3,7 +3,7 @@
  "tracker": "qbittorrent",
  "provider": "json (path + match)",
  "recorded": null,
- "origin": "synthetic fixture modelled on the registry hook's regular expressions (gupkg-registry/qbittorrent/5.2.3/pkg.local/check_update.py); marked recorded: null; to be re-recorded by _tools/record_http_fixtures.py",
+ "origin": "synthetic fixture modelled on the vendor's responses as the tracker reads them; marked recorded: null; to be re-recorded by _tools/record_http_fixtures.py",
  "expected": {
   "version": "5.0.0",
   "download_url": "https://sourceforge.net/projects/qbittorrent/files/qBittorrent/qbittorrent-5.0.0/qbittorrent_5.0.0_x64_setup.exe/download",

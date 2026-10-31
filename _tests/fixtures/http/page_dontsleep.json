@@ -3,7 +3,7 @@
  "tracker": "dontsleep",
  "provider": "page (version announcement, digest from the page text)",
  "recorded": null,
- "origin": "synthetic fixture modelled on the registry hook's regular expressions (gupkg-registry/dontsleep/_bootstrap/pkg.local/check_update.py); marked recorded: null; to be re-recorded by _tools/record_http_fixtures.py",
+ "origin": "synthetic fixture modelled on the vendor's responses as the tracker reads them; marked recorded: null; to be re-recorded by _tools/record_http_fixtures.py",
  "expected": {
   "version": "10.01",
   "download_url": "https://www.softwareok.com/Download/DontSleep_x64_Portable.zip",
