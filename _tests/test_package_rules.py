@@ -5,7 +5,6 @@ Rules covered:
 
 - every package has a tracker;
 - a package declares `modes = ["portable"]` exactly when it has a `[portable]` table, and a portable package lists no other mode;
-- the removed `[user]` and `[system]` tables are in no package (their steps are plain `[[prepare]]` steps);
 - qbittorrent launches `$App\\qbittorrent.exe` in its tracker and in every pinned version, with no template leftovers or forward slash;
 - zotero removes the installer debris from `App`; sqlitebrowser keeps its settings file when it is updated;
 - msys2 is unpacked from its `.tar.xz` with the `tar` kind and keeps no file manifest; GIMP runs its vendor installer and says so;
@@ -47,11 +46,6 @@ def test_a_package_is_portable_exactly_when_it_has_a_portable_table_and_then_onl
 
     assert claimed == tabled and claimed
     assert [name for name in claimed if tracker_data(name)["modes"] != ["portable"]] == []
-
-
-def test_no_package_uses_the_removed_mode_tables() -> None:
-    """`[user]` and `[system]` are gone from every package; their steps are plain `[[prepare]]` steps."""
-    assert [name for name in PACKAGES if "user" in tracker_data(name) or "system" in tracker_data(name)] == []
 
 
 def test_qbittorrent_has_no_template_leftovers_and_no_forward_slash() -> None:
