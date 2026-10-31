@@ -10,8 +10,8 @@ Rules covered:
 - every tracker but the Git ones has a case, and every case belongs to a package of this registry;
 - a tracker finds the version and download address its case expects, and the discovered checksum, if the vendor gives one;
 - the pinned version it renders passes the package checker, so a tracker cannot write a version that is invalid;
-- a tracker that declares headers (``[track.headers]``) sends them on its request, and the headers of its ``[source.headers]`` are
-  kept in the pinned version;
+- the headers the trackers declare (``[track.headers]``, ``[source.headers]``) are exactly the ones pinned in this module, the tracker
+  sends its own on its request, and a pinned version keeps the ``[source.headers]``;
 - a tracker finds nothing, and says so, in a page that is not the vendor's: it never invents a version;
 - the three Git trackers pin the full commit they found;
 - ``unversioned`` in ``_registry.toml`` lists exactly the packages whose download address holds no version.
@@ -98,46 +98,70 @@ def test_a_tracker_finds_its_version_and_download_in_the_vendors_responses(syste
     assert report.errors == () and report.warnings == (), (report.errors, report.warnings)
 
 
-HEADER_CASES = [
-    pytest.param(case, id=case.stem)
-    for case in CASES
-    if "headers" in tracker_data(read_case(case)["tracker"])["track"]
-]
+UA_CHECK = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) gupkg-update-check/1"
+ACCEPT_HTML = "text/html,application/xhtml+xml,*/*"
+# The headers each package's tracker must send on its request for the page ([track.headers]), written out here as data: a vendor
+# that refuses other clients stops answering when one of these is dropped or changed, so changing one is an explicit edit of this list.
+TRACK_HEADERS = {
+    "SumatraPDF-portable": {"User-Agent": "gupkg-sumatrapdf-update-check/1"},
+    "dontsleep": {"User-Agent": "Mozilla/5.0 gupkg-dontsleep-check/1"},
+    "graphviz": {"User-Agent": UA_CHECK, "Accept": ACCEPT_HTML},
+    "hwinfo": {"User-Agent": UA_CHECK},
+    "hwinfo-portable": {"User-Agent": UA_CHECK},
+    "hwmonitor": {"User-Agent": UA_CHECK, "Accept": ACCEPT_HTML},
+    "irfanview": {"User-Agent": UA_CHECK, "Accept": ACCEPT_HTML},
+    "lockhunter": {"User-Agent": UA_CHECK, "Accept": ACCEPT_HTML},
+    "netio-gui": {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120 Safari/537.36"},
+    "openhardwaremonitor": {"User-Agent": UA_CHECK, "Accept": ACCEPT_HTML},
+    "rapidee": {"User-Agent": UA_CHECK, "Accept": ACCEPT_HTML},
+    "testdisk": {"User-Agent": UA_CHECK, "Accept": ACCEPT_HTML},
+    "tixati": {"User-Agent": "Mozilla/5.0 gupkg-tixati-check/1"},
+    "xnviewmp": {"User-Agent": "Mozilla/5.0 gupkg-xnviewmp-check/1"},
+}
+# The headers the download of a pinned version must send ([source.headers]); hwinfo wants its own download page as Referer.
+SOURCE_HEADERS = {
+    "SumatraPDF-portable": {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"},
+    "hwinfo": {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/124 Safari/537.36", "Referer": "https://www.hwinfo.com/download/"},
+    "hwinfo-portable": {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/124 Safari/537.36", "Referer": "https://www.hwinfo.com/download/"},
+    "inkscape": {"User-Agent": "Mozilla/5.0"},
+    "irfanview": {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/124 Safari/537.36", "Referer": "https://www.irfanview.info/"},
+    "shutter-encoder": {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120 Safari/537.36"},
+}
 
 
-@pytest.mark.parametrize("case", HEADER_CASES)
-def test_a_tracker_sends_its_own_headers_on_the_request_for_the_page(system: FakeSystem, tmp_path: Path, case: Path) -> None:
+def test_the_trackers_carry_exactly_the_pinned_headers() -> None:
+    """The packages whose tracker declares `[track.headers]` or `[source.headers]`, and the values, are the ones written in this test.
+
+    Dropping a header from a tracker (or giving it another value) makes a vendor refuse the check or the download, so the registry
+    cannot lose one unnoticed; a new or changed header is added to the lists above on purpose.
+    """
+    track = {name: tracker_data(name)["track"]["headers"] for name in PACKAGES if "headers" in tracker_data(name)["track"]}
+    source = {name: tracker_data(name)["source"]["headers"] for name in PACKAGES if "headers" in tracker_data(name).get("source", {})}
+
+    assert track == TRACK_HEADERS
+    assert source == SOURCE_HEADERS
+
+
+@pytest.mark.parametrize("package", [pytest.param(name, id=name) for name in TRACK_HEADERS])
+def test_a_tracker_sends_its_pinned_headers_on_the_request_for_the_page(system: FakeSystem, tmp_path: Path, package: str) -> None:
     """The `[track.headers]` of a tracker (a browser User-Agent for a site that refuses others) are sent on its first request, in place of the default."""
-    document = read_case(case)
-    wanted = tracker_data(document["tracker"])["track"]["headers"]
-    serve(system, case.stem)
+    serve(system, next(case.stem for case in CASES if read_case(case)["tracker"] == package))
 
-    run_tracker(tracker_manifest(document["tracker"]), environment(system, tmp_path, package=document["tracker"]))
+    run_tracker(tracker_manifest(package), environment(system, tmp_path, package=package))
 
     sent = {name.lower(): value for name, value in system.request_log[0].headers.items()}
-    assert wanted
-    assert {name: sent.get(name.lower()) for name in wanted} == wanted
+    assert {name: sent.get(name.lower()) for name in TRACK_HEADERS[package]} == TRACK_HEADERS[package]
 
 
-SOURCE_HEADER_CASES = [
-    pytest.param(case, id=case.stem)
-    for case in CASES
-    if "headers" in tracker_data(read_case(case)["tracker"]).get("source", {})
-]
-
-
-@pytest.mark.parametrize("case", SOURCE_HEADER_CASES)
-def test_the_pinned_version_keeps_the_headers_the_download_needs(system: FakeSystem, tmp_path: Path, case: Path) -> None:
+@pytest.mark.parametrize("package", [pytest.param(name, id=name) for name in SOURCE_HEADERS])
+def test_the_pinned_version_keeps_the_pinned_headers_the_download_needs(system: FakeSystem, tmp_path: Path, package: str) -> None:
     """The `[source.headers]` of a tracker (for example a Referer a site demands) are written into the pinned version, so the download sends them."""
-    document = read_case(case)
-    wanted = tracker_data(document["tracker"])["source"]["headers"]
-    serve(system, case.stem)
-    manifest = tracker_manifest(document["tracker"])
+    serve(system, next(case.stem for case in CASES if read_case(case)["tracker"] == package))
+    manifest = tracker_manifest(package)
 
-    result = run_tracker(manifest, environment(system, tmp_path, package=document["tracker"]))
+    result = run_tracker(manifest, environment(system, tmp_path, package=package))
 
-    assert wanted
-    assert dict(render_pinned(manifest, result).source.headers) == wanted
+    assert dict(render_pinned(manifest, result).source.headers) == SOURCE_HEADERS[package]
 
 
 @pytest.mark.parametrize("case", [pytest.param(path, id=path.stem) for path in CASES])
