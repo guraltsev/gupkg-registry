@@ -2,10 +2,10 @@
  "case": "last_modified_processexplorer",
  "tracker": "processexplorer",
  "provider": "last_modified",
- "recorded": null,
- "origin": "synthetic fixture modelled on the vendor's responses as the tracker reads them; marked recorded: null; to be re-recorded by _tools/record_http_fixtures.py",
+ "recorded": "2026-10-31",
+ "origin": "recorded from the live sites on 2026-10-31 by _tools/record_http_fixtures.py",
  "expected": {
-  "version": "20240912",
+  "version": "20261015",
   "download_url": "https://download.sysinternals.com/files/ProcessExplorer.zip",
   "sha256": null,
   "sha256_from": null
@@ -16,9 +16,10 @@
    "method": "HEAD",
    "status": 200,
    "headers": {
-    "Last-Modified": "Thu, 12 Sep 2024 16:02:44 GMT",
-    "Content-Length": "2957000",
-    "Content-Type": "application/x-zip-compressed"
+    "content-type": "application/octet-stream",
+    "content-length": "3813190",
+    "last-modified": "Thu, 15 Oct 2026 23:34:05 GMT",
+    "etag": "\"0x8DF2B14CD1E81F7\""
    },
    "body": ""
   }

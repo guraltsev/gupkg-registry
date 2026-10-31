@@ -2,11 +2,11 @@
  "case": "redirect_zotero",
  "tracker": "zotero",
  "provider": "redirect (two hops)",
- "recorded": null,
- "origin": "synthetic fixture modelled on the vendor's responses as the tracker reads them; marked recorded: null; to be re-recorded by _tools/record_http_fixtures.py",
+ "recorded": "2026-10-31",
+ "origin": "recorded from the live sites on 2026-10-31 by _tools/record_http_fixtures.py",
  "expected": {
-  "version": "7.0.8",
-  "download_url": "https://download.zotero.org/client/release/7.0.8/Zotero-7.0.8_win-x64.zip",
+  "version": "10.0.7",
+  "download_url": "https://download.zotero.org/client/release/10.0.7/Zotero-10.0.7_x64_setup.exe",
   "sha256": null,
   "sha256_from": null
  },
@@ -16,16 +16,20 @@
    "method": "HEAD",
    "status": 302,
    "headers": {
-    "Location": "https://download.zotero.org/client/release/7.0.8/Zotero-7.0.8_win-x64.zip"
+    "content-type": "text/html; charset=UTF-8",
+    "location": "https://download.zotero.org/client/release/10.0.7/Zotero-10.0.7_x64_setup.exe"
    },
    "body": ""
   },
   {
-   "url": "https://download.zotero.org/client/release/7.0.8/Zotero-7.0.8_win-x64.zip",
+   "url": "https://download.zotero.org/client/release/10.0.7/Zotero-10.0.7_x64_setup.exe",
    "method": "HEAD",
    "status": 200,
    "headers": {
-    "Content-Length": "160000000"
+    "content-type": "application/x-msdownload",
+    "content-length": "109543904",
+    "last-modified": "Thu, 29 Oct 2026 21:32:52 GMT",
+    "etag": "\"3a66e57380ae9c46d1c089f4880b9ef2-14\""
    },
    "body": ""
   }

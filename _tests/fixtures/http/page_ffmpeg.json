@@ -2,12 +2,12 @@
  "case": "page_ffmpeg",
  "tracker": "ffmpeg",
  "provider": "page (version text endpoint, sidecar digest)",
- "recorded": null,
- "origin": "synthetic fixture modelled on the vendor's responses as the tracker reads them; marked recorded: null; to be re-recorded by _tools/record_http_fixtures.py",
+ "recorded": "2026-10-31",
+ "origin": "recorded from the live sites on 2026-10-31 by _tools/record_http_fixtures.py",
  "expected": {
-  "version": "7.1.1",
+  "version": "9.0.2",
   "download_url": "https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-essentials.zip",
-  "sha256": "9c0b4e7a1d3f58260ab4c6e8d1f3a5b79e2c4d6f8a0b1c3e5d7f9a2b4c6e8d01",
+  "sha256": "60f467265b1e312373dbcd92200c2618a74850f98d3d078e94296bb3fa2047ba",
   "sha256_from": "vendor-sums"
  },
  "responses": [
@@ -16,18 +16,34 @@
    "method": "GET",
    "status": 200,
    "headers": {
-    "Content-Type": "text/plain"
+    "last-modified": "Sat, 19 Sep 2026 05:42:22 GMT",
+    "etag": "\"5-65bcf7b1b2b80\"",
+    "content-length": "5"
    },
-   "body": "7.1.1\n"
+   "body": "9.0.2"
   },
   {
    "url": "https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-essentials.zip.sha256",
    "method": "GET",
+   "status": 303,
+   "headers": {
+    "location": "https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-9.0.2-essentials_build.zip.sha256",
+    "content-length": "331",
+    "content-type": "text/html; charset=iso-8859-1"
+   },
+   "body": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01//EN\" \"http://www.w3.org/TR/html4/strict.dtd\">\n<html><head>\n<title>303 See Other</title>\n</head><body>\n<h1>See Other</h1>\n<p>The answer to your request is located <a href=\"https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-9.0.2-essentials_build.zip.sha256\">here</a>.</p>\n</body></html>\n"
+  },
+  {
+   "url": "https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-9.0.2-essentials_build.zip.sha256",
+   "method": "GET",
    "status": 200,
    "headers": {
-    "Content-Type": "text/plain"
+    "last-modified": "Sat, 19 Sep 2026 07:09:22 GMT",
+    "etag": "\"40-65bd0b23e0c80\"",
+    "content-length": "64",
+    "content-type": "text/plain; charset=UTF-8"
    },
-   "body": "9c0b4e7a1d3f58260ab4c6e8d1f3a5b79e2c4d6f8a0b1c3e5d7f9a2b4c6e8d01\n"
+   "body": "60f467265b1e312373dbcd92200c2618a74850f98d3d078e94296bb3fa2047ba"
   }
  ]
 }

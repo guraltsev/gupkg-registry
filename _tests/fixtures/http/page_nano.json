@@ -2,11 +2,11 @@
  "case": "page_nano",
  "tracker": "nano",
  "provider": "page (newest x64 build in a directory listing)",
- "recorded": null,
- "origin": "synthetic fixture modelled on the live tracker's pattern (nano/_check_updates/pkg.toml); marked recorded: null; to be re-recorded by _tools/record_http_fixtures.py",
+ "recorded": "2026-10-31",
+ "origin": "recorded from the live sites on 2026-10-31 by _tools/record_http_fixtures.py",
  "expected": {
-  "version": "8.4",
-  "download_url": "https://www.nano-editor.org/dist/windows/nano-v8.4-x64.exe",
+  "version": "9.3",
+  "download_url": "https://www.nano-editor.org/dist/windows/nano-v9.3-x64.exe",
   "sha256": null,
   "sha256_from": null
  },
@@ -16,9 +16,10 @@
    "method": "GET",
    "status": 200,
    "headers": {
-    "Content-Type": "text/html"
+    "content-length": "2560",
+    "content-type": "text/html;charset=ISO-8859-1"
    },
-   "body": "<html><body><pre>\n<a href=\"nano-v8.3-x64.exe\">nano-v8.3-x64.exe</a>\n<a href=\"nano-v8.4-ia32.exe\">nano-v8.4-ia32.exe</a>\n<a href=\"nano-v8.4-x64.exe\">nano-v8.4-x64.exe</a>\n<a href=\"nano-v8.2-x64.exe\">nano-v8.2-x64.exe</a>\n</pre></body></html>"
+   "body": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01//EN\" \"http://www.w3.org/TR/html4/strict.dtd\">\n<html>\n <head>\n  <title>Index of /dist/windows</title>\n<meta name='viewport' content='width=device-width, initial-scale=1.0'> <link rel='stylesheet' type='text/css' href='/icons/index.css'> </head>\n <body>\n<h1>Index of /dist/windows</h1>\n  <table>\n   <tr><th valign=\"top\"><img src=\"/icons/efm/mog.png\" alt=\"[ICO]\"></th><th><a href=\"?C=N;O=D\">Name</a></th><th><a href=\"?C=M;O=A\">Last modified</a></th><th><a href=\"?C=S;O=A\">Size</a></th></tr>\n<tr><td valign=\"top\"><a href=\"cygwin-src-20160115.tar.xz\"><img src=\"/icons/efm/tar.png\" alt=\"[   ]\"></a></td><td><a href=\"cygwin-src-20160115.tar.xz\">cygwin-src-20160115.tar.xz</a></td><td align=\"right\">2016-01-20 10:57  </td><td align=\"right\"> 21M</td></tr>\n<tr><td valign=\"top\"><a href=\"libncursesw6.dll\"><img src=\"/icons/efm/f_misc.png\" alt=\"[   ]\"></a></td><td><a href=\"libncursesw6.dll\">libncursesw6.dll</a></td><td align=\"right\">2022-02-26 02:18  </td><td align=\"right\">936K</td></tr>\n<tr><td valign=\"top\"><a href=\"nano-v2.7.5-55-g0d9a73472439.exe\"><img src=\"/icons/efm/binary.png\" alt=\"[   ]\"></a></td><td><a href=\"nano-v2.7.5-55-g0d9a73472439.exe\">nano-v2.7.5-55-g0d9a73472439.exe</a></td><td align=\"right\">2017-03-13 15:52  </td><td align=\"right\">1.3M</td></tr>\n<tr><td valign=\"top\"><a href=\"nano-v6.2-2-g93400ec8a19a.exe\"><img src=\"/icons/efm/binary.png\" alt=\"[   ]\"></a></td><td><a href=\"nano-v6.2-2-g93400ec8a19a.exe\">nano-v6.2-2-g93400ec8a19a.exe</a></td><td align=\"right\">2022-02-26 02:08  </td><td align=\"right\">2.1M</td></tr>\n<tr><td valign=\"top\"><a href=\"nano-v7.2-53-g7c174a1a2565.exe\"><img src=\"/icons/efm/binary.png\" alt=\"[   ]\"></a></td><td><a href=\"nano-v7.2-53-g7c174a1a2565.exe\">nano-v7.2-53-g7c174a1a2565.exe</a></td><td align=\"right\">2024-01-12 00:54  </td><td align=\"right\">2.4M</td></tr>\n<tr><td valign=\"top\"><a href=\"nano-v9.2-x64.exe\"><img src=\"/icons/efm/binary.png\" alt=\"[   ]\"></a></td><td><a href=\"nano-v9.2-x64.exe\">nano-v9.2-x64.exe</a></td><td align=\"right\">2026-08-10 15:48  </td><td align=\"right\">2.5M</td></tr>\n<tr><td valign=\"top\"><a href=\"nano-v9.3-x64.exe\"><img src=\"/icons/efm/binary.png\" alt=\"[   ]\"></a></td><td><a href=\"nano-v9.3-x64.exe\">nano-v9.3-x64.exe</a></td><td align=\"right\">2026-10-21 03:54  </td><td align=\"right\">2.5M</td></tr>\n<tr><td valign=\"top\"><a href=\"pdcurs34.zip\"><img src=\"/icons/efm/zip.png\" alt=\"[   ]\"></a></td><td><a href=\"pdcurs34.zip\">pdcurs34.zip</a></td><td align=\"right\">2016-01-20 10:57  </td><td align=\"right\">385K</td></tr>\n</table>\n</body></html>\n"
   }
  ]
 }

@@ -2,11 +2,11 @@
  "case": "redirect_crystaldiskmark",
  "tracker": "crystaldiskmark",
  "provider": "redirect (unwrap_query)",
- "recorded": null,
- "origin": "synthetic fixture modelled on the vendor's responses as the tracker reads them; marked recorded: null; to be re-recorded by _tools/record_http_fixtures.py",
+ "recorded": "2026-10-31",
+ "origin": "recorded from the live sites on 2026-10-31 by _tools/record_http_fixtures.py",
  "expected": {
-  "version": "9.0.1",
-  "download_url": "https://sourceforge.net/projects/crystaldiskmark/files/9.0.1/CrystalDiskMark9_0_1.zip/download",
+  "version": "9.0.3",
+  "download_url": "https://sourceforge.net/projects/crystaldiskmark/files/9.0.3/CrystalDiskMark9_0_3.zip/download",
   "sha256": null,
   "sha256_from": null
  },
@@ -16,7 +16,9 @@
    "method": "HEAD",
    "status": 302,
    "headers": {
-    "Location": "https://crystalmark.info/jump.php?url=https%3A%2F%2Fsourceforge.net%2Fprojects%2Fcrystaldiskmark%2Ffiles%2F9.0.1%2FCrystalDiskMark9_0_1.zip%2Fdownload"
+    "content-type": "text/html; charset=UTF-8",
+    "content-length": "0",
+    "location": "ad_redirect.php?url=https%3A%2F%2Fsourceforge.net%2Fprojects%2Fcrystaldiskmark%2Ffiles%2F9.0.3%2FCrystalDiskMark9_0_3.zip%2Fdownload"
    },
    "body": ""
   }

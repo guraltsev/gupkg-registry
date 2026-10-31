@@ -2,10 +2,10 @@
  "case": "last_modified_autoruns",
  "tracker": "autoruns",
  "provider": "last_modified",
- "recorded": null,
- "origin": "synthetic fixture modelled on the vendor's responses as the tracker reads them; marked recorded: null; to be re-recorded by _tools/record_http_fixtures.py",
+ "recorded": "2026-10-31",
+ "origin": "recorded from the live sites on 2026-10-31 by _tools/record_http_fixtures.py",
  "expected": {
-  "version": "20240911",
+  "version": "20260617",
   "download_url": "https://download.sysinternals.com/files/Autoruns.zip",
   "sha256": null,
   "sha256_from": null
@@ -16,9 +16,10 @@
    "method": "HEAD",
    "status": 200,
    "headers": {
-    "Last-Modified": "Wed, 11 Sep 2024 17:31:09 GMT",
-    "Content-Length": "2957000",
-    "Content-Type": "application/x-zip-compressed"
+    "content-type": "application/octet-stream",
+    "content-length": "3183752",
+    "last-modified": "Wed, 17 Jun 2026 21:37:41 GMT",
+    "etag": "\"0x8DECCB8A8C25FA9\""
    },
    "body": ""
   }

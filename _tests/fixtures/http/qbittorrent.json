@@ -2,11 +2,11 @@
  "case": "qbittorrent",
  "tracker": "qbittorrent",
  "provider": "json (path + match)",
- "recorded": null,
- "origin": "synthetic fixture modelled on the vendor's responses as the tracker reads them; marked recorded: null; to be re-recorded by _tools/record_http_fixtures.py",
+ "recorded": "2026-10-31",
+ "origin": "recorded from the live sites on 2026-10-31 by _tools/record_http_fixtures.py",
  "expected": {
-  "version": "5.0.0",
-  "download_url": "https://sourceforge.net/projects/qbittorrent/files/qBittorrent/qbittorrent-5.0.0/qbittorrent_5.0.0_x64_setup.exe/download",
+  "version": "5.3.0",
+  "download_url": "https://sourceforge.net/projects/qbittorrent/files/qbittorrent-win32/qbittorrent-5.3.0/qbittorrent_5.3.0_x64_setup.exe/download",
   "sha256": null,
   "sha256_from": null
  },
@@ -16,9 +16,10 @@
    "method": "GET",
    "status": 200,
    "headers": {
-    "Content-Type": "application/json"
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "3678"
    },
-   "body": "{\"platform_releases\": {\"windows\": {\"filename\": \"/qBittorrent/qbittorrent-5.0.0/qbittorrent_5.0.0_x64_setup.exe\", \"bytes\": 33000000, \"mime_type\": \"application/x-msdownload\"}, \"mac\": {\"filename\": \"/qBittorrent/qbittorrent-5.0.0/qbittorrent-5.0.0.dmg\"}}, \"release\": {\"filename\": \"/qBittorrent/qbittorrent-5.0.0/qbittorrent-5.0.0.tar.xz\"}}"
+   "body": "{\"release\": {\"bytes\": 5695256, \"date\": \"2026-10-20 12:48:19\", \"date_modified\": \"2026-10-20 12:48:19\", \"file_type\": \"XZ compressed data, checksum CRC64\", \"filename\": \"/qbittorrent/qbittorrent-5.3.0/qbittorrent-5.3.0.tar.xz\", \"md5sum\": \"6d548303d81ff37b165d7409a06de273\", \"mime_type\": \"application/x-xz; charset=binary\", \"release_notes_url\": null, \"sf_download_label\": null, \"sf_file_id\": 67899697, \"sf_package_id\": null, \"sf_platform\": [], \"sf_platform_default\": [\"bsd\", \"solaris\", \"others\"], \"sf_release_id\": null, \"sf_release_notes_file\": null, \"sf_type\": null, \"sha256sum\": \"9ea9c0256f976921abd8e0294241464af9977790255d97a186af76d3f0d67a7e\", \"staged_until\": null, \"url\": \"https://sourceforge.net/projects/qbittorrent/files/qbittorrent/qbittorrent-5.3.0/qbittorrent-5.3.0.tar.xz/download\", \"vscan\": \"OK\", \"vscan_when\": \"2026-10-20 14:33:08\"}, \"platform_releases\": {\"mac\": {\"bytes\": 48317381, \"date\": \"2026-07-07 21:56:24\", \"date_modified\": \"2026-07-07 21:56:24\", \"file_type\": \"zlib compressed data\", \"filename\": \"/qbittorrent-mac/qbittorrent-5.2.3/qbittorrent-5.2.3.dmg\", \"md5sum\": \"0fc4d1c986502e65228339b7d08c4ecf\", \"mime_type\": \"application/zlib; charset=binary\", \"release_notes_url\": null, \"sf_download_label\": null, \"sf_file_id\": 64917018, \"sf_package_id\": null, \"sf_platform\": [], \"sf_platform_default\": [\"mac\"], \"sf_release_id\": null, \"sf_release_notes_file\": null, \"sf_type\": null, \"sha256sum\": null, \"staged_until\": null, \"url\": \"http://downloads.sourceforge.net/project/qbittorrent/qbittorrent-mac/qbittorrent-5.2.3/qbittorrent-5.2.3.dmg?ts=gAAAAABq5cbqFl06lYuuhQ7eoSpgpnjLq5V2n9haVAx5kjNyXpHkqRRy-lakIG-TgY7-dAMOwnuzG2iBaLRT1Nu_VScqC5thLg%3D%3D\", \"vscan\": \"OK\", \"vscan_when\": \"2026-09-24 19:42:49\"}, \"windows\": {\"bytes\": 50030660, \"date\": \"2026-10-20 12:52:43\", \"date_modified\": \"2026-10-20 12:52:43\", \"file_type\": \"PE32 executable\", \"filename\": \"/qbittorrent-win32/qbittorrent-5.3.0/qbittorrent_5.3.0_x64_setup.exe\", \"md5sum\": \"2ffbf1fbc7c92f7053ed422be5728613\", \"mime_type\": \"application/vnd.microsoft.portable-executable; charset=binary\", \"release_notes_url\": null, \"sf_download_label\": null, \"sf_file_id\": 67899793, \"sf_package_id\": null, \"sf_platform\": [], \"sf_platform_default\": [\"windows\"], \"sf_release_id\": null, \"sf_release_notes_file\": null, \"sf_type\": null, \"sha256sum\": \"aff5b3bdc00d6e5773d6099ba30f9696dd3dfd1669ab0f64ce5c4e7168486436\", \"staged_until\": null, \"url\": \"http://downloads.sourceforge.net/project/qbittorrent/qbittorrent-win32/qbittorrent-5.3.0/qbittorrent_5.3.0_x64_setup.exe?ts=gAAAAABq5cbqwoKMn-oIgXFisfeqmOBlMd8BTNum90FN8cnl0iNHHErBSemg4SLVT5q7ANpf3V9SZOKxH-kZMPnmbJgC8G-HVg%3D%3D\", \"vscan\": \"OK\", \"vscan_when\": \"2026-10-20 14:43:41\"}, \"linux\": {\"bytes\": 109939192, \"date\": \"2026-10-20 12:51:16\", \"date_modified\": \"2026-10-20 12:51:16\", \"file_type\": \"ELF 64-bit LSB pie executable, x86-64 (SYSV), static-pie linked\", \"filename\": \"/qbittorrent-appimage/qbittorrent-5.3.0/qbittorrent-5.3.0_x86_64.AppImage\", \"md5sum\": \"ffb8cf9eb2411b2aaf527b2b860fe81e\", \"mime_type\": \"application/x-pie-executable; charset=binary\", \"release_notes_url\": null, \"sf_download_label\": null, \"sf_file_id\": 67899734, \"sf_package_id\": null, \"sf_platform\": [], \"sf_platform_default\": [\"linux\"], \"sf_release_id\": null, \"sf_release_notes_file\": null, \"sf_type\": null, \"sha256sum\": \"1c64f2e95740be41f2822f909f56e4dd0da2637f312098a06da113d7add7418b\", \"staged_until\": null, \"url\": \"http://downloads.sourceforge.net/project/qbittorrent/qbittorrent-appimage/qbittorrent-5.3.0/qbittorrent-5.3.0_x86_64.AppImage?ts=gAAAAABq5cbqNwq5A08OPEFjvfRO_z_7yOgmW4K0yBxxmA8NfpZ8FDljteJVkXpMTH1Ay7y75M4dqNGGdW55dbOqCbnl0xoO5Q%3D%3D\", \"vscan\": \"OK\", \"vscan_when\": \"2026-10-20 14:53:31\"}}}"
   }
  ]
 }

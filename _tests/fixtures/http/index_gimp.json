@@ -2,12 +2,12 @@
  "case": "index_gimp",
  "tracker": "gimp",
  "provider": "index (two levels, even-minor series, probe, key template, sums_file)",
- "recorded": null,
- "origin": "synthetic fixture modelled on the vendor's responses as the tracker reads them; marked recorded: null; to be re-recorded by _tools/record_http_fixtures.py",
+ "recorded": "2026-10-31",
+ "origin": "recorded from the live sites on 2026-10-31 by _tools/record_http_fixtures.py",
  "expected": {
-  "version": "3.0.2",
-  "download_url": "https://download.gimp.org/gimp/v3.0/windows/gimp-3.0.2-setup.exe",
-  "sha256": "4c1f6a1b0c2f7e1e9b8d5a3f2e6c9d0a7b4e8f1c3d5a6b9e0f2c4d6a8b1e3f5c",
+  "version": "3.2.6",
+  "download_url": "https://download.gimp.org/gimp/v3.2/windows/gimp-3.2.6-setup.exe",
+  "sha256": "9337cccbc01d4098ee7a3dab215b3afbe6ece99c5287c92441d6f12cf541ebca",
   "sha256_from": "vendor-sums"
  },
  "responses": [
@@ -16,43 +16,50 @@
    "method": "GET",
    "status": 200,
    "headers": {
-    "Content-Type": "text/html"
+    "content-type": "text/html"
    },
-   "body": "<a href=\"v2.10/\">v2.10/</a> <a href=\"v3.0/\">v3.0/</a> <a href=\"v3.1/\">v3.1/</a> <a href=\"v2.8/\">v2.8/</a> <a href=\"v3.2/\">v3.2/</a> <a href=\"gimp-help-2.0.html\">x</a>"
+   "body": "<html>\r\n<head><title>Index of /gimp/</title></head>\r\n<body>\r\n<h1>Index of /gimp/</h1><hr><pre><a href=\"../\">../</a>\r\n<a href=\"contrib/\">contrib/</a>                                           19-Mar-2020 12:54       -\r\n<a href=\"extras/\">extras/</a>                                            19-Mar-2020 12:54       -\r\n<a href=\"fonts/\">fonts/</a>                                             19-Mar-2020 12:54       -\r\n<a href=\"help/\">help/</a>                                              29-Aug-2026 20:29       -\r\n<a href=\"historical/\">historical/</a>                                        19-Mar-2020 12:58       -\r\n<a href=\"lgm/\">lgm/</a>                                               19-Mar-2020 12:54       -\r\n<a href=\"net-fu/\">net-fu/</a>                                            19-Mar-2020 13:07       -\r\n<a href=\"plug-ins/\">plug-ins/</a>                                          19-Mar-2020 13:07       -\r\n<a href=\"plugin-template/\">plugin-template/</a>                                   19-Mar-2020 13:07       -\r\n<a href=\"v0.99/\">v0.99/</a>                                             19-Mar-2020 13:07       -\r\n<a href=\"v1.0/\">v1.0/</a>                                              19-Mar-2020 13:07       -\r\n<a href=\"v1.1/\">v1.1/</a>                                              19-Mar-2020 13:07       -\r\n<a href=\"v1.2/\">v1.2/</a>                                              19-Mar-2020 13:07       -\r\n<a href=\"v1.3/\">v1.3/</a>                                              19-Mar-2020 13:07       -\r\n<a href=\"v2.0/\">v2.0/</a>                                              19-Mar-2020 13:08       -\r\n<a href=\"v2.1/\">v2.1/</a>                                              19-Mar-2020 13:08       -\r\n<a href=\"v2.10/\">v2.10/</a>                                             22-Nov-2024 13:22       -\r\n<a href=\"v2.2/\">v2.2/</a>                                              19-Mar-2020 13:19       -\r\n<a href=\"v2.3/\">v2.3/</a>                                              19-Mar-2020 13:20       -\r\n<a href=\"v2.4/\">v2.4/</a>                                              19-Mar-2020 13:20       -\r\n<a href=\"v2.5/\">v2.5/</a>                                              19-Mar-2020 13:20       -\r\n<a href=\"v2.6/\">v2.6/</a>                                              19-Mar-2020 13:20       -\r\n<a href=\"v2.7/\">v2.7/</a>                                              19-Mar-2020 13:21       -\r\n<a href=\"v2.8/\">v2.8/</a>                                              19-Mar-2020 13:21       -\r\n<a href=\"v2.9/\">v2.9/</a>                                              19-Mar-2020 13:24       -\r\n<a href=\"v2.99/\">v2.99/</a>                                             19-Feb-2024 16:47       -\r\n<a href=\"v3.0/\">v3.0/</a>                                              24-Jan-2026 18:15       -\r\n<a href=\"v3.1/\">v3.1/</a>                                              31-Aug-2025 20:35       -\r\n<a href=\"v3.2/\">v3.2/</a>                                              10-Sep-2026 18:40       -\r\n<a href=\"video/\">video/</a>                                             19-Mar-2020 13:07       -\r\n<a href=\"GIMP-Pre-aarch64.AppImage.zsync\">GIMP-Pre-aarch64.AppImage.zsync</a>                    02-Mar-2026 19:46    358K\r\n<a href=\"GIMP-Pre-x86_64.AppImage.zsync\">GIMP-Pre-x86_64.AppImage.zsync</a>                     02-Mar-2026 19:44    381K\r\n<a href=\"GIMP-Stable-aarch64.AppImage.zsync\">GIMP-Stable-aarch64.AppImage.zsync</a>                 10-Sep-2026 18:53    383K\r\n<a href=\"GIMP-Stable-x86_64.AppImage.zsync\">GIMP-Stable-x86_64.AppImage.zsync</a>                  10-Sep-2026 18:50    407K\r\n<a href=\"README\">README</a>                                             19-Mar-2020 12:54    1246\r\n</pre><hr></body>\r\n</html>\r\n"
   },
   {
    "url": "https://download.gimp.org/gimp/v3.2/windows/",
    "method": "HEAD",
-   "status": 404,
-   "headers": {},
-   "body": ""
-  },
-  {
-   "url": "https://download.gimp.org/gimp/v3.0/windows/",
-   "method": "HEAD",
    "status": 200,
    "headers": {
-    "Content-Type": "text/html"
+    "content-type": "text/html"
    },
    "body": ""
   },
   {
-   "url": "https://download.gimp.org/gimp/v3.0/windows/",
+   "url": "https://download.gimp.org/gimp/v3.2/windows/",
    "method": "GET",
    "status": 200,
    "headers": {
-    "Content-Type": "text/html"
+    "content-type": "text/html"
    },
-   "body": "<a href=\"gimp-3.0.0-setup.exe\">gimp-3.0.0-setup.exe</a> <a href=\"gimp-3.0.2-setup.exe\">gimp-3.0.2-setup.exe</a> <a href=\"gimp-3.0.2-setup-1.exe\">gimp-3.0.2-setup-1.exe</a> <a href=\"gimp-3.0.1-setup.exe\">gimp-3.0.1-setup.exe</a> <a href=\"SHA256SUMS\">SHA256SUMS</a>"
+   "body": "<html>\r\n<head><title>Index of /gimp/v3.2/windows/</title></head>\r\n<body>\r\n<h1>Index of /gimp/v3.2/windows/</h1><hr><pre><a href=\"../\">../</a>\r\n<a href=\"0.0_LATEST-IS-3.2.6\">0.0_LATEST-IS-3.2.6</a>                                10-Sep-2026 18:58       0\r\n<a href=\"SHA256SUMS\">SHA256SUMS</a>                                         10-Sep-2026 18:57     621\r\n<a href=\"SHA512SUMS\">SHA512SUMS</a>                                         10-Sep-2026 18:57    1069\r\n<a href=\"gimp-3.2.0-RC1-setup.exe\">gimp-3.2.0-RC1-setup.exe</a>                           17-Nov-2025 22:15    291M\r\n<a href=\"gimp-3.2.0-RC1-setup.exe.torrent\">gimp-3.2.0-RC1-setup.exe.torrent</a>                   17-Nov-2025 22:15     27K\r\n<a href=\"gimp-3.2.0-RC2-setup.exe\">gimp-3.2.0-RC2-setup.exe</a>                           15-Dec-2025 21:51    290M\r\n<a href=\"gimp-3.2.0-RC2-setup.exe.torrent\">gimp-3.2.0-RC2-setup.exe.torrent</a>                   15-Dec-2025 21:52     27K\r\n<a href=\"gimp-3.2.0-RC3-setup.exe\">gimp-3.2.0-RC3-setup.exe</a>                           02-Mar-2026 22:31    297M\r\n<a href=\"gimp-3.2.0-RC3-setup.exe.torrent\">gimp-3.2.0-RC3-setup.exe.torrent</a>                   02-Mar-2026 22:31     27K\r\n<a href=\"gimp-3.2.0-setup.exe\">gimp-3.2.0-setup.exe</a>                               14-Mar-2026 15:46    294M\r\n<a href=\"gimp-3.2.0-setup.exe.torrent\">gimp-3.2.0-setup.exe.torrent</a>                       14-Mar-2026 15:46     27K\r\n<a href=\"gimp-3.2.2-setup.exe\">gimp-3.2.2-setup.exe</a>                               28-Mar-2026 16:59    178M\r\n<a href=\"gimp-3.2.2-setup.exe.torrent\">gimp-3.2.2-setup.exe.torrent</a>                       28-Mar-2026 17:00     18K\r\n<a href=\"gimp-3.2.4-setup.exe\">gimp-3.2.4-setup.exe</a>                               18-Apr-2026 07:08    179M\r\n<a href=\"gimp-3.2.4-setup.exe.torrent\">gimp-3.2.4-setup.exe.torrent</a>                       18-Apr-2026 07:13     18K\r\n<a href=\"gimp-3.2.6-setup.exe\">gimp-3.2.6-setup.exe</a>                               10-Sep-2026 18:57    182M\r\n<a href=\"gimp-3.2.6-setup.exe.torrent\">gimp-3.2.6-setup.exe.torrent</a>                       10-Sep-2026 18:57     18K\r\n</pre><hr></body>\r\n</html>\r\n"
   },
   {
-   "url": "https://download.gimp.org/gimp/v3.0/windows/SHA256SUMS",
+   "url": "https://download.gimp.org/gimp/v3.2/windows/SHA256SUMS",
+   "method": "GET",
+   "status": 302,
+   "headers": {
+    "content-type": "text/html; charset=utf-8",
+    "content-length": "0",
+    "location": "https://volico.mm.fcix.net/gimp/gimp/v3.2/windows/SHA256SUMS"
+   },
+   "body": ""
+  },
+  {
+   "url": "https://volico.mm.fcix.net/gimp/gimp/v3.2/windows/SHA256SUMS",
    "method": "GET",
    "status": 200,
    "headers": {
-    "Content-Type": "text/plain"
+    "content-type": "application/octet-stream",
+    "content-length": "621",
+    "last-modified": "Thu, 10 Sep 2026 18:57:58 GMT",
+    "etag": "\"6aa2fdb6-26d\""
    },
-   "body": "0000000000000000000000000000000000000000000000000000000000000000 *gimp-3.0.0-setup.exe\n4c1f6a1b0c2f7e1e9b8d5a3f2e6c9d0a7b4e8f1c3d5a6b9e0f2c4d6a8b1e3f5c *gimp-3.0.2-setup.exe\n1111111111111111111111111111111111111111111111111111111111111111 *gimp-3.0.1-setup.exe\n"
+   "body": "26edf72d3b5705b5b7f3cf4bfeaf7271f484b1b84fcb8837f56def1008dbc259  gimp-3.2.0-RC1-setup.exe\nb7fa77276dcbd18c1373e3ca317ba63b9a491c12fd8465eb742ca028c08a08f8  gimp-3.2.0-RC2-setup.exe\n98a28f2b2606c60aa689be6c733bf1e157f1391e34ba901f9de1cdde913e0047  gimp-3.2.0-RC3-setup.exe\n6332ab8fdf9d1f229abd7aab18874d476ae31405e2fe75bf786b8fdc90b891a8  gimp-3.2.0-setup.exe\ncbdcdb49c144d5ef26693f03939fff22770bed22b83da7c420cdfe78a18b383e  gimp-3.2.2-setup.exe\nec31d757dd82831d201ffcf47ffeac4175df739e0c02d5122e89aeeadfb988cc  gimp-3.2.4-setup.exe\n9337cccbc01d4098ee7a3dab215b3afbe6ece99c5287c92441d6f12cf541ebca  gimp-3.2.6-setup.exe\n"
   }
  ]
 }
