@@ -3,7 +3,7 @@
  "tracker": "netio-gui",
  "provider": "rss",
  "recorded": null,
- "origin": "synthetic fixture modelled on the registry hook's regular expressions (gupkg-registry/netio-gui/_bootstrap/pkg.local/check_update.py); marked recorded: null; to be re-recorded by tools/record_http_fixtures.py",
+ "origin": "synthetic fixture modelled on the registry hook's regular expressions (gupkg-registry/netio-gui/_bootstrap/pkg.local/check_update.py); marked recorded: null; to be re-recorded by _tools/record_http_fixtures.py",
  "expected": {
   "version": "1.10",
   "download_url": "https://sourceforge.net/projects/netiogui/files/netio-gui_v1.10_portable.zip/download",

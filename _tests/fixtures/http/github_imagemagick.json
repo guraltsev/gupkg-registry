@@ -3,7 +3,7 @@
  "tracker": "imagemagick",
  "provider": "github latest, exact asset with version",
  "recorded": null,
- "origin": "synthetic fixture modelled on the registry hook's regular expressions (gupkg-registry/imagemagick/_bootstrap/pkg.toml); marked recorded: null; to be re-recorded by tools/record_http_fixtures.py",
+ "origin": "synthetic fixture modelled on the registry hook's regular expressions (gupkg-registry/imagemagick/_bootstrap/pkg.toml); marked recorded: null; to be re-recorded by _tools/record_http_fixtures.py",
  "expected": {
   "version": "7.1.1-39",
   "download_url": "https://github.com/o/r/releases/download/7.1.1-39/ImageMagick-7.1.1-39-portable-Q16-HDRI-x64.7z",

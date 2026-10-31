@@ -3,7 +3,7 @@
  "tracker": "ffmpeg",
  "provider": "page (version text endpoint, sidecar digest)",
  "recorded": null,
- "origin": "synthetic fixture modelled on the registry hook's regular expressions (gupkg-registry/ffmpeg/_bootstrap/pkg.local/check_update.py); marked recorded: null; to be re-recorded by tools/record_http_fixtures.py",
+ "origin": "synthetic fixture modelled on the registry hook's regular expressions (gupkg-registry/ffmpeg/_bootstrap/pkg.local/check_update.py); marked recorded: null; to be re-recorded by _tools/record_http_fixtures.py",
  "expected": {
   "version": "7.1.1",
   "download_url": "https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-essentials.zip",

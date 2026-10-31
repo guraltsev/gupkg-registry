@@ -3,7 +3,7 @@
  "tracker": "perl",
  "provider": "github latest, version from asset name (tag SP_54231_64bit)",
  "recorded": null,
- "origin": "synthetic fixture modelled on the registry hook's regular expressions (gupkg-registry/perl/_bootstrap/pkg.local/check_update.py); marked recorded: null; to be re-recorded by tools/record_http_fixtures.py",
+ "origin": "synthetic fixture modelled on the registry hook's regular expressions (gupkg-registry/perl/_bootstrap/pkg.local/check_update.py); marked recorded: null; to be re-recorded by _tools/record_http_fixtures.py",
  "expected": {
   "version": "5.42.3.1",
   "download_url": "https://github.com/o/r/releases/download/SP_54231_64bit/strawberry-perl-5.42.3.1-64bit-portable.zip",

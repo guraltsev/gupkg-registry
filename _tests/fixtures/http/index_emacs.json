@@ -3,7 +3,7 @@
  "tracker": "emacs",
  "provider": "index (major folder, then the newest UCRT64 ZIP)",
  "recorded": null,
- "origin": "synthetic fixture modelled on the registry hook's regular expressions (gupkg-registry/emacs/_bootstrap/pkg.local/check_update.py); marked recorded: null; to be re-recorded by tools/record_http_fixtures.py",
+ "origin": "synthetic fixture modelled on the registry hook's regular expressions (gupkg-registry/emacs/_bootstrap/pkg.local/check_update.py); marked recorded: null; to be re-recorded by _tools/record_http_fixtures.py",
  "expected": {
   "version": "30.2",
   "download_url": "https://ftp.gnu.org/gnu/emacs/windows/emacs-30/emacs-30.2-UCRT64.zip",

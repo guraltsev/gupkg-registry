@@ -3,7 +3,7 @@
  "tracker": "keypirinha",
  "provider": "github latest, exact asset with version",
  "recorded": null,
- "origin": "synthetic fixture modelled on the registry hook's regular expressions (gupkg-registry/keypirinha/_bootstrap/pkg.toml); marked recorded: null; to be re-recorded by tools/record_http_fixtures.py",
+ "origin": "synthetic fixture modelled on the registry hook's regular expressions (gupkg-registry/keypirinha/_bootstrap/pkg.toml); marked recorded: null; to be re-recorded by _tools/record_http_fixtures.py",
  "expected": {
   "version": "2.26",
   "download_url": "https://github.com/o/r/releases/download/v2.26/keypirinha-2.26-x64-portable.7z",

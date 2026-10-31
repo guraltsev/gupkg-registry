@@ -3,7 +3,7 @@
  "tracker": "geogebra",
  "provider": "redirect (version template with replace filter)",
  "recorded": null,
- "origin": "synthetic fixture modelled on the registry hook's regular expressions (gupkg-registry/geogebra/_bootstrap/pkg.local/check_update.py); marked recorded: null; to be re-recorded by tools/record_http_fixtures.py",
+ "origin": "synthetic fixture modelled on the registry hook's regular expressions (gupkg-registry/geogebra/_bootstrap/pkg.local/check_update.py); marked recorded: null; to be re-recorded by _tools/record_http_fixtures.py",
  "expected": {
   "version": "6.0.834.0",
   "download_url": "https://download.geogebra.org/installers/6.0/GeoGebra-Windows-Portable-6-0-834-0.zip",

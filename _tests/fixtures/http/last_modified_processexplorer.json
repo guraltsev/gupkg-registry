@@ -3,7 +3,7 @@
  "tracker": "processexplorer",
  "provider": "last_modified",
  "recorded": null,
- "origin": "synthetic fixture modelled on the registry hook's regular expressions (gupkg-registry/processexplorer/_bootstrap/pkg.local/check_update.py); marked recorded: null; to be re-recorded by tools/record_http_fixtures.py",
+ "origin": "synthetic fixture modelled on the registry hook's regular expressions (gupkg-registry/processexplorer/_bootstrap/pkg.local/check_update.py); marked recorded: null; to be re-recorded by _tools/record_http_fixtures.py",
  "expected": {
   "version": "20240912",
   "download_url": "https://download.sysinternals.com/files/ProcessExplorer.zip",

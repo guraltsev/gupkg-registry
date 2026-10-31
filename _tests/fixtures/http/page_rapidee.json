@@ -3,7 +3,7 @@
  "tracker": "rapidee",
  "provider": "page (announced current version, GitLab package URL)",
  "recorded": null,
- "origin": "synthetic fixture modelled on the registry hook's regular expressions (gupkg-registry/rapidee/_bootstrap/pkg.local/check_update.py); marked recorded: null; to be re-recorded by tools/record_http_fixtures.py",
+ "origin": "synthetic fixture modelled on the registry hook's regular expressions (gupkg-registry/rapidee/_bootstrap/pkg.local/check_update.py); marked recorded: null; to be re-recorded by _tools/record_http_fixtures.py",
  "expected": {
   "version": "10.2.1",
   "download_url": "https://gitlab.com/api/v4/projects/olegd%2Frapidee/packages/generic/release-assets/v10.2.1/RapidEE.zip",

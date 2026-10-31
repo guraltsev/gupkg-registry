@@ -1,7 +1,8 @@
 """Shared helpers of the registry tests: they run this repository's two scripts as child processes.
 
-The tests import nothing from gupkg. Validation goes through ``_tools/pkg_check.py`` (the stand-in
-for ``gupkg pkg check``) and ``_tools/registry_tool.py validate``, which locate gupkg themselves.
+The registry-wide tests import nothing from gupkg: validation goes through ``_tools/pkg_check.py`` (the stand-in
+for ``gupkg pkg check``) and ``_tools/registry_tool.py validate``, which locate gupkg themselves. The tracker tests
+import gupkg's services through ``_tests/support.py``; ``system`` below is the ``FakeSystem`` they run on.
 """
 
 from __future__ import annotations
@@ -12,6 +13,8 @@ import sys
 from pathlib import Path
 
 import pytest
+
+import _tests.support  # noqa: F401  (puts the gupkg checkout's ``src`` on ``sys.path`` before any test module imports ``gupkg``)
 
 REGISTRY_ROOT = Path(__file__).resolve().parents[1]
 
@@ -30,3 +33,11 @@ def pkg_check_results() -> dict[str, dict[str, list[str]]]:
     process = run_script("pkg_check.py", "--all", "--json")
     assert process.stdout.strip(), process.stderr
     return {row["path"]: row for row in json.loads(process.stdout)}
+
+
+@pytest.fixture
+def system(tmp_path: Path):
+    """A ``FakeSystem`` whose machine is ``tmp_path/machine``: no network, no real processes except the regex worker."""
+    from _tests.support import FakeSystem
+
+    return FakeSystem(tmp_path / "machine")

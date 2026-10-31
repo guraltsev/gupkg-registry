@@ -3,7 +3,7 @@
  "tracker": "portablegit",
  "provider": "github latest, version from asset name (tag v2.46.2.windows.1)",
  "recorded": null,
- "origin": "synthetic fixture modelled on the registry hook's regular expressions (gupkg-registry/portablegit/_bootstrap/pkg.local/check_update.py); marked recorded: null; to be re-recorded by tools/record_http_fixtures.py",
+ "origin": "synthetic fixture modelled on the registry hook's regular expressions (gupkg-registry/portablegit/_bootstrap/pkg.local/check_update.py); marked recorded: null; to be re-recorded by _tools/record_http_fixtures.py",
  "expected": {
   "version": "2.46.2",
   "download_url": "https://github.com/o/r/releases/download/v2.46.2.windows.1/PortableGit-2.46.2-64-bit.7z.exe",

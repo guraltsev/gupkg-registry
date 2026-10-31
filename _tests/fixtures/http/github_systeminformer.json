@@ -3,7 +3,7 @@
  "tracker": "systeminformer",
  "provider": "github latest, four-component tag, asset pattern",
  "recorded": null,
- "origin": "synthetic fixture modelled on the registry hook's regular expressions (gupkg-registry/systeminformer/_bootstrap/pkg.local/check_update.py); marked recorded: null; to be re-recorded by tools/record_http_fixtures.py",
+ "origin": "synthetic fixture modelled on the registry hook's regular expressions (gupkg-registry/systeminformer/_bootstrap/pkg.local/check_update.py); marked recorded: null; to be re-recorded by _tools/record_http_fixtures.py",
  "expected": {
   "version": "3.2.25011.2103",
   "download_url": "https://github.com/o/r/releases/download/v3.2.25011.2103/systeminformer-3.2.25011.2103-bin.zip",
