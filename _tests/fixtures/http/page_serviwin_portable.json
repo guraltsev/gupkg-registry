@@ -1,0 +1,24 @@
+{
+ "case": "page_serviwin_portable",
+ "tracker": "serviwin-portable",
+ "provider": "page (version in the page, fixed download address)",
+ "recorded": null,
+ "origin": "synthetic fixture modelled on the live tracker's pattern (serviwin-portable/_check_updates/pkg.toml); marked recorded: null; to be re-recorded by _tools/record_http_fixtures.py",
+ "expected": {
+  "version": "1.72",
+  "download_url": "https://www.nirsoft.net/utils/serviwin-x64.zip",
+  "sha256": null,
+  "sha256_from": null
+ },
+ "responses": [
+  {
+   "url": "https://www.nirsoft.net/utils/serviwin.html",
+   "method": "GET",
+   "status": 200,
+   "headers": {
+    "Content-Type": "text/html"
+   },
+   "body": "<html><body><h1>ServiWin v1.72</h1><p>Download ServiWin (x64)</p></body></html>"
+  }
+ ]
+}
