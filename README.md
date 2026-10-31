@@ -8,7 +8,7 @@ Package definitions for [gupkg](https://github.com/guraltsev/gupkg) 1.0 (registr
 ```text
 <name>/
   _check_updates/   pkg.toml (+ support files)   the tracker: how to find the newest version
-  <version>/        pkg.toml, install.cmd, gupkg-tui.cmd   a pinned version: fully resolved, with sha256
+  <version>/        pkg.toml, install.cmd, manage.cmd   a pinned version: fully resolved, with sha256
 _registry.toml      format = 2, name, description, unpinned, [fingerprints] "<name>/<version>" = "<sha256>"
 ```
 
