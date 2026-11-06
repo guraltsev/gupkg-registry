@@ -1,37 +1,22 @@
 format = 2
-description = "Finds duplicate files, empty folders, similar images, and more."
+description = "Command-line finder of duplicate files, empty folders, similar images, and more."
 project_url = "https://github.com/qarmin/czkawka"
 modes = ["system", "user"]
 
+# The graphical front end is the separate `krokiet` package: a version has one download, and each program is its own release asset.
 [track]
 provider = "github"
 repo = "qarmin/czkawka"
-asset = "windows_czkawka_gui_gtk_412.zip"
+asset = "windows_czkawka_cli.exe"
 
 [source]
 download_url = "${asset_url}"
-require = ["czkawka_gui.exe", "krokiet.exe", "czkawka_cli.exe"]
+kind = "exe"
 
-[[shortcut]]
-name = "Czkawka"
-target = "$App\\czkawka_gui.exe"
-description = "Duplicate and clutter finder"
-
-[[shortcut]]
-name = "Krokiet"
-target = "$App\\krokiet.exe"
-description = "Czkawka with the Krokiet interface"
+# GitHub redirects the download to an address that ends in a generated id, so the file is not saved under the asset name. It is the only file here.
+[[prepare]]
+rename = { from = "*", to = "czkawka_cli.exe" }
 
 [[shim]]
 name = "czkawka_cli"
 target = "$App\\czkawka_cli.exe"
-
-[[shim]]
-name = "czkawka_gui"
-target = "$App\\czkawka_gui.exe"
-type = "gui"
-
-[[shim]]
-name = "krokiet"
-target = "$App\\krokiet.exe"
-type = "gui"

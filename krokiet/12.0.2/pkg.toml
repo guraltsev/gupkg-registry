@@ -1,0 +1,26 @@
+format = 2
+description = "Finds duplicate files, empty folders, similar images, and more, with a graphical interface."
+project_url = "https://github.com/qarmin/czkawka"
+modes = ["system", "user"]
+
+[source]
+download_url = "https://github.com/qarmin/czkawka/releases/download/12.0.2/windows_krokiet_on_windows_skia_opengl.exe"
+sha256 = "102d97dd4bd8ffe798136c45137a4986f0e31f355a593fc64dcfd415e705554f"
+sha256_from = "github-digest"
+kind = "exe"
+
+[[prepare]]
+
+[prepare.rename]
+from = "*"
+to = "krokiet.exe"
+
+[[shortcut]]
+name = "Krokiet"
+target = "$App\\krokiet.exe"
+description = "Duplicate and clutter finder"
+
+[[shim]]
+name = "krokiet"
+target = "$App\\krokiet.exe"
+type = "gui"
