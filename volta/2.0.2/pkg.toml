@@ -21,3 +21,11 @@ target = "$App\\volta.exe"
 
 [[path]]
 value = "$App"
+
+[[env]]
+name = "VOLTA_INSTALL_DIR"
+value = "$App"
+
+[[env]]
+name = "VOLTA_FEATURE_PNPM"
+value = "1"

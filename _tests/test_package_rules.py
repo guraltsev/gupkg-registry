@@ -8,6 +8,7 @@ Rules covered:
 - qbittorrent launches `$App\\qbittorrent.exe` in its tracker and in every pinned version, with no template leftovers or forward slash;
 - zotero removes the installer debris from `App`; sqlitebrowser keeps its settings file when it is updated;
 - msys2 is unpacked from its `.tar.xz` with the `tar` kind and keeps no file manifest; GIMP runs its vendor installer and says so;
+- volta is told the `$App` folder that is on the PATH as its install folder, and its pnpm support is on, in its tracker and every pinned version;
 - zotero, nano, qbittorrent, msys2 and gimp keep no hook (`pkg.local`);
 - every pattern of every tracker passes the pattern guard, so a pattern that could run for ever is refused before any request.
 
@@ -19,6 +20,7 @@ from __future__ import annotations
 
 import json
 import tomllib
+from pathlib import Path
 from typing import Any
 
 import pytest
@@ -103,6 +105,15 @@ def test_gimp_runs_its_vendor_installer_and_the_package_says_so() -> None:
     data = tracker_data("gimp")
 
     assert data["source"]["kind"] == "exe" and data["source"]["installer"]["run"]
+
+
+@pytest.mark.parametrize("manifest", sorted((REGISTRY_ROOT / "volta").glob("*/pkg.toml")), ids=lambda path: path.parent.name)
+def test_volta_is_told_the_install_folder_the_path_names(manifest: Path) -> None:
+    """Volta drops its install folder from the PATH by exact text, and its own guess is `current`'s target, so `$App` is stated."""
+    data = tomllib.loads(manifest.read_text(encoding="utf-8"))
+
+    assert [entry["value"] for entry in data["path"]] == ["$App"]
+    assert {entry["name"]: entry["value"] for entry in data["env"]} == {"VOLTA_INSTALL_DIR": "$App", "VOLTA_FEATURE_PNPM": "1"}
 
 
 @pytest.mark.parametrize("package", [pytest.param(name, id=name) for name in SPECIAL_PACKAGES])

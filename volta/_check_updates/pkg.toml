@@ -26,6 +26,17 @@ copy = { from = "volta-shim.exe", to = ["node.exe", "npm.exe", "npx.exe", "pnpm.
 [[path]]
 value = "$App"
 
+# Volta takes its install folder out of the PATH before it looks for a tool, comparing the text exactly. Left to itself it works out
+# the folder through the `current` junction, which does not match the PATH entry, so VOLTA_INSTALL_DIR names the same `$App`.
+[[env]]
+name = "VOLTA_INSTALL_DIR"
+value = "$App"
+
+# Without this Volta does not manage pnpm, although it ships a pnpm shim. Volta 2.0.2 runs pnpm up to 11: pnpm 12 has no bin/pnpm.cjs.
+[[env]]
+name = "VOLTA_FEATURE_PNPM"
+value = "1"
+
 [[shim]]
 name = "volta"
 target = "$App\\volta.exe"
