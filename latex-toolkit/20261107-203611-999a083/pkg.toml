@@ -1,0 +1,139 @@
+format = 2
+description = "Preservation-focused command-line transformations for LaTeX source."
+project_url = "https://github.com/guraltsev/latex-toolkit"
+modes = ["system", "user"]
+requires_gupkg = ">=1.1.16"
+record_manifest = false
+
+[source]
+download_url = "git@github.com:guraltsev/latex-toolkit.git"
+kind = "git"
+
+[source.git]
+commit = "999a0832f1bff4498ac81137c28cb9c8f7973cb3"
+
+[[shim]]
+name = "lt_brace_args"
+target = "python"
+arguments = ["$App\\src\\lt_brace_args.py"]
+prefer_targets = ["$App\\.venv\\Scripts\\python.exe"]
+search_path = true
+
+[[shim]]
+name = "lt_eqnum_label"
+target = "python"
+arguments = ["$App\\src\\lt_eqnum_label.py"]
+prefer_targets = ["$App\\.venv\\Scripts\\python.exe"]
+search_path = true
+
+[[shim]]
+name = "lt_full_normalize"
+target = "python"
+arguments = ["$App\\src\\lt_full_normalize.py"]
+prefer_targets = ["$App\\.venv\\Scripts\\python.exe"]
+search_path = true
+
+[[shim]]
+name = "lt_greek_latex2unicode"
+target = "python"
+arguments = ["$App\\src\\lt_greek_latex2unicode.py"]
+prefer_targets = ["$App\\.venv\\Scripts\\python.exe"]
+search_path = true
+
+[[shim]]
+name = "lt_greek_unicode2latex"
+target = "python"
+arguments = ["$App\\src\\lt_greek_unicode2latex.py"]
+prefer_targets = ["$App\\.venv\\Scripts\\python.exe"]
+search_path = true
+
+[[shim]]
+name = "lt_math_dollar2latex"
+target = "python"
+arguments = ["$App\\src\\lt_math_dollar2latex.py"]
+prefer_targets = ["$App\\.venv\\Scripts\\python.exe"]
+search_path = true
+
+[[shim]]
+name = "lt_math_latex2dollar"
+target = "python"
+arguments = ["$App\\src\\lt_math_latex2dollar.py"]
+prefer_targets = ["$App\\.venv\\Scripts\\python.exe"]
+search_path = true
+
+[[shim]]
+name = "lt_sentence_per_line"
+target = "python"
+arguments = ["$App\\src\\lt_sentence_per_line.py"]
+prefer_targets = ["$App\\.venv\\Scripts\\python.exe"]
+search_path = true
+
+[[shim]]
+name = "lt_syntax_regularizer"
+target = "python"
+arguments = ["$App\\src\\lt_syntax_regularizer.py"]
+prefer_targets = ["$App\\.venv\\Scripts\\python.exe"]
+search_path = true
+
+[[shim]]
+name = "lt_template"
+target = "python"
+arguments = ["$App\\src\\lt_template.py"]
+prefer_targets = ["$App\\.venv\\Scripts\\python.exe"]
+search_path = true
+
+[[shim]]
+name = "mdt_brace_args"
+target = "python"
+arguments = ["$App\\src\\mdt_brace_args.py"]
+prefer_targets = ["$App\\.venv\\Scripts\\python.exe"]
+search_path = true
+
+[[shim]]
+name = "mdt_full_normalize"
+target = "python"
+arguments = ["$App\\src\\mdt_full_normalize.py"]
+prefer_targets = ["$App\\.venv\\Scripts\\python.exe"]
+search_path = true
+
+[[shim]]
+name = "mdt_greek_latex2unicode"
+target = "python"
+arguments = ["$App\\src\\mdt_greek_latex2unicode.py"]
+prefer_targets = ["$App\\.venv\\Scripts\\python.exe"]
+search_path = true
+
+[[shim]]
+name = "mdt_greek_unicode2latex"
+target = "python"
+arguments = ["$App\\src\\mdt_greek_unicode2latex.py"]
+prefer_targets = ["$App\\.venv\\Scripts\\python.exe"]
+search_path = true
+
+[[shim]]
+name = "mdt_math_dollar2latex"
+target = "python"
+arguments = ["$App\\src\\mdt_math_dollar2latex.py"]
+prefer_targets = ["$App\\.venv\\Scripts\\python.exe"]
+search_path = true
+
+[[shim]]
+name = "mdt_math_latex2dollar"
+target = "python"
+arguments = ["$App\\src\\mdt_math_latex2dollar.py"]
+prefer_targets = ["$App\\.venv\\Scripts\\python.exe"]
+search_path = true
+
+[[shim]]
+name = "mdt_sentence_per_line"
+target = "python"
+arguments = ["$App\\src\\mdt_sentence_per_line.py"]
+prefer_targets = ["$App\\.venv\\Scripts\\python.exe"]
+search_path = true
+
+[[shim]]
+name = "mdt_syntax_regularizer"
+target = "python"
+arguments = ["$App\\src\\mdt_syntax_regularizer.py"]
+prefer_targets = ["$App\\.venv\\Scripts\\python.exe"]
+search_path = true

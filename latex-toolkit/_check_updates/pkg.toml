@@ -2,6 +2,12 @@ format = 2
 description = "Preservation-focused command-line transformations for LaTeX source."
 project_url = "https://github.com/guraltsev/latex-toolkit"
 modes = ["system", "user"]
+requires_gupkg = ">=1.1.16"
+# The package's own venv lives in App\.venv: the administrator (system mode) or the user
+# (user mode) creates it with App\setup.cmd after each install or update. Without it the
+# shims run the python first on PATH, which must have the dependencies installed.
+# setup.cmd writes inside App, so App is not fingerprinted.
+record_manifest = false
 
 [track]
 provider = "git"
@@ -16,90 +22,126 @@ commit = "${commit}"
 
 [[shim]]
 name = "lt_brace_args"
-target = "%COMSPEC%"
-arguments = ["/d", "/c", "$App\\src\\lt_brace_args.cmd"]
+prefer_targets = ["$App\\.venv\\Scripts\\python.exe"]
+target = "python"
+search_path = true
+arguments = ["$App\\src\\lt_brace_args.py"]
 
 [[shim]]
 name = "lt_eqnum_label"
-target = "%COMSPEC%"
-arguments = ["/d", "/c", "$App\\src\\lt_eqnum_label.cmd"]
+prefer_targets = ["$App\\.venv\\Scripts\\python.exe"]
+target = "python"
+search_path = true
+arguments = ["$App\\src\\lt_eqnum_label.py"]
 
 [[shim]]
 name = "lt_full_normalize"
-target = "%COMSPEC%"
-arguments = ["/d", "/c", "$App\\src\\lt_full_normalize.cmd"]
+prefer_targets = ["$App\\.venv\\Scripts\\python.exe"]
+target = "python"
+search_path = true
+arguments = ["$App\\src\\lt_full_normalize.py"]
 
 [[shim]]
 name = "lt_greek_latex2unicode"
-target = "%COMSPEC%"
-arguments = ["/d", "/c", "$App\\src\\lt_greek_latex2unicode.cmd"]
+prefer_targets = ["$App\\.venv\\Scripts\\python.exe"]
+target = "python"
+search_path = true
+arguments = ["$App\\src\\lt_greek_latex2unicode.py"]
 
 [[shim]]
 name = "lt_greek_unicode2latex"
-target = "%COMSPEC%"
-arguments = ["/d", "/c", "$App\\src\\lt_greek_unicode2latex.cmd"]
+prefer_targets = ["$App\\.venv\\Scripts\\python.exe"]
+target = "python"
+search_path = true
+arguments = ["$App\\src\\lt_greek_unicode2latex.py"]
 
 [[shim]]
 name = "lt_math_dollar2latex"
-target = "%COMSPEC%"
-arguments = ["/d", "/c", "$App\\src\\lt_math_dollar2latex.cmd"]
+prefer_targets = ["$App\\.venv\\Scripts\\python.exe"]
+target = "python"
+search_path = true
+arguments = ["$App\\src\\lt_math_dollar2latex.py"]
 
 [[shim]]
 name = "lt_math_latex2dollar"
-target = "%COMSPEC%"
-arguments = ["/d", "/c", "$App\\src\\lt_math_latex2dollar.cmd"]
+prefer_targets = ["$App\\.venv\\Scripts\\python.exe"]
+target = "python"
+search_path = true
+arguments = ["$App\\src\\lt_math_latex2dollar.py"]
 
 [[shim]]
-name = "lt_sentence-per-line"
-target = "%COMSPEC%"
-arguments = ["/d", "/c", "$App\\src\\lt_sentence-per-line.cmd"]
+name = "lt_sentence_per_line"
+prefer_targets = ["$App\\.venv\\Scripts\\python.exe"]
+target = "python"
+search_path = true
+arguments = ["$App\\src\\lt_sentence_per_line.py"]
 
 [[shim]]
 name = "lt_syntax_regularizer"
-target = "%COMSPEC%"
-arguments = ["/d", "/c", "$App\\src\\lt_syntax_regularizer.cmd"]
-
-[[shim]]
-name = "mdt_brace_args"
-target = "%COMSPEC%"
-arguments = ["/d", "/c", "$App\\src\\mdt_brace_args.cmd"]
-
-[[shim]]
-name = "mdt_full_normalize"
-target = "%COMSPEC%"
-arguments = ["/d", "/c", "$App\\src\\mdt_full_normalize.cmd"]
-
-[[shim]]
-name = "mdt_greek_latex2unicode"
-target = "%COMSPEC%"
-arguments = ["/d", "/c", "$App\\src\\mdt_greek_latex2unicode.cmd"]
-
-[[shim]]
-name = "mdt_greek_unicode2latex"
-target = "%COMSPEC%"
-arguments = ["/d", "/c", "$App\\src\\mdt_greek_unicode2latex.cmd"]
-
-[[shim]]
-name = "mdt_math_dollar2latex"
-target = "%COMSPEC%"
-arguments = ["/d", "/c", "$App\\src\\mdt_math_dollar2latex.cmd"]
-
-[[shim]]
-name = "mdt_math_latex2dollar"
-target = "%COMSPEC%"
-arguments = ["/d", "/c", "$App\\src\\mdt_math_latex2dollar.cmd"]
-
-[[shim]]
-name = "mdt_sentence_per_line"
-target = "%COMSPEC%"
-arguments = ["/d", "/c", "$App\\src\\mdt_sentence_per_line.cmd"]
-
-[[shim]]
-name = "mdt_syntax_regularizer"
-target = "%COMSPEC%"
-arguments = ["/d", "/c", "$App\\src\\mdt_syntax_regularizer.cmd"]
+prefer_targets = ["$App\\.venv\\Scripts\\python.exe"]
+target = "python"
+search_path = true
+arguments = ["$App\\src\\lt_syntax_regularizer.py"]
 
 [[shim]]
 name = "lt_template"
-target = "%COMSPEC%"
-arguments = ["/d", "/c", "$App\\src\\lt_template.cmd"]
+prefer_targets = ["$App\\.venv\\Scripts\\python.exe"]
+target = "python"
+search_path = true
+arguments = ["$App\\src\\lt_template.py"]
+
+[[shim]]
+name = "mdt_brace_args"
+prefer_targets = ["$App\\.venv\\Scripts\\python.exe"]
+target = "python"
+search_path = true
+arguments = ["$App\\src\\mdt_brace_args.py"]
+
+[[shim]]
+name = "mdt_full_normalize"
+prefer_targets = ["$App\\.venv\\Scripts\\python.exe"]
+target = "python"
+search_path = true
+arguments = ["$App\\src\\mdt_full_normalize.py"]
+
+[[shim]]
+name = "mdt_greek_latex2unicode"
+prefer_targets = ["$App\\.venv\\Scripts\\python.exe"]
+target = "python"
+search_path = true
+arguments = ["$App\\src\\mdt_greek_latex2unicode.py"]
+
+[[shim]]
+name = "mdt_greek_unicode2latex"
+prefer_targets = ["$App\\.venv\\Scripts\\python.exe"]
+target = "python"
+search_path = true
+arguments = ["$App\\src\\mdt_greek_unicode2latex.py"]
+
+[[shim]]
+name = "mdt_math_dollar2latex"
+prefer_targets = ["$App\\.venv\\Scripts\\python.exe"]
+target = "python"
+search_path = true
+arguments = ["$App\\src\\mdt_math_dollar2latex.py"]
+
+[[shim]]
+name = "mdt_math_latex2dollar"
+prefer_targets = ["$App\\.venv\\Scripts\\python.exe"]
+target = "python"
+search_path = true
+arguments = ["$App\\src\\mdt_math_latex2dollar.py"]
+
+[[shim]]
+name = "mdt_sentence_per_line"
+prefer_targets = ["$App\\.venv\\Scripts\\python.exe"]
+target = "python"
+search_path = true
+arguments = ["$App\\src\\mdt_sentence_per_line.py"]
+
+[[shim]]
+name = "mdt_syntax_regularizer"
+prefer_targets = ["$App\\.venv\\Scripts\\python.exe"]
+target = "python"
+search_path = true
+arguments = ["$App\\src\\mdt_syntax_regularizer.py"]
