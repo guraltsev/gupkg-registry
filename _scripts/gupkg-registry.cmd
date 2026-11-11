@@ -8,7 +8,7 @@ rem A script a person starts waits for a key so its window stays readable; GUPKG
 if not defined GUPKG_NO_PAUSE pause
 exit /b %GUPKG_RC%
 :main
-rem Run gupkg's registry tool on this checkout.   _scripts\registry-tool.cmd update|pin|validate [options]
+rem Run gupkg's registry tool on this checkout.   _scripts\gupkg-registry.cmd update|pin|validate [options]
 rem Needs network access for update and pin. Nothing is committed or pushed without --auto-push.
 setlocal EnableExtensions
 call "%~dp0_python.cmd" || exit /b %ERRORLEVEL%

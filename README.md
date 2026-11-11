@@ -37,8 +37,8 @@ or a `gupkg` folder inside this checkout).
 |---|---|
 | `_scripts\validate.cmd` | The package checker (`gupkg pkg check`'s library) on every tracker and version, then the registry rules. What CI runs. |
 | `_scripts\test.cmd` | The registry tests (`_tests`): every package against the checker, every tracker against the vendor responses of `_tests/fixtures/http`. Needs pytest. |
-| `_scripts\registry-tool.cmd update [PACKAGE ...] [--sandbox DIR] [--auto-push]` | Runs the trackers and writes new `<name>/<version>/` directories with `sha256` and fingerprint. **Network required.** Commits nothing unless `--auto-push`. |
-| `_scripts\registry-tool.cmd pin NAME/VERSION` | Gives an existing version that has no hash its first one. |
+| `_scripts\gupkg-registry.cmd update [PACKAGE ...] [--sandbox DIR] [--auto-push]` | Runs the trackers and writes new `<name>/<version>/` directories with `sha256` and fingerprint. **Network required.** Commits nothing unless `--auto-push`. |
+| `_scripts\gupkg-registry.cmd pin NAME/VERSION` | Gives an existing version that has no hash its first one. |
 | `python _tools\record_http_fixtures.py [--case NAME] [--dry-run]` | Re-records the vendor responses of `_tests/fixtures/http/<case>.json` by running the live tracker against the real site. **Network required.** Review the diff: a changed `expected` block is a vendor change. |
 
 The tests and `_tools/pkg_check.py` validate through gupkg's public checker: `_tools/pkg_check.py`
@@ -52,18 +52,18 @@ Nobody could run the tool offline, so the registry holds trackers but (apart fro
 pinned versions yet. The maintainer runs, once:
 
 ```text
-_scripts\registry-tool.cmd update --sandbox C:\temp\registry-sandbox
+_scripts\gupkg-registry.cmd update --sandbox C:\temp\registry-sandbox
 ```
 
 reviews the new directories (especially every version with `sha256_from = "registry"`, marked
 `[REVIEW]` in the output), then commits and pushes. Packages that fail are reported and skipped;
 fix their tracker and run `update <name>` again. The one existing legacy version `qbittorrent/5.2.3`
 has no hash and is listed under `unpinned` in `_registry.toml`; run
-`_scripts\registry-tool.cmd pin qbittorrent/5.2.3` to hash it (the tool then removes it from the list).
+`_scripts\gupkg-registry.cmd pin qbittorrent/5.2.3` to hash it (the tool then removes it from the list).
 
 ## Publishing with `--auto-push`
 
-`registry-tool update ... --auto-push` commits only the paths the run wrote (`git commit -- <paths>`, so
+`gupkg-registry update ... --auto-push` commits only the paths the run wrote (`git commit -- <paths>`, so
 anything you already staged stays out) and pushes the current branch's upstream; `--remote NAME` and
 `--branch NAME` choose another target (`git push NAME HEAD:BRANCH`). It never forces and never skips hooks.
 **It refuses to publish a hash the tool computed itself** (`sha256_from = "registry"`, shown as `[REVIEW]`:
