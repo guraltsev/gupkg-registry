@@ -1,0 +1,16 @@
+format = 2
+description = "Two-way synchronization for Overleaf projects."
+project_url = "https://github.com/guraltsev/overleaf-sync"
+modes = ["system", "user"]
+
+[source]
+download_url = "git@github.com:guraltsev/overleaf-sync.git"
+kind = "git"
+
+[source.git]
+commit = "2e1339836c14e283e03793f0151a94027f67dbc7"
+
+[[shim]]
+name = "overleaf-sync"
+target = "%COMSPEC%"
+arguments = ["/d", "/c", "$App\\ols.cmd"]

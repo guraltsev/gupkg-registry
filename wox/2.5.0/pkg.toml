@@ -1,0 +1,26 @@
+format = 2
+description = "Fast desktop launcher for opening apps, finding files, running system actions, and building workflows with plugins."
+project_url = "https://wox-launcher.github.io/Wox/"
+modes = ["system", "user"]
+
+[source]
+download_url = "https://github.com/Wox-launcher/Wox/releases/download/v2.5.0/wox-windows-amd64.exe"
+sha256 = "d327a0dd82fa270557d3bd17f4500d9e5eb0f57e8565e579e45f23470bbdcdb9"
+sha256_from = "github-digest"
+kind = "exe"
+
+[[prepare]]
+
+[prepare.rename]
+from = "wox-windows-amd64.exe"
+to = "wox.exe"
+
+[[shortcut]]
+name = "Wox"
+target = "$App\\wox.exe"
+description = "Application launcher"
+
+[[shim]]
+name = "wox"
+target = "$App\\wox.exe"
+type = "gui"

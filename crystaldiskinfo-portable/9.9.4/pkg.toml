@@ -1,0 +1,22 @@
+format = 2
+description = "Disk health and S.M.A.R.T. monitor. (portable)"
+project_url = "https://crystalmark.info/"
+modes = ["portable"]
+
+[source]
+download_url = "https://sourceforge.net/projects/crystaldiskinfo/files/9.9.4/CrystalDiskInfo9_9_4.zip/download"
+sha256 = "0215b873f77c0219147b07c420d92a50e23e8795d507d238d4a6b622e3bf56f4"
+sha256_from = "registry"
+
+[portable]
+persist = ["DiskInfo.ini"]
+
+[[shortcut]]
+name = "Tools\\CrystalDiskInfo"
+target = "$App\\DiskInfo64.exe"
+description = "CrystalDiskInfo"
+
+[[shim]]
+name = "diskinfo"
+target = "$App\\DiskInfo64.exe"
+type = "gui"

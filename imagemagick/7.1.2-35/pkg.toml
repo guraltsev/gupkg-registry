@@ -1,0 +1,42 @@
+format = 2
+description = "Command-line suite for creating, converting, and editing images."
+project_url = "https://imagemagick.org/"
+modes = ["system", "user"]
+
+[source]
+download_url = "https://github.com/ImageMagick/ImageMagick/releases/download/7.1.2-35/ImageMagick-7.1.2-35-portable-Q16-HDRI-x64.7z"
+sha256 = "34db4364da26c88d6b8cc5bbc1fff22b85d00d3b399c82fe85ee4790efacbbf1"
+sha256_from = "github-digest"
+strip = "auto"
+
+[[shim]]
+name = "magick"
+target = "$App\\magick.exe"
+
+[[shim]]
+name = "compare"
+target = "$App\\compare.exe"
+
+[[shim]]
+name = "composite"
+target = "$App\\composite.exe"
+
+[[shim]]
+name = "conjure"
+target = "$App\\conjure.exe"
+
+[[shim]]
+name = "identify"
+target = "$App\\identify.exe"
+
+[[shim]]
+name = "mogrify"
+target = "$App\\mogrify.exe"
+
+[[shim]]
+name = "montage"
+target = "$App\\montage.exe"
+
+[[shim]]
+name = "stream"
+target = "$App\\stream.exe"

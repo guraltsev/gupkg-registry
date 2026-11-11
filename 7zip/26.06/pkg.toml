@@ -1,0 +1,26 @@
+format = 2
+description = "7-Zip is a file archiver with a high compression ratio."
+project_url = "https://www.7-zip.org/"
+modes = ["system", "user"]
+
+[source]
+download_url = "https://www.7-zip.org/a/7z2606-x64.exe"
+sha256 = "9b697f65ecc2d9b0152f5ee96d72dde522a7827690349d9307935dacf40f42ec"
+sha256_from = "registry"
+require = ["7z.exe", "7zFM.exe"]
+
+[[shortcut]]
+name = "7-Zip File Manager"
+target = "$App\\7zFM.exe"
+working_dir = "$App"
+description = "7-Zip File Manager"
+
+[[shim]]
+name = "7z"
+target = "$App\\7z.exe"
+working_dir = "$App"
+
+[[shim]]
+name = "7zfm"
+target = "$App\\7zFM.exe"
+type = "gui"

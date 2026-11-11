@@ -1,0 +1,20 @@
+format = 2
+description = "Video, audio, and image conversion tool built on FFmpeg."
+project_url = "https://www.shutterencoder.com/"
+modes = ["system", "user"]
+
+[source]
+download_url = "https://www.shutterencoder.com/sdc_download/493/?key=sy795vosksen2xx1vlfboq2ebknb9w"
+sha256 = "2268446e30db61d3a5491679740241f9bfb1a904d4c60495c17e96c5bec4709e"
+sha256_from = "registry"
+subdir = "Shutter Encoder"
+require = ["Shutter Encoder.exe"]
+
+[source.headers]
+User-Agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120 Safari/537.36"
+
+[[shortcut]]
+name = "Shutter Encoder"
+target = "$App\\Shutter Encoder.exe"
+working_dir = "$App"
+description = "Video and audio converter"
