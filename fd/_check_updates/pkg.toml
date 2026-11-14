@@ -1,0 +1,18 @@
+format = 2
+description = "Simple, fast and user-friendly alternative to find."
+project_url = "https://github.com/sharkdp/fd"
+modes = ["system", "user"]
+
+[track]
+provider = "github"
+repo = "sharkdp/fd"
+asset = "fd-v${version}-x86_64-pc-windows-msvc.zip"
+
+[source]
+download_url = "${asset_url}"
+strip = 1
+require = ["fd.exe"]
+
+[[shim]]
+name = "fd"
+target = "$App\\fd.exe"

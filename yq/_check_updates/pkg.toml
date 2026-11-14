@@ -1,0 +1,19 @@
+format = 2
+description = "Portable command-line YAML, JSON, XML and TOML processor."
+project_url = "https://github.com/mikefarah/yq"
+modes = ["system", "user"]
+
+[track]
+provider = "github"
+repo = "mikefarah/yq"
+asset = "yq_windows_amd64.zip"
+
+[source]
+download_url = "${asset_url}"
+
+[[prepare]]
+rename = { from = "yq_windows_amd64.exe", to = "yq.exe" }
+
+[[shim]]
+name = "yq"
+target = "$App\\yq.exe"

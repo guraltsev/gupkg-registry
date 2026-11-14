@@ -1,0 +1,18 @@
+format = 2
+description = "Syntax-highlighting pager for git, diff and grep output."
+project_url = "https://github.com/dandavison/delta"
+modes = ["system", "user"]
+
+[track]
+provider = "github"
+repo = "dandavison/delta"
+asset = "delta-${version}-x86_64-pc-windows-msvc.zip"
+
+[source]
+download_url = "${asset_url}"
+strip = 1
+require = ["delta.exe"]
+
+[[shim]]
+name = "delta"
+target = "$App\\delta.exe"

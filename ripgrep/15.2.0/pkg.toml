@@ -1,0 +1,15 @@
+format = 2
+description = "Fast recursive search for patterns in files (rg), respecting .gitignore."
+project_url = "https://github.com/BurntSushi/ripgrep"
+modes = ["system", "user"]
+
+[source]
+download_url = "https://github.com/BurntSushi/ripgrep/releases/download/15.2.0/ripgrep-15.2.0-x86_64-pc-windows-msvc.zip"
+sha256 = "71b2fef860abe467217a538ff31de02f5258807c0129f771846f87bd029aafc5"
+sha256_from = "github-digest"
+strip = 1
+require = ["rg.exe"]
+
+[[shim]]
+name = "rg"
+target = "$App\\rg.exe"

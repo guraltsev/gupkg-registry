@@ -1,0 +1,18 @@
+format = 2
+description = "A cat clone with syntax highlighting and Git integration."
+project_url = "https://github.com/sharkdp/bat"
+modes = ["system", "user"]
+
+[track]
+provider = "github"
+repo = "sharkdp/bat"
+asset = "bat-v${version}-x86_64-pc-windows-msvc.zip"
+
+[source]
+download_url = "${asset_url}"
+strip = 1
+require = ["bat.exe"]
+
+[[shim]]
+name = "bat"
+target = "$App\\bat.exe"

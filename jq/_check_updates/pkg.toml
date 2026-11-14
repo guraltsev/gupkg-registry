@@ -1,0 +1,22 @@
+format = 2
+description = "Lightweight and flexible command-line JSON processor."
+project_url = "https://jqlang.org/"
+modes = ["system", "user"]
+
+# Tags look like jq-1.8.2, and the Windows build is a single executable.
+[track]
+provider = "github"
+repo = "jqlang/jq"
+asset = "jq-windows-amd64.exe"
+tag_pattern = '^jq-(?P<version>\d+(?:\.\d+)+)$'
+
+[source]
+download_url = "${asset_url}"
+kind = "exe"
+
+[[prepare]]
+rename = { from = "jq-windows-amd64.exe", to = "jq.exe" }
+
+[[shim]]
+name = "jq"
+target = "$App\\jq.exe"

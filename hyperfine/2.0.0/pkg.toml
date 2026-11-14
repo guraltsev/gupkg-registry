@@ -1,0 +1,15 @@
+format = 2
+description = "Command-line benchmarking tool."
+project_url = "https://github.com/sharkdp/hyperfine"
+modes = ["system", "user"]
+
+[source]
+download_url = "https://github.com/sharkdp/hyperfine/releases/download/v2.0.0/hyperfine-v2.0.0-x86_64-pc-windows-msvc.zip"
+sha256 = "3dec51acee1060908e67948838d6bc0a7aacde0774acebfa4afb220dcf0bc078"
+sha256_from = "github-digest"
+strip = 1
+require = ["hyperfine.exe"]
+
+[[shim]]
+name = "hyperfine"
+target = "$App\\hyperfine.exe"

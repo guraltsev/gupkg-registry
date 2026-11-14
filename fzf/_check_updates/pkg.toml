@@ -1,0 +1,17 @@
+format = 2
+description = "General-purpose command-line fuzzy finder."
+project_url = "https://github.com/junegunn/fzf"
+modes = ["system", "user"]
+
+[track]
+provider = "github"
+repo = "junegunn/fzf"
+asset = "fzf-${version}-windows_amd64.zip"
+
+[source]
+download_url = "${asset_url}"
+require = ["fzf.exe"]
+
+[[shim]]
+name = "fzf"
+target = "$App\\fzf.exe"

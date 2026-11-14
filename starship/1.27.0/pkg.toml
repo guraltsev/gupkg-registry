@@ -1,0 +1,14 @@
+format = 2
+description = "Minimal, fast and customisable prompt for any shell."
+project_url = "https://starship.rs/"
+modes = ["system", "user"]
+
+[source]
+download_url = "https://github.com/starship/starship/releases/download/v1.27.0/starship-x86_64-pc-windows-msvc.zip"
+sha256 = "7764f861805376af2812dd78c84fadc16b714cf3f346baed9b597bfda8484403"
+sha256_from = "github-digest"
+require = ["starship.exe"]
+
+[[shim]]
+name = "starship"
+target = "$App\\starship.exe"

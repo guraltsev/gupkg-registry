@@ -1,0 +1,21 @@
+format = 2
+description = "Extremely fast Python package and project manager, written in Rust."
+project_url = "https://docs.astral.sh/uv/"
+modes = ["system", "user"]
+
+[track]
+provider = "github"
+repo = "astral-sh/uv"
+asset = "uv-x86_64-pc-windows-msvc.zip"
+
+[source]
+download_url = "${asset_url}"
+require = ["uv.exe", "uvx.exe"]
+
+[[shim]]
+name = "uv"
+target = "$App\\uv.exe"
+
+[[shim]]
+name = "uvx"
+target = "$App\\uvx.exe"

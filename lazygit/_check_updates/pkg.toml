@@ -1,0 +1,17 @@
+format = 2
+description = "Simple terminal UI for git commands."
+project_url = "https://github.com/jesseduffield/lazygit"
+modes = ["system", "user"]
+
+[track]
+provider = "github"
+repo = "jesseduffield/lazygit"
+asset = "lazygit_${version}_windows_x86_64.zip"
+
+[source]
+download_url = "${asset_url}"
+require = ["lazygit.exe"]
+
+[[shim]]
+name = "lazygit"
+target = "$App\\lazygit.exe"

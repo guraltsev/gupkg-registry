@@ -1,0 +1,18 @@
+format = 2
+description = "Command-line benchmarking tool."
+project_url = "https://github.com/sharkdp/hyperfine"
+modes = ["system", "user"]
+
+[track]
+provider = "github"
+repo = "sharkdp/hyperfine"
+asset = "hyperfine-v${version}-x86_64-pc-windows-msvc.zip"
+
+[source]
+download_url = "${asset_url}"
+strip = 1
+require = ["hyperfine.exe"]
+
+[[shim]]
+name = "hyperfine"
+target = "$App\\hyperfine.exe"

@@ -1,0 +1,14 @@
+format = 2
+description = "Smarter cd command that learns your habits."
+project_url = "https://github.com/ajeetdsouza/zoxide"
+modes = ["system", "user"]
+
+[source]
+download_url = "https://github.com/ajeetdsouza/zoxide/releases/download/v0.10.0/zoxide-0.10.0-x86_64-pc-windows-msvc.zip"
+sha256 = "f465ae548f8754c8e7edbc60b45fbf58c92bfe123db83d790252d6810fa5daf1"
+sha256_from = "github-digest"
+require = ["zoxide.exe"]
+
+[[shim]]
+name = "zoxide"
+target = "$App\\zoxide.exe"

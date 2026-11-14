@@ -1,0 +1,17 @@
+format = 2
+description = "Smarter cd command that learns your habits."
+project_url = "https://github.com/ajeetdsouza/zoxide"
+modes = ["system", "user"]
+
+[track]
+provider = "github"
+repo = "ajeetdsouza/zoxide"
+asset = "zoxide-${version}-x86_64-pc-windows-msvc.zip"
+
+[source]
+download_url = "${asset_url}"
+require = ["zoxide.exe"]
+
+[[shim]]
+name = "zoxide"
+target = "$App\\zoxide.exe"

@@ -1,0 +1,15 @@
+format = 2
+description = "Syntax-highlighting pager for git, diff and grep output."
+project_url = "https://github.com/dandavison/delta"
+modes = ["system", "user"]
+
+[source]
+download_url = "https://github.com/dandavison/delta/releases/download/0.20.1/delta-0.20.1-x86_64-pc-windows-msvc.zip"
+sha256 = "c9af7484b33f1dbc1312a892fc7d5753a6d3365140a4000d49e575a2de742c25"
+sha256_from = "github-digest"
+strip = 1
+require = ["delta.exe"]
+
+[[shim]]
+name = "delta"
+target = "$App\\delta.exe"
