@@ -1,0 +1,22 @@
+format = 2
+description = "Mozilla Firefox web browser."
+project_url = "https://www.mozilla.org/firefox/"
+modes = ["system", "user"]
+
+[source]
+download_url = "https://archive.mozilla.org/pub/firefox/releases/160.0/win64/en-US/Firefox%20Setup%20160.0.exe"
+sha256 = "8732312ee2d7960c6ea830a4e0d3c0ff5fe0b10856dab44e2c432fcdeb63ff63"
+sha256_from = "vendor-sums"
+kind = "sfx"
+subdir = "core"
+require = ["firefox.exe"]
+
+[[shortcut]]
+name = "Firefox"
+target = "$App\\firefox.exe"
+description = "Mozilla Firefox web browser"
+
+[[shim]]
+name = "firefox"
+target = "$App\\firefox.exe"
+type = "gui"

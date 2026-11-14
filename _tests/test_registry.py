@@ -25,8 +25,8 @@ DIRECTORIES = [path.parent.relative_to(REGISTRY_ROOT).as_posix() for path in MAN
 
 
 def test_the_registry_is_not_empty() -> None:
-    """There are 96 packages, so a glob that silently finds nothing cannot make the checks below pass."""
-    assert len({path.split("/")[0] for path in DIRECTORIES}) == 96
+    """There are 97 packages, so a glob that silently finds nothing cannot make the checks below pass."""
+    assert len({path.split("/")[0] for path in DIRECTORIES}) == 97
 
 
 @pytest.mark.parametrize("directory", [pytest.param(path, id=path) for path in DIRECTORIES])

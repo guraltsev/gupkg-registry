@@ -195,14 +195,15 @@ def test_the_registry_lists_exactly_the_packages_whose_download_address_has_no_v
     """`unversioned` in `_registry.toml` equals the packages whose expected download address holds no form of the version.
 
     The registry tool marks those packages when it writes a version: an older build of them is not installable once the vendor
-    replaces the file.
+    replaces the file. A word suffix that the tracker adds to the release (`160.0-autoupdate`) is not part of the address.
     """
     listed = set(tomllib.loads((REGISTRY_ROOT / "_registry.toml").read_text(encoding="utf-8"))["unversioned"])
     computed = set()
     for case in CASES:
         document = read_case(case)
         version, url = document["expected"]["version"], document["expected"]["download_url"]
-        forms = {version, version.replace(".", ""), version.replace(".", "-"), version.replace(".", "_"), version.replace("-", "").replace(".", "")}
+        version = re.sub(r"-[A-Za-z][A-Za-z0-9]*$", "", version)
+        forms ={version, version.replace(".", ""), version.replace(".", "-"), version.replace(".", "_"), version.replace("-", "").replace(".", "")}
         if not any(form in url for form in forms):
             computed.add(document["tracker"])
 
