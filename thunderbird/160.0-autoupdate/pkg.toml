@@ -1,0 +1,28 @@
+format = 2
+description = "Mozilla Thunderbird mail, calendar and news client."
+project_url = "https://www.thunderbird.net/"
+modes = ["system", "user"]
+
+[source]
+download_url = "https://archive.mozilla.org/pub/thunderbird/releases/160.0/win64/en-US/Thunderbird%20Setup%20160.0.exe"
+sha256 = "27c75ecb78609505b1c89e139fa172b634c74eb1b5e823c49aefee15286111a0"
+sha256_from = "vendor-sums"
+kind = "sfx"
+subdir = "core"
+require = ["thunderbird.exe"]
+
+[[shortcut]]
+name = "Thunderbird"
+target = "$App\\thunderbird.exe"
+description = "Mozilla Thunderbird mail client"
+
+[[shortcut]]
+name = "Thunderbird (profile manager)"
+target = "$App\\thunderbird.exe"
+arguments = "-P -no-remote"
+description = "Choose or create a Thunderbird profile"
+
+[[shim]]
+name = "thunderbird"
+target = "$App\\thunderbird.exe"
+type = "gui"

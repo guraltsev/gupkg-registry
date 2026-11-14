@@ -1,0 +1,45 @@
+format = 2
+description = "Mozilla Thunderbird mail, calendar and news client."
+project_url = "https://www.thunderbird.net/"
+modes = ["system", "user"]
+
+# Mozilla's product details name the current release; the ESR, beta and daily channels are not followed.
+# The document is read as text (the json provider cannot add a suffix to the version).
+# Thunderbird keeps its own updater, which updates App in place: the version folder names the release gupkg installed,
+# with the suffix -autoupdate to say the program inside may be newer.
+[track]
+provider = "page"
+check_url = "https://product-details.mozilla.org/1.0/thunderbird_versions.json"
+match = '"LATEST_THUNDERBIRD_VERSION"\s*:\s*"(?P<release>\d+(?:\.\d+)+)"'
+version = "${release}-autoupdate"
+download = "https://archive.mozilla.org/pub/thunderbird/releases/${release}/win64/en-US/Thunderbird%20Setup%20${release}.exe"
+
+# The installer is a 7-Zip self-extractor; it is unpacked by the built-in service, never run. The program is its
+# core\ folder (setup.exe beside it is the vendor installer and is not kept). Mozilla's SHA256SUMS is the checksum.
+[source]
+download_url = "${download_url}"
+kind = "sfx"
+subdir = "core"
+require = ["thunderbird.exe"]
+
+[source.checksum]
+sums_file = "https://archive.mozilla.org/pub/thunderbird/releases/${release}/SHA256SUMS"
+entry = "win64/en-US/Thunderbird Setup ${release}.exe"
+
+[[shortcut]]
+name = "Thunderbird"
+target = "$App\\thunderbird.exe"
+description = "Mozilla Thunderbird mail client"
+
+# -P opens the profile selector; -no-remote makes it appear even while Thunderbird is running (otherwise the running
+# instance only opens a window).
+[[shortcut]]
+name = "Thunderbird (profile manager)"
+target = "$App\\thunderbird.exe"
+arguments = "-P -no-remote"
+description = "Choose or create a Thunderbird profile"
+
+[[shim]]
+name = "thunderbird"
+target = "$App\\thunderbird.exe"
+type = "gui"
