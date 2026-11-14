@@ -31,6 +31,14 @@ name = "Firefox"
 target = "$App\\firefox.exe"
 description = "Mozilla Firefox web browser"
 
+# -P opens the profile selector; -no-remote makes it appear even while Firefox is running (otherwise the running
+# instance only opens a window).
+[[shortcut]]
+name = "Firefox (profile manager)"
+target = "$App\\firefox.exe"
+arguments = "-P -no-remote"
+description = "Choose or create a Firefox profile"
+
 [[shim]]
 name = "firefox"
 target = "$App\\firefox.exe"

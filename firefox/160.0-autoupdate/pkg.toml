@@ -16,6 +16,12 @@ name = "Firefox"
 target = "$App\\firefox.exe"
 description = "Mozilla Firefox web browser"
 
+[[shortcut]]
+name = "Firefox (profile manager)"
+target = "$App\\firefox.exe"
+arguments = "-P -no-remote"
+description = "Choose or create a Firefox profile"
+
 [[shim]]
 name = "firefox"
 target = "$App\\firefox.exe"
